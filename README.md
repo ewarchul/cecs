@@ -1,2 +1,15 @@
+![status](https://img.shields.io/badge/WIP-orange)
+
 # cecs
-R wrappers for CEC20{05, 14, 19, 21}.
+
+Common R interface for CEC20{05, 13, 14, 17, 21}.
+
+# Content
+
+- CEC2005 :soon:
+- CEC2013 :soon:
+- CEC2014 :heavy_check_mark:
+- CEC2017 :soon:
+- CEC2021 :soon:
+
+
