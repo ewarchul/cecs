@@ -1,4 +1,4 @@
-![status](https://img.shields.io/badge/WIP-orange)
+![status](https://img.shields.io/badge/status-WIP-orange)
 
 # cecs
 
