@@ -3,6 +3,7 @@
 
 extern double *OShift, *M, *y, *z, *x_bound;
 extern int ini_flag, n_flag, func_flag, *SS;
+extern char *extdata;
 
 void cec14_test_func(double *x, double *f, int nx, int mx, int func_num) {
   int cf_num = 10, i, j;
@@ -38,7 +39,7 @@ void cec14_test_func(double *x, double *f, int nx, int mx, int func_num) {
     }
 
     /* Load Matrix M*/
-    sprintf(FileName, "../inst/extdata/M_%d_D%d.txt", func_num, nx);
+    sprintf(FileName, "%s/M_%d_D%d.txt", extdata, func_num, nx);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
       printf("\n Error: Cannot open input file for reading \n");
@@ -61,7 +62,8 @@ void cec14_test_func(double *x, double *f, int nx, int mx, int func_num) {
     fclose(fpt);
 
     /* Load shift_data */
-    sprintf(FileName, "../inst/extdata/shift_data_%d.txt", func_num);
+
+    sprintf(FileName, "%s/shift_data_%d.txt", extdata, func_num);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
       printf("\n Error: Cannot open input file for reading \n");
@@ -93,7 +95,8 @@ void cec14_test_func(double *x, double *f, int nx, int mx, int func_num) {
     /* Load Shuffle_data */
 
     if (func_num >= 17 && func_num <= 22) {
-      sprintf(FileName, "../inst/extdata/shuffle_data_%d_D%d.txt", func_num, nx);
+
+      sprintf(FileName, "%s/shuffle_data_%d_D%d.txt", extdata, func_num, nx);
       fpt = fopen(FileName, "r");
       if (fpt == NULL) {
         printf("\n Error: Cannot open input file for reading \n");
@@ -106,7 +109,8 @@ void cec14_test_func(double *x, double *f, int nx, int mx, int func_num) {
       }
       fclose(fpt);
     } else if (func_num == 29 || func_num == 30) {
-      sprintf(FileName, "../inst/extdata/shuffle_data_%d_D%d.txt", func_num, nx);
+
+      sprintf(FileName, "%s/shuffle_data_%d_D%d.txt", extdata, func_num, nx);
       fpt = fopen(FileName, "r");
       if (fpt == NULL) {
         printf("\n Error: Cannot open input file for reading \n");
@@ -123,7 +127,6 @@ void cec14_test_func(double *x, double *f, int nx, int mx, int func_num) {
     n_flag = nx;
     func_flag = func_num;
     ini_flag = 1;
-     printf("Function has been initialized!\n");
   }
 
   for (i = 0; i < mx; i++) {

@@ -16,8 +16,8 @@ cec2014 = function(i, x) {
       base::stop("x should be a vector or a matrix")
     } 
 
-    if (!(col %in% c(2, 10, 20, 30, 50, 100))) {
-      base::stop("Invalid argument: Only 2, 10, 20, 30, 50, and 100 dimensions/variables are allowed !")
+    if (!(col %in% c(10, 20, 30, 50, 100))) {
+      base::stop("Invalid argument: Only 10, 20, 30, 50, and 100 dimensions/variables are allowed !")
     }
     extdatadir = base::system.file("extdata", package = "cec2014")
     f = base::.C("cec2014",
