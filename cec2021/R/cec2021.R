@@ -16,7 +16,7 @@ cec2021 = function(i, x, suite) {
       base::stop("x should be a vector or a matrix")
     } 
 
-    if (!(col %in% c(10, 20, 30, 50, 100))) {
+    if (!(col %in% c(2, 10, 20))) {
       base::stop("Invalid argument: Only 2, 10, and 20  dimensions/variables are allowed !")
     }
     extdatadir = base::system.file("extdata", package = "cec2021")
