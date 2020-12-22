@@ -10,6 +10,6 @@ Common R interface for CEC20{05, 13, 14, 17, 21}.
 - CEC2013 :soon:
 - CEC2014 :heavy_check_mark:
 - CEC2017 :soon:
-- CEC2021 :soon:
+- CEC2021 :heavy_check_mark:
 
 
