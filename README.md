@@ -50,7 +50,10 @@ TODO
 #### Authorship
 
 > Authors: Eryk Warchulski
+
 > License: GPL (>=3)
+
+> Source: herein
 
 #### Brief description
 
@@ -63,7 +66,11 @@ TODO
 #### Authorship 
 
 > Authors: Dariusz Jagodzinski, 
+
 > License: GPL (>=3)
+
+> Source: [http://staff.elka.pw.edu.pl/~djagodzi/programy.html](http://staff.elka.pw.edu.pl/~djagodzi/programy.html)
+
 
 #### Brief description
 
@@ -76,14 +83,21 @@ TODO
 #### Authorship
 
 > Authors: Eryk Warchulski 
+
 > License: GPL (>=3)
+
+> Source: herein
 
 ### CEC 2013 
 
 #### Authorship
 
 > Authors: Mauricio Zambrano-Bigiarini, Yasser Gonzalez-Fernandez
+
 > License: GPL (>=3)
+
+> Source: [https://github.com/hzambran/cec2013](https://github.com/hzambran/cec2013)
+
 
 #### Brief description
 
@@ -92,6 +106,16 @@ TODO
 ```
 
 ### CEC 2005
+
 ```
 TODO
 ```
+
+## References 
+
+```
+TODO
+```
+
+
+
