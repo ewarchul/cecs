@@ -1,0 +1,10 @@
+NEWS/ChangeLog for cec2013
+--------------------------
+0.1-5	21-Jan-2015
+        o GPL v2 licence changed to GPL v3.
+        o Repository management was cahnged from SVN to Git.
+        o Make CITATION readable without having the package installed (follwowing CRAN comments).
+        o Add a README.md file for GitHub.
+
+0.1-4	05-Mar-2013
+        o First public release
