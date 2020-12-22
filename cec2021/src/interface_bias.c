@@ -36,7 +36,7 @@ void cec21_bias_func(double *x, double *f, int nx, int mx, int func_num) {
     }
 
     /* Load Matrix M*/
-    sprintf(FileName, "input_data/M_%d_D%d_nr.txt", func_num, nx);
+    sprintf(FileName, "%s/M_%d_D%d_nr.txt", extdata, func_num, nx);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
       printf("\n Error: Cannot open M_%d_D%d_nr.txt for reading \n", func_num,
@@ -60,7 +60,7 @@ void cec21_bias_func(double *x, double *f, int nx, int mx, int func_num) {
     fclose(fpt);
 
     /* Load shift_data */
-    sprintf(FileName, "input_data/shift_data_%d_ns.txt", func_num);
+    sprintf(FileName, "%s/shift_data_%d_ns.txt", extdata, func_num);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
       printf("\n Error: Cannot open shift_data_%d_ns.txt for reading \n",
@@ -94,7 +94,7 @@ void cec21_bias_func(double *x, double *f, int nx, int mx, int func_num) {
     /* Load Shuffle_data */
 
     if (func_num >= 5 && func_num <= 7) {
-      sprintf(FileName, "input_data/shuffle_data_%d_D%d.txt", func_num, nx);
+      sprintf(FileName, "%s/shuffle_data_%d_D%d.txt", extdata, func_num, nx);
       fpt = fopen(FileName, "r");
       if (fpt == NULL) {
         printf("\n Error: Cannot open shuffle_data_%d_D%d.txt for reading \n",
