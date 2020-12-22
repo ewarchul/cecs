@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stddef.h>
+#include <string.h>
 
 #include "cec2021_functions.h"
 #include "interface_basic.h"
