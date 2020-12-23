@@ -1,3 +1,0 @@
-useDynLib(cec2017)
-
-export(cec2017)

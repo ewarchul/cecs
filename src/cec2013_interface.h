@@ -7,10 +7,9 @@
 #include <string.h>
 
 #include "cec2013_functions.h"
+#include "globals.h"
 
-extern double *OShift, *M, *y, *z, *x_bound;
-extern int ini_flag, n_flag, func_flag, *SS;
-extern char *extdata;
+
 
 void cec2013_func(double *, double *, int, int, int);
 

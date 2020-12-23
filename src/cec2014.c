@@ -1,13 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <R.h>
-#include "cec14_test_func.h"
+/*
+  CEC14 Test Function Suite for Single Objective Optimization
+  Copyright 2020 Eryk Warchulski ewarchul@gmail.com
 
-void cec14_func(double *x, double *f, int nx, int mx, int func_num);
+  Based on: https://github.com/P-N-Suganthan/CEC2014
+*/
 
-double *OShift, *M, *y, *z, *x_bound;
-int ini_flag = 0, n_flag, func_flag, *SS;
-char *extdata;
+#include "cec2014.h"
+
+
 
 void cec2014(char **extdatadir, int *i, double *X, int *row, int *col,
              double *f) {

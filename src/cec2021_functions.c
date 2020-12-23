@@ -5,10 +5,6 @@
 
 #include "cec2021_functions.h"
 
-extern double *OShift, *M, *y, *z, *x_bound;
-extern int ini_flag, n_flag, func_flag, *SS;
-extern char *extdata;
-
 void cec2021_ellips_func(double *x, double *f, int nx, double *Os, double *Mr,
                  int s_flag, int r_flag) /* Ellipsoidal */
 {

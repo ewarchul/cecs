@@ -230,7 +230,7 @@ void cec2013_weierstrass_func(double *x, double *f, int nx, double *Os,
   f[0] -= nx * sum2;
 }
 
-void griewank_func(double *x, double *f, int nx, double *Os, double *Mr,
+void cec2013_griewank_func(double *x, double *f, int nx, double *Os, double *Mr,
                    int r_flag) /* Griewank's  */
 {
   int i;
@@ -679,12 +679,12 @@ void cec2013_cf06(double *x, double *f, int nx, double *Os, double *Mr,
                            r_flag);
   fit[i] = 1000 * fit[i] / 400;
   i = 4;
-  gcec2013_riewank_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], r_flag);
+  cec2013_griewank_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], r_flag);
   fit[i] = 1000 * fit[i] / 100;
   cec2013_cf_cal(x, f, nx, Os, delta, bias, fit, cf_num);
 }
 
-void ccec2013_f07(double *x, double *f, int nx, double *Os, double *Mr,
+void cec2013_cf07(double *x, double *f, int nx, double *Os, double *Mr,
                   int r_flag) /* Composition Function 7 */
 {
   int i, cf_num = 5;
@@ -692,7 +692,7 @@ void ccec2013_f07(double *x, double *f, int nx, double *Os, double *Mr,
   double delta[5] = {10, 10, 10, 20, 20};
   double bias[5] = {0, 100, 200, 300, 400};
   i = 0;
-  gcec2013_riewank_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], r_flag);
+  cec2013_griewank_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], r_flag);
   fit[i] = 10000 * fit[i] / 100;
   i = 1;
   cec2013_rastrigin_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], r_flag);
@@ -701,7 +701,7 @@ void ccec2013_f07(double *x, double *f, int nx, double *Os, double *Mr,
   cec2013_schwefel_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], r_flag);
   fit[i] = 10000 * fit[i] / 4e+3;
   i = 3;
-  wcec2013_eierstrass_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx],
+  cec2013_weierstrass_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx],
                            r_flag);
   fit[i] = 10000 * fit[i] / 400;
   i = 4;

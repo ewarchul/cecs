@@ -1,10 +1,6 @@
 #include "cec2014_interface.h"
 #include <string.h>
 
-extern double *OShift, *M, *y, *z, *x_bound;
-extern int ini_flag, n_flag, func_flag, *SS;
-extern char *extdata;
-
 void cec2014_func(double *x, double *f, int nx, int mx, int func_num) {
   int cf_num = 10, i, j;
   if (ini_flag == 1) {

@@ -6,7 +6,9 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "cec2013_interface.h
+
+#include "globals.h"
+
 
 void cec2013_sphere_func(double *, double *, int, double *, double *,
                          int); /* Sphere */

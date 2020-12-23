@@ -6,7 +6,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "cec2017_interface.h
+#include "globals.h"
 
 void cec2017_sphere_func(double *, double *, int, double *, double *, int,
                          int); /* Sphere */

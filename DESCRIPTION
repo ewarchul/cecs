@@ -1,0 +1,25 @@
+Package: cecs
+Title: R interface for the C implementation of CEC (Congress on Evolutionary Computations) benchmark functions. 
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Eryk",
+           family = "Warchulski",
+           role = c("aut", "cre"),
+           email = "ewarchul@gmail.com"
+    )
+Description: Goal of this package is to provide access to benchmark functions defined for
+    the Special Session and Competition on Real-Parameter Single Objective Optimization in one place.
+    The package contains functions from following years: 2005, 2013, 2014, 2017, 2021. 
+    Implementations of CEC-2013 and CEC2017 are taken from existed R packages. Additionaly, 
+    original C source code of has been cleaned and reorganized for better readability.
+License: GPL (>= 3)
+BugReports: https://github.com/ewarchul/cecs/issues
+URL: https://github.com/ewarchul/cecs
+Depends: 
+    R (>= 3.6.3)
+Imports: 
+    stringr (>= 1.4.0)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1

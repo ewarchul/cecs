@@ -294,7 +294,7 @@ void cec2014_bi_rastrigin_func(double *x, double *f, int nx, double *Os,
   tmp = 0.0;
 
   if (r_flag == 1) {
-    rotatefunc(z, y, nx, Mr);
+    cec2014_rotatefunc(z, y, nx, Mr);
     for (i = 0; i < nx; i++) {
       tmp += cos(2.0 * PI * y[i]);
     }
@@ -766,7 +766,7 @@ void cec2014_cf05(double *x, double *f, int nx, double *Os, double *Mr,
   i = 4;
   cec2014_ellips_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
   fit[i] = 10000 * fit[i] / 1e+10;
-  cf_cal(x, f, nx, Os, delta, bias, fit, cf_num);
+  cec2014_cf_cal(x, f, nx, Os, delta, bias, fit, cf_num);
 }
 
 void cec2014_cf06(double *x, double *f, int nx, double *Os, double *Mr,

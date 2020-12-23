@@ -1,10 +1,6 @@
 #include "cec2013_interface.h"
 #include <string.h>
 
-extern double *OShift,*M,*y,*z,*x_bound;
-extern int ini_flag,n_flag,func_flag;
-extern char *extdata;
-
 void cec2013_func(double *x, double *f, int nx, int mx,int func_num)
 {
 
@@ -20,7 +16,7 @@ void cec2013_func(double *x, double *f, int nx, int mx,int func_num)
 	if (ini_flag==0)
 	{
 		FILE *fpt;
-		char FileName[PATH_MAX];
+		char FileName[256];
 		free(M);
 		free(OShift);
 		free(y);
@@ -36,18 +32,18 @@ void cec2013_func(double *x, double *f, int nx, int mx,int func_num)
 		fpt = fopen(FileName,"r");
 		if (fpt==NULL)
 		{
-		    error("Cannot open input file for reading");
+		    perror("Cannot open input file for reading");
 		}
 
 		M=(double*)malloc(cf_num*nx*nx*sizeof(double));
 		if (M==NULL)
-			error("There is insufficient memory available!");
+			perror("There is insufficient memory available!");
 		for (i=0; i<cf_num*nx*nx; i++)
 		{
 				ret = fscanf(fpt,"%lf",&M[i]);
 				if (ret != 1)
 				{
-				    error("Error reading from the input file");
+				    perror("Error reading from the input file");
 				}
 		}
 		fclose(fpt);
@@ -57,17 +53,17 @@ void cec2013_func(double *x, double *f, int nx, int mx,int func_num)
 		fpt=fopen(FileName,"r");
 		if (fpt==NULL)
 		{
-			error("Cannot open input file for reading");
+			perror("Cannot open input file for reading");
 		}
 		OShift=(double *)malloc(nx*cf_num*sizeof(double));
 		if (OShift==NULL)
-			error("There is insufficient memory available!");
+			perror("There is insufficient memory available!");
 		for(i=0;i<cf_num*nx;i++)
 		{
 				ret = fscanf(fpt,"%lf",&OShift[i]);
 				if (ret != 1)
 				{
-				    error("Error reading from the input file");
+				    perror("Error reading from the input file");
 				}
 		}
 		fclose(fpt);

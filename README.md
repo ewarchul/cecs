@@ -2,13 +2,9 @@
 
 # cecs
 
-Common R interface for CEC20{05, 13, 14, 17, 21}.
+Common R interface for CEC20{13, 14, 17, 21}.
 
 - CEC2005 :soon:
-- CEC2013 :heavy_check_mark:
-- CEC2014 :heavy_check_mark:
-- CEC2017 :heavy_check_mark:
-- CEC2021 :heavy_check_mark:
 
 ## Description
 

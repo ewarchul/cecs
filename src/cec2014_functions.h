@@ -6,8 +6,8 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "cec2014_interface.h
 
+#include "globals.h"
 void cec2014_sphere_func(double *, double *, int, double *, double *, int,
                          int); /* Sphere */
 void cec2014_ellips_func(double *, double *, int, double *, double *, int,

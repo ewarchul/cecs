@@ -7,12 +7,9 @@
 #include <string.h>
 
 #include "cec2021_functions.h"
+#include "globals.h"
 
-extern double *OShift, *M, *y, *z, *x_bound;
-extern int ini_flag, n_flag, func_flag, *SS;
-extern char *extdata;
-
-void cec2021_func(double *, double *, int, int, int, char *);
+void cec2021_func(double *, double *, int, int, int, char **);
 void cec2021_basic_func(double *, double *, int, int, int);
 void cec2021_shift_func(double *, double *, int, int, int);
 void cec2021_bias_func(double *, double *, int, int, int);
