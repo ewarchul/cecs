@@ -161,34 +161,34 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
   for (i = 0; i < mx; i++) {
     switch (func_num) {
     case 1:
-      bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 2:
-      schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 3:
-      bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 4:
-      grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 5:
-      hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       break;
     case 6:
-      hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       break;
     case 7:
-      hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       break;
     case 8:
-      cf02(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf02(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     case 9:
-      cf04(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf04(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     case 10:
-      cf05(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf05(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     default:
       printf("\nError: There are only 10 test functions in this test suite!\n");
@@ -312,43 +312,43 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
   for (i = 0; i < mx; i++) {
     switch (func_num) {
     case 1:
-      bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 100.0;
       break;
     case 2:
-      schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 1100.0;
       break;
     case 3:
-      bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 700.0;
       break;
     case 4:
-      grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 1900.0;
       break;
     case 5:
-      hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] = f[i] + 1700.0;
       break;
     case 6:
-      hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] += 1600.0;
       break;
     case 7:
-      hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] += 2100.0;
       break;
     case 8:
-      cf02(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf02(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2200.0;
       break;
     case 9:
-      cf04(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf04(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2400.0;
       break;
     case 10:
-      cf05(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf05(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2500.0;
       break;
     default:
@@ -475,43 +475,43 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
   for (i = 0; i < mx; i++) {
     switch (func_num) {
     case 1:
-      bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 100.0;
       break;
     case 2:
-      schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 1100.0;
       break;
     case 3:
-      bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 700.0;
       break;
     case 4:
-      grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 1900.0;
       break;
     case 5:
-      hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] = f[i] + 1700.0;
       break;
     case 6:
-      hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] += 1600.0;
       break;
     case 7:
-      hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] += 2100.0;
       break;
     case 8:
-      cf02_s(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf02_s(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2200.0;
       break;
     case 9:
-      cf04_s(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf04_s(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2400.0;
       break;
     case 10:
-      cf05_s(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf05_s(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2500.0;
       break;
     default:
@@ -638,43 +638,43 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx, int func_num)
   for (i = 0; i < mx; i++) {
     switch (func_num) {
     case 1:
-      bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 100.0;
       break;
     case 2:
-      schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 1100.0;
       break;
     case 3:
-      bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 700.0;
       break;
     case 4:
-      grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 1900.0;
       break;
     case 5:
-      hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] = f[i] + 1700.0;
       break;
     case 6:
-      hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] += 1600.0;
       break;
     case 7:
-      hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] += 2100.0;
       break;
     case 8:
-      cf02_s(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf02_s(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2200.0;
       break;
     case 9:
-      cf04_s(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf04_s(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2400.0;
       break;
     case 10:
-      cf05_s(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf05_s(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2500.0;
       break;
     default:
@@ -803,43 +803,43 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
   for (i = 0; i < mx; i++) {
     switch (func_num) {
     case 1:
-      bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 100.0;
       break;
     case 2:
-      schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 1100.0;
       break;
     case 3:
-      bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 700.0;
       break;
     case 4:
-      grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       f[i] += 1900.0;
       break;
     case 5:
-      hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] = f[i] + 1700.0;
       break;
     case 6:
-      hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] += 1600.0;
       break;
     case 7:
-      hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       f[i] += 2100.0;
       break;
     case 8:
-      cf02(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf02(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2200.0;
       break;
     case 9:
-      cf04(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf04(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2400.0;
       break;
     case 10:
-      cf05(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf05(&x[i * nx], &f[i], nx, OShift, M, 1);
       f[i] += 2500.0;
       break;
     default:
@@ -965,34 +965,34 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
   for (i = 0; i < mx; i++) {
     switch (func_num) {
     case 1:
-      bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 2:
-      schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 3:
-      bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 4:
-      grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 5:
-      hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       break;
     case 6:
-      hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       break;
     case 7:
-      hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       break;
     case 8:
-      cf02(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf02(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     case 9:
-      cf04(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf04(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     case 10:
-      cf05(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf05(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     default:
       printf("\nError: There are only 10 test functions in this test suite!\n");
@@ -1115,34 +1115,34 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx, int func_num) 
   for (i = 0; i < mx; i++) {
     switch (func_num) {
     case 1:
-      bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bent_cigar_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 2:
-      schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_schwefel_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 3:
-      bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_bi_rastrigin_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 4:
-      grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
+      cec2021_grie_rosen_func(&x[i * nx], &f[i], nx, OShift, M, 1, 1);
       break;
     case 5:
-      hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf01(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       break;
     case 6:
-      hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf06(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       break;
     case 7:
-      hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
+      cec2021_hf05(&x[i * nx], &f[i], nx, OShift, M, SS, 1, 1);
       break;
     case 8:
-      cf02_s(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf02_s(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     case 9:
-      cf04_s(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf04_s(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     case 10:
-      cf05_s(&x[i * nx], &f[i], nx, OShift, M, 1);
+      cec2021_cf05_s(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     default:
       printf("\nError: There are only 10 test functions in this test suite!\n");

@@ -1,5 +1,12 @@
+/*
+  CEC14 Test Function Suite for Single Objective Bound Constrained Numerical
+  Optimization
+*/
+
+#include "cec2014_functions.h"
+
 void cec2014_sphere_func(double *x, double *f, int nx, double *Os, double *Mr,
-                 int s_flag, int r_flag) /* Sphere */
+                         int s_flag, int r_flag) /* Sphere */
 {
   int i;
   f[0] = 0.0;
@@ -10,7 +17,7 @@ void cec2014_sphere_func(double *x, double *f, int nx, double *Os, double *Mr,
 }
 
 void cec2014_ellips_func(double *x, double *f, int nx, double *Os, double *Mr,
-                 int s_flag, int r_flag) /* Ellipsoidal */
+                         int s_flag, int r_flag) /* Ellipsoidal */
 {
   int i;
   f[0] = 0.0;
@@ -20,8 +27,9 @@ void cec2014_ellips_func(double *x, double *f, int nx, double *Os, double *Mr,
   }
 }
 
-void cec2014_bent_cigar_func(double *x, double *f, int nx, double *Os, double *Mr,
-                     int s_flag, int r_flag) /* Bent_Cigar */
+void cec2014_bent_cigar_func(double *x, double *f, int nx, double *Os,
+                             double *Mr, int s_flag,
+                             int r_flag) /* Bent_Cigar */
 {
   int i;
   cec2014_sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag); /* shift and rotate */
@@ -33,7 +41,7 @@ void cec2014_bent_cigar_func(double *x, double *f, int nx, double *Os, double *M
 }
 
 void cec2014_discus_func(double *x, double *f, int nx, double *Os, double *Mr,
-                 int s_flag, int r_flag) /* Discus */
+                         int s_flag, int r_flag) /* Discus */
 {
   int i;
   cec2014_sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag); /* shift and rotate */
@@ -43,8 +51,9 @@ void cec2014_discus_func(double *x, double *f, int nx, double *Os, double *Mr,
   }
 }
 
-void cec2014_dif_powers_func(double *x, double *f, int nx, double *Os, double *Mr,
-                     int s_flag, int r_flag) /* Different Powers */
+void cec2014_dif_powers_func(double *x, double *f, int nx, double *Os,
+                             double *Mr, int s_flag,
+                             int r_flag) /* Different Powers */
 {
   int i;
   f[0] = 0.0;
@@ -56,15 +65,16 @@ void cec2014_dif_powers_func(double *x, double *f, int nx, double *Os, double *M
   f[0] = pow(f[0], 0.5);
 }
 
-void cec2014_rosenbrock_func(double *x, double *f, int nx, double *Os, double *Mr,
-                     int s_flag, int r_flag) /* Rosenbrock's */
+void cec2014_rosenbrock_func(double *x, double *f, int nx, double *Os,
+                             double *Mr, int s_flag,
+                             int r_flag) /* Rosenbrock's */
 {
   int i;
   double tmp1, tmp2;
   f[0] = 0.0;
   cec2014_sr_func(x, z, nx, Os, Mr, 2.048 / 100.0, s_flag,
-          r_flag); /* shift and rotate */
-  z[0] += 1.0;     // shift to orgin
+                  r_flag); /* shift and rotate */
+  z[0] += 1.0;             // shift to orgin
   for (i = 0; i < nx - 1; i++) {
     z[i + 1] += 1.0; // shift to orgin
     tmp1 = z[i] * z[i] - z[i + 1];
@@ -73,8 +83,9 @@ void cec2014_rosenbrock_func(double *x, double *f, int nx, double *Os, double *M
   }
 }
 
-void cec2014_schaffer_F7_func(double *x, double *f, int nx, double *Os, double *Mr,
-                      int s_flag, int r_flag) /* Schwefel's 1.2  */
+void cec2014_schaffer_F7_func(double *x, double *f, int nx, double *Os,
+                              double *Mr, int s_flag,
+                              int r_flag) /* Schwefel's 1.2  */
 {
   int i;
   double tmp;
@@ -89,7 +100,7 @@ void cec2014_schaffer_F7_func(double *x, double *f, int nx, double *Os, double *
 }
 
 void cec2014_ackley_func(double *x, double *f, int nx, double *Os, double *Mr,
-                 int s_flag, int r_flag) /* Ackley's  */
+                         int s_flag, int r_flag) /* Ackley's  */
 {
   int i;
   double sum1, sum2;
@@ -107,8 +118,9 @@ void cec2014_ackley_func(double *x, double *f, int nx, double *Os, double *Mr,
   f[0] = E - 20.0 * exp(sum1) - exp(sum2) + 20.0;
 }
 
-void cec2014_weierstrass_func(double *x, double *f, int nx, double *Os, double *Mr,
-                      int s_flag, int r_flag) /* Weierstrass's  */
+void cec2014_weierstrass_func(double *x, double *f, int nx, double *Os,
+                              double *Mr, int s_flag,
+                              int r_flag) /* Weierstrass's  */
 {
   int i, j, k_max;
   double sum, sum2, a, b;
@@ -117,7 +129,8 @@ void cec2014_weierstrass_func(double *x, double *f, int nx, double *Os, double *
   k_max = 20;
   f[0] = 0.0;
 
-  cec2014_sr_func(x, z, nx, Os, Mr, 0.5 / 100.0, s_flag, r_flag); /* shift and rotate */
+  cec2014_sr_func(x, z, nx, Os, Mr, 0.5 / 100.0, s_flag,
+                  r_flag); /* shift and rotate */
 
   for (i = 0; i < nx; i++) {
     sum = 0.0;
@@ -132,7 +145,7 @@ void cec2014_weierstrass_func(double *x, double *f, int nx, double *Os, double *
 }
 
 void cec2014_griewank_func(double *x, double *f, int nx, double *Os, double *Mr,
-                   int s_flag, int r_flag) /* Griewank's  */
+                           int s_flag, int r_flag) /* Griewank's  */
 {
   int i;
   double s, p;
@@ -140,7 +153,7 @@ void cec2014_griewank_func(double *x, double *f, int nx, double *Os, double *Mr,
   p = 1.0;
 
   cec2014_sr_func(x, z, nx, Os, Mr, 600.0 / 100.0, s_flag,
-          r_flag); /* shift and rotate */
+                  r_flag); /* shift and rotate */
 
   for (i = 0; i < nx; i++) {
     s += z[i] * z[i];
@@ -149,23 +162,24 @@ void cec2014_griewank_func(double *x, double *f, int nx, double *Os, double *Mr,
   f[0] = 1.0 + s / 4000.0 - p;
 }
 
-void cec2014_rastrigin_func(double *x, double *f, int nx, double *Os, double *Mr,
-                    int s_flag, int r_flag) /* Rastrigin's  */
+void cec2014_rastrigin_func(double *x, double *f, int nx, double *Os,
+                            double *Mr, int s_flag,
+                            int r_flag) /* Rastrigin's  */
 {
   int i;
   f[0] = 0.0;
 
   cec2014_sr_func(x, z, nx, Os, Mr, 5.12 / 100.0, s_flag,
-          r_flag); /* shift and rotate */
+                  r_flag); /* shift and rotate */
 
   for (i = 0; i < nx; i++) {
     f[0] += (z[i] * z[i] - 10.0 * cos(2.0 * PI * z[i]) + 10.0);
   }
 }
 
-void cec2014_step_rastrigin_func(double *x, double *f, int nx, double *Os, double *Mr,
-                         int s_flag,
-                         int r_flag) /* Noncontinuous Rastrigin's  */
+void cec2014_step_rastrigin_func(double *x, double *f, int nx, double *Os,
+                                 double *Mr, int s_flag,
+                                 int r_flag) /* Noncontinuous Rastrigin's  */
 {
   int i;
   f[0] = 0.0;
@@ -175,7 +189,7 @@ void cec2014_step_rastrigin_func(double *x, double *f, int nx, double *Os, doubl
   }
 
   cec2014_sr_func(x, z, nx, Os, Mr, 5.12 / 100.0, s_flag,
-          r_flag); /* shift and rotate */
+                  r_flag); /* shift and rotate */
 
   for (i = 0; i < nx; i++) {
     f[0] += (z[i] * z[i] - 10.0 * cos(2.0 * PI * z[i]) + 10.0);
@@ -183,14 +197,14 @@ void cec2014_step_rastrigin_func(double *x, double *f, int nx, double *Os, doubl
 }
 
 void cec2014_schwefel_func(double *x, double *f, int nx, double *Os, double *Mr,
-                   int s_flag, int r_flag) /* Schwefel's  */
+                           int s_flag, int r_flag) /* Schwefel's  */
 {
   int i;
   double tmp;
   f[0] = 0.0;
 
   cec2014_sr_func(x, z, nx, Os, Mr, 1000.0 / 100.0, s_flag,
-          r_flag); /* shift and rotate */
+                  r_flag); /* shift and rotate */
 
   for (i = 0; i < nx; i++) {
     z[i] += 4.209687462275036e+002;
@@ -211,14 +225,15 @@ void cec2014_schwefel_func(double *x, double *f, int nx, double *Os, double *Mr,
 }
 
 void cec2014_katsuura_func(double *x, double *f, int nx, double *Os, double *Mr,
-                   int s_flag, int r_flag) /* Katsuura  */
+                           int s_flag, int r_flag) /* Katsuura  */
 {
   int i, j;
   double temp, tmp1, tmp2, tmp3;
   f[0] = 1.0;
   tmp3 = pow(1.0 * nx, 1.2);
 
-  cec2014_sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag, r_flag); /* shift and rotate */
+  cec2014_sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag,
+                  r_flag); /* shift and rotate */
 
   for (i = 0; i < nx; i++) {
     temp = 0.0;
@@ -233,9 +248,9 @@ void cec2014_katsuura_func(double *x, double *f, int nx, double *Os, double *Mr,
   f[0] = f[0] * tmp1 - tmp1;
 }
 
-void cec2014_bi_rastrigin_func(double *x, double *f, int nx, double *Os, double *Mr,
-                       int s_flag,
-                       int r_flag) /* Lunacek Bi_rastrigin Function */
+void cec2014_bi_rastrigin_func(double *x, double *f, int nx, double *Os,
+                               double *Mr, int s_flag,
+                               int r_flag) /* Lunacek Bi_rastrigin Function */
 {
   int i;
   double mu0 = 2.5, d = 1.0, s, mu1, tmp, tmp1, tmp2;
@@ -302,14 +317,16 @@ void cec2014_bi_rastrigin_func(double *x, double *f, int nx, double *Os, double 
   free(tmpx);
 }
 
-void cec2014_grie_rosen_func(double *x, double *f, int nx, double *Os, double *Mr,
-                     int s_flag, int r_flag) /* Griewank-Rosenbrock  */
+void cec2014_grie_rosen_func(double *x, double *f, int nx, double *Os,
+                             double *Mr, int s_flag,
+                             int r_flag) /* Griewank-Rosenbrock  */
 {
   int i;
   double temp, tmp1, tmp2;
   f[0] = 0.0;
 
-  cec2014_sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag, r_flag); /* shift and rotate */
+  cec2014_sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag,
+                  r_flag); /* shift and rotate */
 
   z[0] += 1.0; // shift to orgin
   for (i = 0; i < nx - 1; i++) {
@@ -325,8 +342,9 @@ void cec2014_grie_rosen_func(double *x, double *f, int nx, double *Os, double *M
   f[0] += (temp * temp) / 4000.0 - cos(temp) + 1.0;
 }
 
-void cec2014_escaffer6_func(double *x, double *f, int nx, double *Os, double *Mr,
-                    int s_flag, int r_flag) /* Expanded Scaffer??s F6  */
+void cec2014_escaffer6_func(double *x, double *f, int nx, double *Os,
+                            double *Mr, int s_flag,
+                            int r_flag) /* Expanded Scaffer??s F6  */
 {
   int i;
   double temp1, temp2;
@@ -355,7 +373,8 @@ void cec2014_happycat_func(
   double alpha, r2, sum_z;
   alpha = 1.0 / 8.0;
 
-  cec2014_sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag, r_flag); /* shift and rotate */
+  cec2014_sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag,
+                  r_flag); /* shift and rotate */
 
   r2 = 0.0;
   sum_z = 0.0;
@@ -367,16 +386,17 @@ void cec2014_happycat_func(
   f[0] = pow(fabs(r2 - nx), 2 * alpha) + (0.5 * r2 + sum_z) / nx + 0.5;
 }
 
-void cec2014_hgbat_func(double *x, double *f, int nx, double *Os, double *Mr,
-                int s_flag,
-                int r_flag) /* HGBat, provdided by Hans-Georg Beyer (HGB)*/
+void cec2014_hgbat_func(
+    double *x, double *f, int nx, double *Os, double *Mr, int s_flag,
+    int r_flag) /* HGBat, provdided by Hans-Georg Beyer (HGB)*/
 /* original global optimum: [-1,-1,...,-1] */
 {
   int i;
   double alpha, r2, sum_z;
   alpha = 1.0 / 4.0;
 
-  cec2014_sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag, r_flag); /* shift and rotate */
+  cec2014_sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag,
+                  r_flag); /* shift and rotate */
 
   r2 = 0.0;
   sum_z = 0.0;
@@ -390,7 +410,7 @@ void cec2014_hgbat_func(double *x, double *f, int nx, double *Os, double *Mr,
 }
 
 void cec2014_hf01(double *x, double *f, int nx, double *Os, double *Mr, int *S,
-          int s_flag, int r_flag) /* Hybrid Function 1 */
+                  int s_flag, int r_flag) /* Hybrid Function 1 */
 {
   int i, tmp, cf_num = 3;
   double fit[3];
@@ -426,7 +446,7 @@ void cec2014_hf01(double *x, double *f, int nx, double *Os, double *Mr, int *S,
 }
 
 void cec2014_hf02(double *x, double *f, int nx, double *Os, double *Mr, int *S,
-          int s_flag, int r_flag) /* Hybrid Function 2 */
+                  int s_flag, int r_flag) /* Hybrid Function 2 */
 {
   int i, tmp, cf_num = 3;
   double fit[3];
@@ -464,7 +484,7 @@ void cec2014_hf02(double *x, double *f, int nx, double *Os, double *Mr, int *S,
 }
 
 void cec2014_hf03(double *x, double *f, int nx, double *Os, double *Mr, int *S,
-          int s_flag, int r_flag) /* Hybrid Function 3 */
+                  int s_flag, int r_flag) /* Hybrid Function 3 */
 {
   int i, tmp, cf_num = 4;
   double fit[4];
@@ -504,7 +524,7 @@ void cec2014_hf03(double *x, double *f, int nx, double *Os, double *Mr, int *S,
 }
 
 void cec2014_hf04(double *x, double *f, int nx, double *Os, double *Mr, int *S,
-          int s_flag, int r_flag) /* Hybrid Function 4 */
+                  int s_flag, int r_flag) /* Hybrid Function 4 */
 {
   int i, tmp, cf_num = 4;
   double fit[4];
@@ -543,7 +563,7 @@ void cec2014_hf04(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   }
 }
 void cec2014_hf05(double *x, double *f, int nx, double *Os, double *Mr, int *S,
-          int s_flag, int r_flag) /* Hybrid Function 5 */
+                  int s_flag, int r_flag) /* Hybrid Function 5 */
 {
   int i, tmp, cf_num = 5;
   double fit[5];
@@ -585,7 +605,7 @@ void cec2014_hf05(double *x, double *f, int nx, double *Os, double *Mr, int *S,
 }
 
 void cec2014_hf06(double *x, double *f, int nx, double *Os, double *Mr, int *S,
-          int s_flag, int r_flag) /* Hybrid Function 6 */
+                  int s_flag, int r_flag) /* Hybrid Function 6 */
 {
   int i, tmp, cf_num = 5;
   double fit[5];
@@ -626,7 +646,7 @@ void cec2014_hf06(double *x, double *f, int nx, double *Os, double *Mr, int *S,
 }
 
 void cec2014_cf01(double *x, double *f, int nx, double *Os, double *Mr,
-          int r_flag) /* Composition Function 1 */
+                  int r_flag) /* Composition Function 1 */
 {
   int i, cf_num = 5;
   double fit[5];
@@ -634,13 +654,15 @@ void cec2014_cf01(double *x, double *f, int nx, double *Os, double *Mr,
   double bias[5] = {0, 100, 200, 300, 400};
 
   i = 0;
-  cec2014_rosenbrock_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_rosenbrock_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                          r_flag);
   fit[i] = 10000 * fit[i] / 1e+4;
   i = 1;
   cec2014_ellips_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
   fit[i] = 10000 * fit[i] / 1e+10;
   i = 2;
-  cec2014_bent_cigar_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_bent_cigar_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                          r_flag);
   fit[i] = 10000 * fit[i] / 1e+30;
   i = 3;
   cec2014_discus_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
@@ -652,7 +674,7 @@ void cec2014_cf01(double *x, double *f, int nx, double *Os, double *Mr,
 }
 
 void cec2014_cf02(double *x, double *f, int nx, double *Os, double *Mr,
-          int r_flag) /* Composition Function 2 */
+                  int r_flag) /* Composition Function 2 */
 {
   int i, cf_num = 3;
   double fit[3];
@@ -662,24 +684,27 @@ void cec2014_cf02(double *x, double *f, int nx, double *Os, double *Mr,
   i = 0;
   cec2014_schwefel_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, 0);
   i = 1;
-  cec2014_rastrigin_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_rastrigin_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                         r_flag);
   i = 2;
   cec2014_hgbat_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
   cec2014_cf_cal(x, f, nx, Os, delta, bias, fit, cf_num);
 }
 
 void cec2014_cf03(double *x, double *f, int nx, double *Os, double *Mr,
-          int r_flag) /* Composition Function 3 */
+                  int r_flag) /* Composition Function 3 */
 {
   int i, cf_num = 3;
   double fit[3];
   double delta[3] = {10, 30, 50};
   double bias[3] = {0, 100, 200};
   i = 0;
-  cec2014_schwefel_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_schwefel_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                        r_flag);
   fit[i] = 1000 * fit[i] / 4e+3;
   i = 1;
-  cec2014_rastrigin_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_rastrigin_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                         r_flag);
   fit[i] = 1000 * fit[i] / 1e+3;
   i = 2;
   cec2014_ellips_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
@@ -688,32 +713,36 @@ void cec2014_cf03(double *x, double *f, int nx, double *Os, double *Mr,
 }
 
 void cec2014_cf04(double *x, double *f, int nx, double *Os, double *Mr,
-          int r_flag) /* Composition Function 4 */
+                  int r_flag) /* Composition Function 4 */
 {
   int i, cf_num = 5;
   double fit[5];
   double delta[5] = {10, 10, 10, 10, 10};
   double bias[5] = {0, 100, 200, 300, 400};
   i = 0;
-  cec2014_schwefel_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_schwefel_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                        r_flag);
   fit[i] = 1000 * fit[i] / 4e+3;
   i = 1;
-  cec2014_happycat_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_happycat_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                        r_flag);
   fit[i] = 1000 * fit[i] / 1e+3;
   i = 2;
   cec2014_ellips_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
   fit[i] = 1000 * fit[i] / 1e+10;
   i = 3;
-  cec2014_weierstrass_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_weierstrass_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                           r_flag);
   fit[i] = 1000 * fit[i] / 400;
   i = 4;
-  cec2014_griewank_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_griewank_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                        r_flag);
   fit[i] = 1000 * fit[i] / 100;
   cec2014_cf_cal(x, f, nx, Os, delta, bias, fit, cf_num);
 }
 
 void cec2014_cf05(double *x, double *f, int nx, double *Os, double *Mr,
-          int r_flag) /* Composition Function 4 */
+                  int r_flag) /* Composition Function 4 */
 {
   int i, cf_num = 5;
   double fit[5];
@@ -723,13 +752,16 @@ void cec2014_cf05(double *x, double *f, int nx, double *Os, double *Mr,
   cec2014_hgbat_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
   fit[i] = 10000 * fit[i] / 1000;
   i = 1;
-  cec2014_rastrigin_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_rastrigin_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                         r_flag);
   fit[i] = 10000 * fit[i] / 1e+3;
   i = 2;
-  cec2014_schwefel_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_schwefel_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                        r_flag);
   fit[i] = 10000 * fit[i] / 4e+3;
   i = 3;
-  cec2014_weierstrass_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_weierstrass_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                           r_flag);
   fit[i] = 10000 * fit[i] / 400;
   i = 4;
   cec2014_ellips_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
@@ -738,23 +770,27 @@ void cec2014_cf05(double *x, double *f, int nx, double *Os, double *Mr,
 }
 
 void cec2014_cf06(double *x, double *f, int nx, double *Os, double *Mr,
-          int r_flag) /* Composition Function 6 */
+                  int r_flag) /* Composition Function 6 */
 {
   int i, cf_num = 5;
   double fit[5];
   double delta[5] = {10, 20, 30, 40, 50};
   double bias[5] = {0, 100, 200, 300, 400};
   i = 0;
-  cec2014_grie_rosen_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_grie_rosen_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                          r_flag);
   fit[i] = 10000 * fit[i] / 4e+3;
   i = 1;
-  cec2014_happycat_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_happycat_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                        r_flag);
   fit[i] = 10000 * fit[i] / 1e+3;
   i = 2;
-  cec2014_schwefel_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_schwefel_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                        r_flag);
   fit[i] = 10000 * fit[i] / 4e+3;
   i = 3;
-  cec2014_escaffer6_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
+  cec2014_escaffer6_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1,
+                         r_flag);
   fit[i] = 10000 * fit[i] / 2e+7;
   i = 4;
   cec2014_ellips_func(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], 1, r_flag);
@@ -763,34 +799,40 @@ void cec2014_cf06(double *x, double *f, int nx, double *Os, double *Mr,
 }
 
 void cec2014_cf07(double *x, double *f, int nx, double *Os, double *Mr, int *SS,
-          int r_flag) /* Composition Function 7 */
+                  int r_flag) /* Composition Function 7 */
 {
   int i, cf_num = 3;
   double fit[3];
   double delta[3] = {10, 30, 50};
   double bias[3] = {0, 100, 200};
   i = 0;
-  cec2014_hf01(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1, r_flag);
+  cec2014_hf01(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1,
+               r_flag);
   i = 1;
-  cec2014_hf02(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1, r_flag);
+  cec2014_hf02(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1,
+               r_flag);
   i = 2;
-  cec2014_hf03(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1, r_flag);
+  cec2014_hf03(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1,
+               r_flag);
   cec2014_cf_cal(x, f, nx, Os, delta, bias, fit, cf_num);
 }
 
 void cec2014_cf08(double *x, double *f, int nx, double *Os, double *Mr, int *SS,
-          int r_flag) /* Composition Function 8 */
+                  int r_flag) /* Composition Function 8 */
 {
   int i, cf_num = 3;
   double fit[3];
   double delta[3] = {10, 30, 50};
   double bias[3] = {0, 100, 200};
   i = 0;
-  cec2014_hf04(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1, r_flag);
+  cec2014_hf04(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1,
+               r_flag);
   i = 1;
-  cec2014_hf05(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1, r_flag);
+  cec2014_hf05(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1,
+               r_flag);
   i = 2;
-  cec2014_hf06(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1, r_flag);
+  cec2014_hf06(x, &fit[i], nx, &Os[i * nx], &Mr[i * nx * nx], &SS[i * nx], 1,
+               r_flag);
   cec2014_cf_cal(x, f, nx, Os, delta, bias, fit, cf_num);
 }
 
@@ -812,7 +854,8 @@ void cec2014_rotatefunc(double *x, double *xrot, int nx, double *Mr) {
 }
 
 void cec2014_sr_func(double *x, double *sr_x, int nx, double *Os, double *Mr,
-             double sh_rate, int s_flag, int r_flag) /* shift and rotate */
+                     double sh_rate, int s_flag,
+                     int r_flag) /* shift and rotate */
 {
   int i;
   if (s_flag == 1) {
@@ -881,7 +924,7 @@ void cec2014_oszfunc(double *x, double *xosz, int nx) {
 }
 
 void cec2014_cf_cal(double *x, double *f, int nx, double *Os, double *delta,
-            double *bias, double *fit, int cf_num) {
+                    double *bias, double *fit, int cf_num) {
   int i, j;
   double *w;
   double w_max = 0, w_sum = 0;
