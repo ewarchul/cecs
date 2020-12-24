@@ -35,7 +35,7 @@ devtools::test()
 
 All benchmark functions were implemented in C by Jane Jing Liang [https://orcid.org/0000-0003-0811-0223](https://orcid.org/0000-0003-0811-0223).
 
-I rearranged the codebase, i.e. separated interface from source, for better readability but any major changes were not be done.
+I rearranged the codebase, i.e. separated interface from source, for better readability but any major changes were not done.
 
 Benchmarks specifactions are included in `inst/` directory as a PDF files.
 
