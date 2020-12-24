@@ -37,6 +37,8 @@ All benchmark functions were implemented in C by Jane Jing Liang [https://orcid.
 
 I rearranged the codebase, i.e. separated interface from source, for better readability but any major changes were not be done.
 
+Benchmarks specifactions are included in `inst/` directory as a PDF files.
+
 ### CEC 2021 
 
 #### Authorship
