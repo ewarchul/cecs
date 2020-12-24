@@ -1,6 +1,6 @@
 Package: cecs
 Title: R interface for the C implementation of CEC (Congress on Evolutionary Computations) benchmark functions. 
-Version: 0.0.0.9000
+Version: 0.1.0.0
 Authors@R: 
     person(given = "Eryk",
            family = "Warchulski",
