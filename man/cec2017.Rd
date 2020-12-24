@@ -7,16 +7,17 @@
 http://staff.elka.pw.edu.pl/~djagodzi/programy.html
 }
 \usage{
-cec2017(i, x)
+cec2017(func_index, x)
 }
 \arguments{
-\item{x}{vector of numeric inputs for objective function}
+\item{func_index}{numeric index of optimisation problem from set 1:30}
 
-\item{func_index}{numeric index of optimisation problem in given benchmark}
+\item{x}{vector of numeric inputs for objective function}
 }
 \value{
 value of objective function for given input
 }
 \description{
 The R interface for CEC2017 Single Objective Bound Constrained Numerical Optimization benchmark.
+Available dimensions are following: (10, 30, 50, 100).
 }

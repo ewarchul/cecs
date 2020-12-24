@@ -4,14 +4,7 @@
 \alias{cec}
 \title{CEC interface}
 \usage{
-cec(
-  func_index,
-  x,
-  cec = NULL,
-  max_func_index = NULL,
-  dims = NULL,
-  suite = NULL
-)
+cec(func_index, x, cec, max_func_index, dims, suite = NULL)
 }
 \arguments{
 \item{func_index}{numeric index of optimisation problem in given benchmark}

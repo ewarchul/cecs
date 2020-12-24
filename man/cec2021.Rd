@@ -7,7 +7,7 @@
 cec2021(func_index, x, suite)
 }
 \arguments{
-\item{func_index}{numeric index of optimisation problem in given benchmark}
+\item{func_index}{numeric index of optimisation problem from set 1:10}
 
 \item{x}{vector of numeric inputs for objective function}
 
@@ -18,4 +18,5 @@ value of objective function for given input
 }
 \description{
 The R interface for CEC2021 Single Objective Bound Constrained Numerical Optimization benchmark.
+Available dimensions are following: (10, 20).
 }
