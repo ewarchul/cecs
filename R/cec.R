@@ -2,8 +2,9 @@
 #' 
 #' @description 
 #' The R interface for CEC2021 Single Objective Bound Constrained Numerical Optimization benchmark.
+#' Available dimensions are following: (10, 20).
 #' 
-#' @param func_index numeric index of optimisation problem in given benchmark
+#' @param func_index numeric index of optimisation problem from set 1:10 
 #' @param x vector of numeric inputs for objective function 
 #' @param suite one of the suite in CEC2021 benchmark (basic, shift, rot, bias, shift_rot, bias_rot, bias_shift, bias_shift_rot)
 #' @return value of objective function for given input
@@ -24,8 +25,9 @@ cec2021 <- function(func_index, x, suite) {
 #' 
 #' @description 
 #' The R interface for CEC2017 Single Objective Bound Constrained Numerical Optimization benchmark.
+#' Available dimensions are following: (10, 30, 50, 100).
 #' 
-#' @param func_index numeric index of optimisation problem in given benchmark
+#' @param func_index numeric index of optimisation problem from set 1:30
 #' @param x vector of numeric inputs for objective function 
 #' @return value of objective function for given input
 #' @source http://staff.elka.pw.edu.pl/~djagodzi/programy.html
@@ -37,7 +39,7 @@ cec2017 <- function(func_index, x) {
     x,
     cec = "cec2017",
     max_func_index = 30,
-    dims = c(10, 20, 30, 50, 100),
+    dims = c(10, 30, 50, 100),
     suite = NULL
   )
 }
@@ -46,8 +48,9 @@ cec2017 <- function(func_index, x) {
 #' 
 #' @description 
 #' The R interface for CEC2014 Single Objective Bound Constrained Numerical Optimization benchmark.
+#' Available dimensions are following: (10, 20, 30, 50, 100).
 #' 
-#' @param func_index numeric index of optimisation problem in given benchmark
+#' @param func_index numeric index of optimisation problem from set set 1:30
 #' @param x vector of numeric inputs for objective function 
 #' @return value of objective function for given input
 #' @export
@@ -67,9 +70,10 @@ cec2014 <- function(func_index, x) {
 #' 
 #' @description 
 #' The R interface for CEC2013 Single Objective Bound Constrained Numerical Optimization benchmark.
+#' Available dimensions are following: (2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100).
 #' 
-#' @param func_index numeric index of optimisation problem in given benchmark
-#' @param x vector of numeric inputs for objective function 
+#' @param func_index numeric index of optimisation problem from set 1:28
+#' @param x vector of numeric inputs for objective function  
 #' @return value of objective function for given input
 #' @source https://github.com/hzambran/cec2013
 #' @export
