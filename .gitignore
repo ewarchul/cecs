@@ -1,4 +1,5 @@
 .RData
+..Rcheck
 .Rhistory
 *.so
 *.o

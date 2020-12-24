@@ -92,15 +92,16 @@ cec2013 <- function(func_index, x) {
 #' CEC interface 
 #' 
 #' @description 
-#' The common interface for all avaible benchmark from CEC.
+#' The common interface for all available benchmark from CEC.
 #' 
 #' @param func_index numeric index of optimisation problem in given benchmark
 #' @param x vector of numeric inputs for objective function 
 #' @param cec name of benchmark
-#' @param max_func_num biggest index of optimisation problem in given benchmark
+#' @param max_func_index biggest index of optimisation problem in given benchmark
 #' @param dims vector of available dimensionalities 
 #' @param suite one of the suite in CEC2021 benchmark (basic, shift, rot, bias, shift_rot, bias_rot, bias_shift, bias_shift_rot)
 #' @return value of objective function for given input
+#' @useDynLib cecs
 
 cec <- function(func_index, x, cec, max_func_index, dims, suite = NULL) {
   if (base::missing(func_index)) base::stop("Missing argument; 'func_index' has to be provided !")
@@ -121,7 +122,7 @@ cec <- function(func_index, x, cec, max_func_index, dims, suite = NULL) {
     if (!(col %in% dims)) {
       base::stop(stringr::str_interp("Invalid argument: only ${dims} dimensions/variables are allowed !"))
     }
-    extdatadir <- here::here("inst", "extdata", cec) 
+    extdatadir <- system.file(paste0("extdata/", cec), package = "cecs")
     f <- base::.C("cecs",
       extdatadir = as.character(extdatadir), cec = base::as.character(cec),
       i = base::as.integer(func_index), x = base::as.double(x), row = base::as.integer(row),

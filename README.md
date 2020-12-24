@@ -33,9 +33,9 @@ devtools::test()
 
 ## Content
 
-ALl benchmark functions were implemented in C by Jane Jing Liang [https://orcid.org/0000-0003-0811-0223](https://orcid.org/0000-0003-0811-0223).
+All benchmark functions were implemented in C by Jane Jing Liang [https://orcid.org/0000-0003-0811-0223](https://orcid.org/0000-0003-0811-0223).
 
-I rearranged the codebase, i.e. separeted interface from source, for better readability but any major changes were not be done.
+I rearranged the codebase, i.e. separated interface from source, for better readability but any major changes were not be done.
 
 ### CEC 2021 
 
@@ -82,6 +82,7 @@ I rearranged the codebase, i.e. separeted interface from source, for better read
 Due to low quality of implementation, CEC2005 is not included in the package.
 
 It has to be rewritten and if you have enough time to do it -- feel free to contribute.
+
 
 
 
