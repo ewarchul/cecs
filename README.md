@@ -4,7 +4,7 @@ Common R interface for CEC benchmarks.
 
 ## Description
 
-This repository contains `R` package with interface for benchmark functions from Congress on Evolutionary Computations. 
+This repository contains `R` package with interface for benchmark functions from Congress on Evolutionary Computations competitions. 
 The implementation is based on existing CRAN package, i.e {cec2013}, but extends it with CEC2014 and CEC2021. The interface for CEC2017 is taken from non-CRAN package {cec2017}. More information about authorship is written below. 
 
 ### Requirements
