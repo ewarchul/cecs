@@ -1,3 +1,5 @@
+[![R-CMD-check](https://github.com/ewarchul/cecs/workflows/R-CMD-check/badge.svg)](https://github.com/ewarchul/cecs/actions)
+
 # cecs
 
 Common R interface for CEC benchmarks.
