@@ -19,16 +19,10 @@ Package was written and tested on machine with Ubuntu 20.04.1 LTS focal OS and x
 
 ## Installation
 
-The easiest way to install {cecs} package is to use {devtools} package and run following command from `R` CLI:
+The easiest way to install {cecs} package is to use {devtools} and run following command from `R` CLI:
 
 ```R
 devtools::install_github("ewarchul/cecs")
-```
-
-After the installation run unit tests to check if the package works correctly:
-
-```R
-devtools::test()
 ```
 
 ## Content
