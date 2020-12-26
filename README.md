@@ -74,14 +74,3 @@ Benchmarks specifactions are included in `inst/` directory as a PDF files.
 > License: GPL (>=3)
 
 > Source: [https://github.com/hzambran/cec2013](https://github.com/hzambran/cec2013)
-
-## Todos
-
-Due to low quality of implementation, CEC2005 is not included in the package.
-
-It has to be rewritten and if you have enough time to do it -- feel free to contribute.
-
-
-
-
-
