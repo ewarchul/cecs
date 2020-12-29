@@ -6,8 +6,8 @@ Common R interface for CEC benchmarks.
 
 ## Description
 
-This repository contains `R` package with interface for benchmark functions from Congress on Evolutionary Computations competitions. 
-The implementation is based on existing CRAN package, i.e {cec2013}, but extends it with CEC2014 and CEC2021. The interface for CEC2017 is taken from non-CRAN package {cec2017}. More information about authorship is written below. 
+This repository contains `R` package with an interface for benchmark functions from Congress on Evolutionary Computations competitions. 
+The implementation is based on the existing CRAN package, i.e {cec2013}, but is extended with CEC2014 and CEC2021. The interface for CEC2017 is taken from the non-CRAN package {cec2017}. More information about authorship is written below. 
 
 ### Requirements
 
@@ -21,7 +21,7 @@ Package was written and tested on machine with Ubuntu 20.04.1 LTS focal OS and x
 
 ## Installation
 
-The easiest way to install {cecs} package is to use {devtools} and run following command from `R` CLI:
+The easiest way to install {cecs} package is to use {devtools} and run the following command from `R` CLI:
 
 ```R
 devtools::install_github("ewarchul/cecs")
@@ -74,14 +74,3 @@ Benchmarks specifactions are included in `inst/` directory as a PDF files.
 > License: GPL (>=3)
 
 > Source: [https://github.com/hzambran/cec2013](https://github.com/hzambran/cec2013)
-
-## Todos
-
-Due to low quality of implementation, CEC2005 is not included in the package.
-
-It has to be rewritten and if you have enough time to do it -- feel free to contribute.
-
-
-
-
-
