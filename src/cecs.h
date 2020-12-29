@@ -14,6 +14,6 @@
 
 
 
-void cecs(char **, char **, int *, double *, int *, int *, double *f, char *);
+void cecs(char **, char **, int *, double *, int *, int *, double *f, char **);
 
 #endif // CECS_H_

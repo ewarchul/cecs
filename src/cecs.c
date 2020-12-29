@@ -6,7 +6,7 @@
 #include "cecs.h"
 
 void cecs(char **extdatadir, char **cec, int *i, double *X, int *row, int *col,
-             double *f, char *suite) {
+             double *f, char **suite) {
     char *cecx = *cec;
     if (!strcmp(cecx, "cec2013")) {
 

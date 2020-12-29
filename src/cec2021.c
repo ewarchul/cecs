@@ -8,7 +8,7 @@
 #include "cec2021.h"
 
 void cec2021(char **extdatadir, int *i, double *X, int *row, int *col,
-             double *f, char *suite) {
+             double *f, char **suite) {
   int r, c;
   double *x;
 

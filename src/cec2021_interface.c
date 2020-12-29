@@ -37,7 +37,7 @@ void cec2021_func(double *x, double *f, int nx, int mx, int func_num,
 
   } else if (!strcmp(suitex, "bias_shift_rot")) {
 
-    cec2021_shift_rot_func(x, f, nx, mx, func_num);
+    cec2021_bias_shift_rot_func(x, f, nx, mx, func_num);
 
   } else {
     return;
