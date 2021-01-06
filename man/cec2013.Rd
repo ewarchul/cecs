@@ -18,6 +18,8 @@ cec2013(func_index, x)
 value of objective function for given input
 }
 \description{
-The R interface for CEC2013 Single Objective Bound Constrained Numerical Optimization benchmark.
-Available dimensions are following: (2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100).
+The R interface for CEC2013 Single Objective Bound
+Constrained Numerical Optimization benchmark.
+Available dimensions are following:
+(2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100).
 }

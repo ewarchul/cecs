@@ -13,11 +13,14 @@ cec(func_index, x, cec, max_func_index, dims, suite = NULL)
 
 \item{cec}{name of benchmark}
 
-\item{max_func_index}{biggest index of optimisation problem in given benchmark}
+\item{max_func_index}{biggest index of optimisation
+problem in given benchmark}
 
 \item{dims}{vector of available dimensionalities}
 
-\item{suite}{one of the suite in CEC2021 benchmark (basic, shift, rot, bias, shift_rot, bias_rot, bias_shift, bias_shift_rot)}
+\item{suite}{one of the suite in CEC2021
+benchmark (basic, shift, rot, bias,
+shift_rot, bias_rot, bias_shift, bias_shift_rot)}
 }
 \value{
 value of objective function for given input

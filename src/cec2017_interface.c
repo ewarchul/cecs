@@ -29,11 +29,11 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 
 		if (!(nx==2||nx==10||nx==20||nx==30||nx==50||nx==100))
 		{
-			printf("\nError: Test functions are only defined for D=2,10,20,30,50,100.\n");
+			perror("\nError: Test functions are only defined for D=2,10,20,30,50,100.\n");
 		}
 		if (nx==2&&((func_num>=17&&func_num<=22)||(func_num>=29&&func_num<=30)))
 		{
-			printf("\nError: hf01,hf02,hf03,hf04,hf05,hf06,cf07&cf08 are NOT defined for D=2.\n");
+			perror("\nError: hf01,hf02,hf03,hf04,hf05,hf06,cf07&cf08 are NOT defined for D=2.\n");
 		}
 
 		/* Load Matrix M*/
@@ -41,17 +41,17 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 		fpt = fopen(FileName,"r");
 		if (fpt==NULL)
 		{
-		    printf("\n Error: Cannot open input file for reading \n");
+		    perror("\n Error: Cannot open input file for reading \n");
 		}
 		if (func_num<20)
 		{
 			M=(double*)malloc(nx*nx*sizeof(double));
 			if (M==NULL)
-				printf("\nError: there is insufficient memory available!\n");
+				perror("\nError: there is insufficient memory available!\n");
 			for (i=0; i<nx*nx; i++)
 			{
 				if (fscanf(fpt,"%lf",&M[i]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
 				}
 			}
 		}
@@ -59,11 +59,11 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 		{
 			M=(double*)malloc(cf_num*nx*nx*sizeof(double));
 			if (M==NULL)
-				printf("\nError: there is insufficient memory available!\n");
+				perror("\nError: there is insufficient memory available!\n");
 			for (i=0; i<cf_num*nx*nx; i++)
 			{
 				if (fscanf(fpt,"%lf",&M[i]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
 				}
 			}
 		}
@@ -74,18 +74,18 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 		fpt = fopen(FileName,"r");
 		if (fpt==NULL)
 		{
-			printf("\n Error: Cannot open input file for reading \n");
+			perror("\n Error: Cannot open input file for reading \n");
 		}
 
 		if (func_num<20)
 		{
 			OShift=(double *)malloc(nx*sizeof(double));
 			if (OShift==NULL)
-			printf("\nError: there is insufficient memory available!\n");
+			perror("\nError: there is insufficient memory available!\n");
 			for(i=0;i<nx;i++)
 			{
 				if (fscanf(fpt,"%lf",&OShift[i]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
 				}
 			}
 		}
@@ -93,23 +93,23 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 		{
 			OShift=(double *)malloc(nx*cf_num*sizeof(double));
 			if (OShift==NULL)
-			printf("\nError: there is insufficient memory available!\n");
+			perror("\nError: there is insufficient memory available!\n");
 			for(i=0;i<cf_num-1;i++)
 			{
 				for (j=0;j<nx;j++)
 				{
 					if (fscanf(fpt,"%lf",&OShift[i*nx+j]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
 					}
 				}
 				if (fscanf(fpt,"%*[^\n]%*c") !=1) {
-          printf("\nError\n");
+          perror("\nError\n");
 				}
 			}
 			for (j=0;j<nx;j++)
 			{
 				if (fscanf(fpt,"%lf",&OShift[(cf_num-1)*nx+j]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
 				}
 			}
 
@@ -125,16 +125,16 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 			fpt = fopen(FileName,"r");
 			if (fpt==NULL)
 			{
-				printf("\n Error: Cannot open input file for reading \n");
+				perror("\n Error: Cannot open input file for reading \n");
 			}
 			SS=(int *)malloc(nx*sizeof(int));
 			if (SS==NULL)
-				printf("\nError: there is insufficient memory available!\n");
+				perror("\nError: there is insufficient memory available!\n");
 			for(i=0;i<nx;i++)
 			{
 				if (fscanf(fpt,"%d",&SS[i]) !=1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
 				}
 			}
 			fclose(fpt);
@@ -145,15 +145,15 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 			fpt = fopen(FileName,"r");
 			if (fpt==NULL)
 			{
-				printf("\n Error: Cannot open input file for reading \n");
+				perror("\n Error: Cannot open input file for reading \n");
 			}
 			SS=(int *)malloc(nx*cf_num*sizeof(int));
 			if (SS==NULL)
-				printf("\nError: there is insufficient memory available!\n");
+				perror("\nError: there is insufficient memory available!\n");
 			for(i=0;i<nx*cf_num;i++)
 			{
 				if (fscanf(fpt,"%d",&SS[i]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
 				}
 			}
 			fclose(fpt);
@@ -163,7 +163,7 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 		n_flag=nx;
 		func_flag=func_num;
 		ini_flag=1;
-		//printf("Function has been initialized!\n");
+		//perror("Function has been initialized!\n");
 	}
 
 
@@ -292,7 +292,7 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 			f[i]+=3000.0;
 			break;
 		default:
-			printf("\nError: There are only 30 test functions in this test suite!\n");
+			perror("\nError: There are only 30 test functions in this test suite!\n");
 			f[i] = 0.0;
 			break;
 		}

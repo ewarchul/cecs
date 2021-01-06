@@ -11,12 +11,14 @@ cec2021(func_index, x, suite)
 
 \item{x}{vector of numeric inputs for objective function}
 
-\item{suite}{one of the suite in CEC2021 benchmark (basic, shift, rot, bias, shift_rot, bias_rot, bias_shift, bias_shift_rot)}
+\item{suite}{one of the suite in CEC2021 benchmark
+(basic, shift, rot, bias, shift_rot, bias_rot, bias_shift, bias_shift_rot)}
 }
 \value{
 value of objective function for given input
 }
 \description{
-The R interface for CEC2021 Single Objective Bound Constrained Numerical Optimization benchmark.
+The R interface for CEC2021 Single Objective Bound
+Constrained Numerical Optimization benchmark.
 Available dimensions are following: (10, 20).
 }

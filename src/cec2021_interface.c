@@ -40,7 +40,7 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
   int cf_num = 10, i, j;
 
   if (func_num < 1 || func_num > 10) {
-    printf("\nError: Test function %d is not defined.\n", func_num);
+    perror("\nError: Test function is not defined.\n");
   }
   if (ini_flag == 1) {
     if ((n_flag != nx) || (func_flag != func_num)) {
@@ -63,35 +63,34 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
       x_bound[i] = 100.0;
 
     if (!(nx == 2 || nx == 10 || nx == 20)) {
-      printf("\nError: Test functions are only defined for D=2,10,20.\n");
+      perror("\nError: Test functions are only defined for D=2,10,20.\n");
     }
     if (nx == 2 && (func_num == 5 || func_num == 6 || func_num == 7)) {
-      printf("\nError:  NOT defined for D=2.\n");
+      perror("\nError:  NOT defined for D=2.\n");
     }
 
     /* Load Matrix M*/
     sprintf(FileName, "%s/M_%d_D%d_nr.txt", extdata, func_num, nx);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open M_%d_D%d_nr.txt for reading \n", func_num,
-             nx);
+      perror("\n Error: Cannot open M_d_Dd_nr.txt's for reading \n");
     }
     if (func_num < 7) {
       M = (double *)malloc(nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       M = (double *)malloc(cf_num * nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -101,39 +100,38 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
     sprintf(FileName, "%s/shift_data_%d_ns.txt", extdata, func_num);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open shift_data_%d_ns.txt for reading \n",
-             func_num);
+      perror("\n Error: Cannot open shift_data_d_ns.txt for reading \n");
     }
 
     if (func_num < 7) {
       OShift = (double *)malloc(nx * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       // OShift=(double *)malloc(nx*sizeof(double));
       OShift = (double *)malloc(nx * cf_num * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
           if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
 
-            printf("\nError\n");
+            perror("\nError\n");
           }
         }
         if (fscanf(fpt, "%*[^\n]%*c") != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       for (j = 0; j < nx; j++) {
         if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -145,15 +143,14 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
       sprintf(FileName, "%s/shuffle_data_%d_D%d.txt", extdata, func_num, nx);
       fpt = fopen(FileName, "r");
       if (fpt == NULL) {
-        printf("\n Error: Cannot open shuffle_data_%d_D%d.txt for reading \n",
-               func_num, nx);
+        perror("\n Error: Cannot open shuffle_data_d_Dd.txt's for reading \n");
       }
       SS = (int *)malloc(nx * sizeof(int));
       if (SS == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%d", &SS[i]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       fclose(fpt);
@@ -162,7 +159,7 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
     n_flag = nx;
     func_flag = func_num;
     ini_flag = 1;
-    // printf("Function has been initialized!\n");
+    // perror("Function has been initialized!\n");
   }
 
   for (i = 0; i < mx; i++) {
@@ -198,7 +195,7 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
       cec2021_cf05(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     default:
-      printf("\nError: There are only 10 test functions in this test suite!\n");
+      perror("\nError: There are only 10 test functions in this test suite!\n");
       break;
     }
   }
@@ -208,7 +205,7 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
 
   int cf_num = 10, i, j;
   if (func_num < 1 || func_num > 10) {
-    printf("\nError: Test function %d is not defined.\n", func_num);
+    perror("\nError: Test function is not defined.\n");
   }
   if (ini_flag == 1) {
     if ((n_flag != nx) || (func_flag != func_num)) {
@@ -231,35 +228,35 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       x_bound[i] = 100.0;
 
     if (!(nx == 2 || nx == 10 || nx == 20)) {
-      printf("\nError: Test functions are only defined for D=2,10,20.\n");
+      perror("\nError: Test functions are only defined for D=2,10,20.\n");
     }
     if (nx == 2 && (func_num == 5 || func_num == 6 || func_num == 7)) {
-      printf("\nError:  NOT defined for D=2.\n");
+      perror("\nError:  NOT defined for D=2.\n");
     }
 
     /* Load Matrix M*/
     sprintf(FileName, "%s/M_%d_D%d.txt", extdata, func_num, nx);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open M_%d_D%d.txt for reading \n", func_num, nx);
+      perror("\n Error: Cannot open M_d_Dd.txt for reading \n");
     }
     if (func_num < 7) {
       M = (double *)malloc(nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       M = (double *)malloc(cf_num * nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -269,41 +266,40 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
     sprintf(FileName, "%s/shift_data_%d_ns.txt", extdata, func_num);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open shift_data_%d_ns.txt for reading \n",
-             func_num);
+      perror("\n Error: Cannot open shift_data_d_ns.txt for reading \n");
     }
 
     if (func_num < 7) {
       OShift = (double *)malloc(nx * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       // OShift=(double *)malloc(nx*sizeof(double));
       OShift = (double *)malloc(nx * cf_num * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
           if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
 
-            printf("\nError\n");
+            perror("\nError\n");
           }
         }
         if (fscanf(fpt, "%*[^\n]%*c") != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       for (j = 0; j < nx; j++) {
         if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -315,16 +311,15 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       sprintf(FileName, "%s/shuffle_data_%d_D%d.txt", extdata, func_num, nx);
       fpt = fopen(FileName, "r");
       if (fpt == NULL) {
-        printf("\n Error: Cannot open shuffle_data_%d_D%d.txt for reading \n",
-               func_num, nx);
+        perror("\n Error: Cannot open shuffle_data_d_Dd.txt's for reading \n");
       }
       SS = (int *)malloc(nx * sizeof(int));
       if (SS == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%d", &SS[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       fclose(fpt);
@@ -333,7 +328,7 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
     n_flag = nx;
     func_flag = func_num;
     ini_flag = 1;
-    // printf("Function has been initialized!\n");
+    // perror("Function has been initialized!\n");
   }
 
   for (i = 0; i < mx; i++) {
@@ -379,7 +374,7 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       f[i] += 2500.0;
       break;
     default:
-      printf("\nError: There are only 10 test functions in this test suite!\n");
+      perror("\nError: There are only 10 test functions in this test suite!\n");
       f[i] = 0.0;
       break;
     }
@@ -391,7 +386,7 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
 
   int cf_num = 10, i, j;
   if (func_num < 1 || func_num > 10) {
-    printf("\nError: Test function %d is not defined.\n", func_num);
+    perror("\nError: Test function is not defined.\n");
   }
   if (ini_flag == 1) {
     if ((n_flag != nx) || (func_flag != func_num)) {
@@ -414,36 +409,36 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
       x_bound[i] = 100.0;
 
     if (!(nx == 2 || nx == 10 || nx == 20)) {
-      printf("\nError: Test functions are only defined for D=2,10,20.\n");
+      perror("\nError: Test functions are only defined for D=2,10,20.\n");
     }
     if (nx == 2 && (func_num == 5 || func_num == 6 || func_num == 7)) {
-      printf("\nError:  NOT defined for D=2.\n");
+      perror("\nError:  NOT defined for D=2.\n");
     }
 
     /* Load Matrix M*/
     sprintf(FileName, "%s/M_%d_D%d.txt", extdata, func_num, nx);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open M_%d_D%d.txt for reading \n", func_num, nx);
+      perror("\n Error: Cannot open M_d_Dd.txt's for reading \n");
     }
     if (func_num < 7) {
       M = (double *)malloc(nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       M = (double *)malloc(cf_num * nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -453,41 +448,40 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
     sprintf(FileName, "%s/shift_data_%d.txt", extdata, func_num);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open shift_data_%d.txt for reading \n",
-             func_num);
+      perror("\n Error: Cannot open shift_data_d.txt for reading \n");
     }
 
     if (func_num < 7) {
       OShift = (double *)malloc(nx * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       // OShift=(double *)malloc(nx*sizeof(double));
       OShift = (double *)malloc(nx * cf_num * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
           if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
 
-            printf("\nError\n");
+            perror("\nError\n");
           }
         }
         if (fscanf(fpt, "%*[^\n]%*c") != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       for (j = 0; j < nx; j++) {
         if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -499,16 +493,15 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
       sprintf(FileName, "%s/shuffle_data_%d_D%d.txt", extdata, func_num, nx);
       fpt = fopen(FileName, "r");
       if (fpt == NULL) {
-        printf("\n Error: Cannot open shuffle_data_%d_D%d.txt for reading \n",
-               func_num, nx);
+        perror("\n Error: Cannot open shuffle_data_d_Dd.txt for reading \n");
       }
       SS = (int *)malloc(nx * sizeof(int));
       if (SS == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%d", &SS[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       fclose(fpt);
@@ -517,7 +510,7 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
     n_flag = nx;
     func_flag = func_num;
     ini_flag = 1;
-    // printf("Function has been initialized!\n");
+    // perror("Function has been initialized!\n");
   }
 
   for (i = 0; i < mx; i++) {
@@ -563,7 +556,7 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
       f[i] += 2500.0;
       break;
     default:
-      printf("\nError: There are only 10 test functions in this test suite!\n");
+      perror("\nError: There are only 10 test functions in this test suite!\n");
       f[i] = 0.0;
       break;
     }
@@ -575,7 +568,7 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx,
 
   int cf_num = 10, i, j;
   if (func_num < 1 || func_num > 10) {
-    printf("\nError: Test function %d is not defined.\n", func_num);
+    perror("\nError: Test function is not defined.\n");
   }
   if (ini_flag == 1) {
     if ((n_flag != nx) || (func_flag != func_num)) {
@@ -598,37 +591,36 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx,
       x_bound[i] = 100.0;
 
     if (!(nx == 2 || nx == 10 || nx == 20)) {
-      printf("\nError: Test functions are only defined for D=2,10,20.\n");
+      perror("\nError: Test functions are only defined for D=2,10,20.\n");
     }
     if (nx == 2 && (func_num == 5 || func_num == 6 || func_num == 7)) {
-      printf("\nError:  NOT defined for D=2.\n");
+      perror("\nError:  NOT defined for D=2.\n");
     }
 
     /* Load Matrix M*/
     sprintf(FileName, "%s/M_%d_D%d_nr.txt", extdata, func_num, nx);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open M_%d_D%d_nr.txt for reading \n", func_num,
-             nx);
+      perror("\n Error: Cannot open M_d_Dd_nr.txt for reading \n");
     }
     if (func_num < 7) {
       M = (double *)malloc(nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       M = (double *)malloc(cf_num * nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -638,41 +630,40 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx,
     sprintf(FileName, "%s/shift_data_%d.txt", extdata, func_num);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open shift_data_%d.txt for reading \n",
-             func_num);
+      perror("\n Error: Cannot open shift_data_d.txt for reading \n");
     }
 
     if (func_num < 7) {
       OShift = (double *)malloc(nx * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       // OShift=(double *)malloc(nx*sizeof(double));
       OShift = (double *)malloc(nx * cf_num * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
           if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
 
-            printf("\nError\n");
+            perror("\nError\n");
           }
         }
         if (fscanf(fpt, "%*[^\n]%*c") != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       for (j = 0; j < nx; j++) {
         if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -684,15 +675,14 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx,
       sprintf(FileName, "%s/shuffle_data_%d_D%d.txt", extdata, func_num, nx);
       fpt = fopen(FileName, "r");
       if (fpt == NULL) {
-        printf("\n Error: Cannot open shuffle_data_%d_D%d.txt for reading \n",
-               func_num, nx);
+        perror("\n Error: Cannot open shuffle_data_d_Dd.txt for reading \n");
       }
       SS = (int *)malloc(nx * sizeof(int));
       if (SS == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%d", &SS[i]) != 1) {
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       fclose(fpt);
@@ -701,7 +691,7 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx,
     n_flag = nx;
     func_flag = func_num;
     ini_flag = 1;
-    // printf("Function has been initialized!\n");
+    // perror("Function has been initialized!\n");
   }
 
   for (i = 0; i < mx; i++) {
@@ -747,7 +737,7 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx,
       f[i] += 2500.0;
       break;
     default:
-      printf("\nError: There are only 10 test functions in this test suite!\n");
+      perror("\nError: There are only 10 test functions in this test suite!\n");
       f[i] = 0.0;
       break;
     }
@@ -759,7 +749,7 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
   int cf_num = 10, i, j;
 
   if (func_num < 1 || func_num > 10) {
-    printf("\nError: Test function %d is not defined.\n", func_num);
+    perror("\nError: Test function is not defined.\n");
   }
 
   if (ini_flag == 1) {
@@ -783,37 +773,36 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
       x_bound[i] = 100.0;
 
     if (!(nx == 2 || nx == 10 || nx == 20)) {
-      printf("\nError: Test functions are only defined for D=2,10,20.\n");
+      perror("\nError: Test functions are only defined for D=2,10,20.\n");
     }
     if (nx == 2 && (func_num == 5 || func_num == 6 || func_num == 7)) {
-      printf("\nError:  NOT defined for D=2.\n");
+      perror("\nError:  NOT defined for D=2.\n");
     }
 
     /* Load Matrix M*/
     sprintf(FileName, "%s/M_%d_D%d_nr.txt", extdata, func_num, nx);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open M_%d_D%d_nr.txt for reading \n", func_num,
-             nx);
+      perror("\n Error: Cannot open M_d_Dd_nr.txt for reading \n");
     }
     if (func_num < 7) {
       M = (double *)malloc(nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       M = (double *)malloc(cf_num * nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -823,41 +812,40 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
     sprintf(FileName, "%s/shift_data_%d_ns.txt", extdata, func_num);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open shift_data_%d_ns.txt for reading \n",
-             func_num);
+      perror("\n Error: Cannot open shift_data_d_ns.txt for reading \n");
     }
 
     if (func_num < 7) {
       OShift = (double *)malloc(nx * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       // OShift=(double *)malloc(nx*sizeof(double));
       OShift = (double *)malloc(nx * cf_num * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
           if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
 
-            printf("\nError\n");
+            perror("\nError\n");
           }
         }
         if (fscanf(fpt, "%*[^\n]%*c") != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       for (j = 0; j < nx; j++) {
         if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -869,16 +857,15 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
       sprintf(FileName, "%s/shuffle_data_%d_D%d.txt", extdata, func_num, nx);
       fpt = fopen(FileName, "r");
       if (fpt == NULL) {
-        printf("\n Error: Cannot open shuffle_data_%d_D%d.txt for reading \n",
-               func_num, nx);
+        perror("\n Error: Cannot open shuffle_data_D.txt for reading \n");
       }
       SS = (int *)malloc(nx * sizeof(int));
       if (SS == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%d", &SS[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       fclose(fpt);
@@ -887,7 +874,7 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
     n_flag = nx;
     func_flag = func_num;
     ini_flag = 1;
-    // printf("Function has been initialized!\n");
+    // perror("Function has been initialized!\n");
   }
 
   for (i = 0; i < mx; i++) {
@@ -933,7 +920,7 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
       f[i] += 2500.0;
       break;
     default:
-      printf("\nError: There are only 10 test functions in this test suite!\n");
+      perror("\nError: There are only 10 test functions in this test suite!\n");
       f[i] = 0.0;
       break;
     }
@@ -944,7 +931,7 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
 
   int cf_num = 10, i, j;
   if (func_num < 1 || func_num > 10) {
-    printf("\nError: Test function %d is not defined.\n", func_num);
+    perror("\nError: Test function is not defined.\n");
   }
   if (ini_flag == 1) {
     if ((n_flag != nx) || (func_flag != func_num)) {
@@ -967,36 +954,36 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       x_bound[i] = 100.0;
 
     if (!(nx == 2 || nx == 10 || nx == 20)) {
-      printf("\nError: Test functions are only defined for D=2,10,20.\n");
+      perror("\nError: Test functions are only defined for D=2,10,20.\n");
     }
     if (nx == 2 && (func_num == 5 || func_num == 6 || func_num == 7)) {
-      printf("\nError:  NOT defined for D=2.\n");
+      perror("\nError:  NOT defined for D=2.\n");
     }
 
     /* Load Matrix M*/
     sprintf(FileName, "%s/M_%d_D%d.txt", extdata, func_num, nx);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open M_%d_D%d.txt for reading \n", func_num, nx);
+      perror("\n Error: Cannot open M_d_Dd.txt for reading \n");
     }
     if (func_num < 7) {
       M = (double *)malloc(nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       M = (double *)malloc(cf_num * nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -1006,41 +993,40 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
     sprintf(FileName, "%s/shift_data_%d_ns.txt", extdata, func_num);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open shift_data_%d_ns.txt for reading \n",
-             func_num);
+      perror("\n Error: Cannot open shift_data_d_ns.txt for reading \n");
     }
 
     if (func_num < 7) {
       OShift = (double *)malloc(nx * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       // OShift=(double *)malloc(nx*sizeof(double));
       OShift = (double *)malloc(nx * cf_num * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
           if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
 
-            printf("\nError\n");
+            perror("\nError\n");
           }
         }
         if (fscanf(fpt, "%*[^\n]%*c") != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       for (j = 0; j < nx; j++) {
         if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -1052,16 +1038,15 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       sprintf(FileName, "%s/shuffle_data_%d_D%d.txt", extdata, func_num, nx);
       fpt = fopen(FileName, "r");
       if (fpt == NULL) {
-        printf("\n Error: Cannot open shuffle_data_%d_D%d.txt for reading \n",
-               func_num, nx);
+        perror("\n Error: Cannot open shuffle_data_d_Dd.txt for reading \n");
       }
       SS = (int *)malloc(nx * sizeof(int));
       if (SS == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%d", &SS[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       fclose(fpt);
@@ -1070,7 +1055,7 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
     n_flag = nx;
     func_flag = func_num;
     ini_flag = 1;
-    // printf("Function has been initialized!\n");
+    // perror("Function has been initialized!\n");
   }
 
   for (i = 0; i < mx; i++) {
@@ -1106,7 +1091,7 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       cec2021_cf05(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     default:
-      printf("\nError: There are only 10 test functions in this test suite!\n");
+      perror("\nError: There are only 10 test functions in this test suite!\n");
       break;
     }
   }
@@ -1116,7 +1101,7 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx,
 
   int cf_num = 10, i, j;
   if (func_num < 1 || func_num > 10) {
-    printf("\nError: Test function %d is not defined.\n", func_num);
+    perror("\nError: Test function is not defined.\n");
   }
   if (ini_flag == 1) {
     if ((n_flag != nx) || (func_flag != func_num)) {
@@ -1139,36 +1124,36 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx,
       x_bound[i] = 100.0;
 
     if (!(nx == 2 || nx == 10 || nx == 20)) {
-      printf("\nError: Test functions are only defined for D=2,10,20.\n");
+      perror("\nError: Test functions are only defined for D=2,10,20.\n");
     }
     if (nx == 2 && (func_num == 5 || func_num == 6 || func_num == 7)) {
-      printf("\nError:  NOT defined for D=2.\n");
+      perror("\nError:  NOT defined for D=2.\n");
     }
 
     /* Load Matrix M*/
     sprintf(FileName, "%s/M_%d_D%d.txt", extdata, func_num, nx);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open M_%d_D%d.txt for reading \n", func_num, nx);
+      perror("\n Error: Cannot open M_d_Dd.txt for reading \n");
     }
     if (func_num < 7) {
       M = (double *)malloc(nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       M = (double *)malloc(cf_num * nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -1178,41 +1163,40 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx,
     sprintf(FileName, "%s/shift_data_%d.txt", extdata, func_num);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open shift_data_%d.txt for reading \n",
-             func_num);
+      perror("\n Error: Cannot open shift_data_d.txt for reading \n");
     }
 
     if (func_num < 7) {
       OShift = (double *)malloc(nx * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       // OShift=(double *)malloc(nx*sizeof(double));
       OShift = (double *)malloc(nx * cf_num * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
           if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
 
-            printf("\nError\n");
+            perror("\nError\n");
           }
         }
         if (fscanf(fpt, "%*[^\n]%*c") != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       for (j = 0; j < nx; j++) {
         if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -1224,16 +1208,15 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx,
       sprintf(FileName, "%s/shuffle_data_%d_D%d.txt", extdata, func_num, nx);
       fpt = fopen(FileName, "r");
       if (fpt == NULL) {
-        printf("\n Error: Cannot open shuffle_data_%d_D%d.txt for reading \n",
-               func_num, nx);
+        perror("\n Error: Cannot open shuffle_data_d_Dd.txt for reading \n");
       }
       SS = (int *)malloc(nx * sizeof(int));
       if (SS == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%d", &SS[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       fclose(fpt);
@@ -1242,7 +1225,7 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx,
     n_flag = nx;
     func_flag = func_num;
     ini_flag = 1;
-    // printf("Function has been initialized!\n");
+    // perror("Function has been initialized!\n");
   }
 
   for (i = 0; i < mx; i++) {
@@ -1278,7 +1261,7 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx,
       cec2021_cf05_s(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     default:
-      printf("\nError: There are only 10 test functions in this test suite!\n");
+      perror("\nError: There are only 10 test functions in this test suite!\n");
       break;
     }
   }
@@ -1288,7 +1271,7 @@ void cec2021_shift_func(double *x, double *f, int nx, int mx, int func_num) {
 
   int cf_num = 10, i, j;
   if (func_num < 1 || func_num > 10) {
-    printf("\nError: Test function %d is not defined.\n", func_num);
+    perror("\nError: Test function is not defined.\n");
   }
   if (ini_flag == 1) {
     if ((n_flag != nx) || (func_flag != func_num)) {
@@ -1311,37 +1294,36 @@ void cec2021_shift_func(double *x, double *f, int nx, int mx, int func_num) {
       x_bound[i] = 100.0;
 
     if (!(nx == 2 || nx == 10 || nx == 20)) {
-      printf("\nError: Test functions are only defined for D=2,10,20.\n");
+      perror("\nError: Test functions are only defined for D=2,10,20.\n");
     }
     if (nx == 2 && (func_num == 5 || func_num == 6 || func_num == 7)) {
-      printf("\nError:  NOT defined for D=2.\n");
+      perror("\nError:  NOT defined for D=2.\n");
     }
 
     /* Load Matrix M*/
     sprintf(FileName, "%s/M_%d_D%d_nr.txt", extdata, func_num, nx);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open M_%d_D%d_nr.txt for reading \n", func_num,
-             nx);
+      perror("\n Error: Cannot open M_%d_D%d_nr.txt for reading \n");
     }
     if (func_num < 7) {
       M = (double *)malloc(nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       M = (double *)malloc(cf_num * nx * nx * sizeof(double));
       if (M == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
         if (fscanf(fpt, "%lf", &M[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -1351,41 +1333,40 @@ void cec2021_shift_func(double *x, double *f, int nx, int mx, int func_num) {
     sprintf(FileName, "%s/shift_data_%d.txt", extdata, func_num);
     fpt = fopen(FileName, "r");
     if (fpt == NULL) {
-      printf("\n Error: Cannot open shift_data_%d.txt for reading \n",
-             func_num);
+      perror("\n Error: Cannot open shift_data_d.txt for reading \n");
     }
 
     if (func_num < 7) {
       OShift = (double *)malloc(nx * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     } else {
       // OShift=(double *)malloc(nx*sizeof(double));
       OShift = (double *)malloc(nx * cf_num * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
           if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
 
-            printf("\nError\n");
+            perror("\nError\n");
           }
         }
         if (fscanf(fpt, "%*[^\n]%*c") != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       for (j = 0; j < nx; j++) {
         if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
     }
@@ -1397,16 +1378,15 @@ void cec2021_shift_func(double *x, double *f, int nx, int mx, int func_num) {
       sprintf(FileName, "%s/shuffle_data_%d_D%d.txt", extdata, func_num, nx);
       fpt = fopen(FileName, "r");
       if (fpt == NULL) {
-        printf("\n Error: Cannot open shuffle_data_%d_D%d.txt for reading \n",
-               func_num, nx);
+        perror("\n Error: Cannot open shuffle_data_d_Dd.txt for reading \n");
       }
       SS = (int *)malloc(nx * sizeof(int));
       if (SS == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         if (fscanf(fpt, "%d", &SS[i]) != 1) {
 
-          printf("\nError\n");
+          perror("\nError\n");
         }
       }
       fclose(fpt);
@@ -1415,7 +1395,7 @@ void cec2021_shift_func(double *x, double *f, int nx, int mx, int func_num) {
     n_flag = nx;
     func_flag = func_num;
     ini_flag = 1;
-    // printf("Function has been initialized!\n");
+    // perror("Function has been initialized!\n");
   }
 
   for (i = 0; i < mx; i++) {
@@ -1451,7 +1431,7 @@ void cec2021_shift_func(double *x, double *f, int nx, int mx, int func_num) {
       cec2021_cf05_s(&x[i * nx], &f[i], nx, OShift, M, 1);
       break;
     default:
-      printf("\nError: There are only 10 test functions in this test suite!\n");
+      perror("\nError: There are only 10 test functions in this test suite!\n");
       break;
     }
   }
