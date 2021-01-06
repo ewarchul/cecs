@@ -45,14 +45,18 @@ void cec2014_func(double *x, double *f, int nx, int mx, int func_num) {
       if (M == NULL)
         printf("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
-        fscanf(fpt, "%lf", &M[i]);
+        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+          printf("\nError\n");
+        }
       }
     } else {
       M = (double *)malloc(cf_num * nx * nx * sizeof(double));
       if (M == NULL)
         printf("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
-        fscanf(fpt, "%lf", &M[i]);
+        if (fscanf(fpt, "%lf", &M[i]) != 1) { 
+          printf("\nError\n");
+        }
       }
     }
     fclose(fpt);
@@ -70,7 +74,9 @@ void cec2014_func(double *x, double *f, int nx, int mx, int func_num) {
       if (OShift == NULL)
         printf("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        fscanf(fpt, "%lf", &OShift[i]);
+        if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
+          printf("\nError\n");
+        }
       }
     } else {
       OShift = (double *)malloc(nx * cf_num * sizeof(double));
@@ -78,12 +84,18 @@ void cec2014_func(double *x, double *f, int nx, int mx, int func_num) {
         printf("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
-          fscanf(fpt, "%lf", &OShift[i * nx + j]);
+          if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
+          printf("\nError\n");
+          }
         }
-        fscanf(fpt, "%*[^\n]%*c");
+        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
+          printf("\nError\n");
+        }
       }
       for (j = 0; j < nx; j++) {
-        fscanf(fpt, "%lf", &OShift[(cf_num - 1) * nx + j]);
+        if (fscanf(fpt, "%lf", &OShift[(cf_num - 1) * nx + j]) != 1) {
+          printf("\nError\n");
+        }
       }
     }
     fclose(fpt);
@@ -101,7 +113,9 @@ void cec2014_func(double *x, double *f, int nx, int mx, int func_num) {
       if (SS == NULL)
         printf("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        fscanf(fpt, "%d", &SS[i]);
+        if (fscanf(fpt, "%d", &SS[i]) != 1) {
+          printf("\nError\n");
+        }
       }
       fclose(fpt);
     } else if (func_num == 29 || func_num == 30) {
@@ -115,7 +129,9 @@ void cec2014_func(double *x, double *f, int nx, int mx, int func_num) {
       if (SS == NULL)
         printf("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * cf_num; i++) {
-        fscanf(fpt, "%d", &SS[i]);
+        if (fscanf(fpt, "%d", &SS[i]) != 1) {
+          printf("\nError\n");
+        }
       }
       fclose(fpt);
     }

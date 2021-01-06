@@ -50,7 +50,9 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 				printf("\nError: there is insufficient memory available!\n");
 			for (i=0; i<nx*nx; i++)
 			{
-				fscanf(fpt,"%lf",&M[i]);
+				if (fscanf(fpt,"%lf",&M[i]) != 1) {
+          printf("\nError\n");
+				}
 			}
 		}
 		else
@@ -60,7 +62,9 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 				printf("\nError: there is insufficient memory available!\n");
 			for (i=0; i<cf_num*nx*nx; i++)
 			{
-				fscanf(fpt,"%lf",&M[i]);
+				if (fscanf(fpt,"%lf",&M[i]) != 1) {
+          printf("\nError\n");
+				}
 			}
 		}
 		fclose(fpt);
@@ -80,7 +84,9 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 			printf("\nError: there is insufficient memory available!\n");
 			for(i=0;i<nx;i++)
 			{
-				fscanf(fpt,"%lf",&OShift[i]);
+				if (fscanf(fpt,"%lf",&OShift[i]) != 1) {
+          printf("\nError\n");
+				}
 			}
 		}
 		else
@@ -92,13 +98,19 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 			{
 				for (j=0;j<nx;j++)
 				{
-					fscanf(fpt,"%lf",&OShift[i*nx+j]);
+					if (fscanf(fpt,"%lf",&OShift[i*nx+j]) != 1) {
+          printf("\nError\n");
+					}
 				}
-				fscanf(fpt,"%*[^\n]%*c");
+				if (fscanf(fpt,"%*[^\n]%*c") !=1) {
+          printf("\nError\n");
+				}
 			}
 			for (j=0;j<nx;j++)
 			{
-				fscanf(fpt,"%lf",&OShift[(cf_num-1)*nx+j]);
+				if (fscanf(fpt,"%lf",&OShift[(cf_num-1)*nx+j]) != 1) {
+          printf("\nError\n");
+				}
 			}
 
 		}
@@ -120,7 +132,10 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 				printf("\nError: there is insufficient memory available!\n");
 			for(i=0;i<nx;i++)
 			{
-				fscanf(fpt,"%d",&SS[i]);
+				if (fscanf(fpt,"%d",&SS[i]) !=1) {
+
+          printf("\nError\n");
+				}
 			}
 			fclose(fpt);
 		}
@@ -137,7 +152,9 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 				printf("\nError: there is insufficient memory available!\n");
 			for(i=0;i<nx*cf_num;i++)
 			{
-				fscanf(fpt,"%d",&SS[i]);
+				if (fscanf(fpt,"%d",&SS[i]) != 1) {
+          printf("\nError\n");
+				}
 			}
 			fclose(fpt);
 		}

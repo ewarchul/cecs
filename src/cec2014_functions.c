@@ -111,7 +111,7 @@ void cec2014_ackley_func(double *x, double *f, int nx, double *Os, double *Mr,
 
   for (i = 0; i < nx; i++) {
     sum1 += z[i] * z[i];
-    sum2 += cos(2.0 * PI * z[i]);
+    sum2 += cos(2.0 * M_PI * z[i]);
   }
   sum1 = -0.2 * sqrt(sum1 / nx);
   sum2 /= nx;
@@ -136,8 +136,8 @@ void cec2014_weierstrass_func(double *x, double *f, int nx, double *Os,
     sum = 0.0;
     sum2 = 0.0;
     for (j = 0; j <= k_max; j++) {
-      sum += pow(a, j) * cos(2.0 * PI * pow(b, j) * (z[i] + 0.5));
-      sum2 += pow(a, j) * cos(2.0 * PI * pow(b, j) * 0.5);
+      sum += pow(a, j) * cos(2.0 * M_PI * pow(b, j) * (z[i] + 0.5));
+      sum2 += pow(a, j) * cos(2.0 * M_PI * pow(b, j) * 0.5);
     }
     f[0] += sum;
   }
@@ -173,7 +173,7 @@ void cec2014_rastrigin_func(double *x, double *f, int nx, double *Os,
                   r_flag); /* shift and rotate */
 
   for (i = 0; i < nx; i++) {
-    f[0] += (z[i] * z[i] - 10.0 * cos(2.0 * PI * z[i]) + 10.0);
+    f[0] += (z[i] * z[i] - 10.0 * cos(2.0 * M_PI * z[i]) + 10.0);
   }
 }
 
@@ -192,7 +192,7 @@ void cec2014_step_rastrigin_func(double *x, double *f, int nx, double *Os,
                   r_flag); /* shift and rotate */
 
   for (i = 0; i < nx; i++) {
-    f[0] += (z[i] * z[i] - 10.0 * cos(2.0 * PI * z[i]) + 10.0);
+    f[0] += (z[i] * z[i] - 10.0 * cos(2.0 * M_PI * z[i]) + 10.0);
   }
 }
 
@@ -296,7 +296,7 @@ void cec2014_bi_rastrigin_func(double *x, double *f, int nx, double *Os,
   if (r_flag == 1) {
     cec2014_rotatefunc(z, y, nx, Mr);
     for (i = 0; i < nx; i++) {
-      tmp += cos(2.0 * PI * y[i]);
+      tmp += cos(2.0 * M_PI * y[i]);
     }
     if (tmp1 < tmp2)
       f[0] = tmp1;
@@ -305,7 +305,7 @@ void cec2014_bi_rastrigin_func(double *x, double *f, int nx, double *Os,
     f[0] += 10.0 * (nx - tmp);
   } else {
     for (i = 0; i < nx; i++) {
-      tmp += cos(2.0 * PI * z[i]);
+      tmp += cos(2.0 * M_PI * z[i]);
     }
     if (tmp1 < tmp2)
       f[0] = tmp1;

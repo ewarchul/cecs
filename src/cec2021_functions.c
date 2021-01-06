@@ -67,7 +67,7 @@ void cec2021_ackley_func(double *x, double *f, int nx, double *Os, double *Mr,
 
   for (i = 0; i < nx; i++) {
     sum1 += z[i] * z[i];
-    sum2 += cos(2.0 * PI * z[i]);
+    sum2 += cos(2.0 * M_PI * z[i]);
   }
   sum1 = -0.2 * sqrt(sum1 / nx);
   sum2 /= nx;
@@ -102,7 +102,7 @@ void cec2021_rastrigin_func(double *x, double *f, int nx, double *Os, double *Mr
           r_flag); /* shift and rotate */
 
   for (i = 0; i < nx; i++) {
-    f[0] += (z[i] * z[i] - 10.0 * cos(2.0 * PI * z[i]) + 10.0);
+    f[0] += (z[i] * z[i] - 10.0 * cos(2.0 * M_PI * z[i]) + 10.0);
   }
 }
 
@@ -182,7 +182,7 @@ void cec2021_bi_rastrigin_func(double *x, double *f, int nx, double *Os, double 
   if (r_flag == 1) {
     cec2021_rotatefunc(z, y, nx, Mr);
     for (i = 0; i < nx; i++) {
-      tmp += cos(2.0 * PI * y[i]);
+      tmp += cos(2.0 * M_PI * y[i]);
     }
     if (tmp1 < tmp2)
       f[0] = tmp1;
@@ -191,7 +191,7 @@ void cec2021_bi_rastrigin_func(double *x, double *f, int nx, double *Os, double 
     f[0] += 10.0 * (nx - tmp);
   } else {
     for (i = 0; i < nx; i++) {
-      tmp += cos(2.0 * PI * z[i]);
+      tmp += cos(2.0 * M_PI * z[i]);
     }
     if (tmp1 < tmp2)
       f[0] = tmp1;
