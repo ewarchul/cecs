@@ -80,7 +80,7 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
           perror("\nError\n");
         }
       }
@@ -89,7 +89,7 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
           perror("\nError\n");
         }
       }
@@ -108,7 +108,7 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
       if (OShift == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[i])) {
           perror("\nError\n");
         }
       }
@@ -119,18 +119,17 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
-          if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
+          if (!fscanf(fpt, "%lf", &OShift[i * nx + j])) {
 
             perror("\nError\n");
           }
         }
-        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
-
-          perror("\nError\n");
-        }
+      //  if (fscanf(fpt, "%*[^\n]%*c") != 1) {
+        //  perror("\nError\n");
+     //   }
       }
       for (j = 0; j < nx; j++) {
-        if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j])) {
           perror("\nError\n");
         }
       }
@@ -149,7 +148,7 @@ void cec2021_basic_func(double *x, double *f, int nx, int mx, int func_num) {
       if (SS == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%d", &SS[i]) != 1) {
+        if (!fscanf(fpt, "%d", &SS[i])) {
           perror("\nError\n");
         }
       }
@@ -245,7 +244,7 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -255,7 +254,7 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
           perror("\nError\n");
         }
       }
@@ -274,7 +273,7 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       if (OShift == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[i])) {
 
           perror("\nError\n");
         }
@@ -286,18 +285,18 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
-          if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
+          if (!fscanf(fpt, "%lf", &OShift[i * nx + j])) {
 
             perror("\nError\n");
           }
         }
-        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
+       // if (fscanf(fpt, "%*[^\n]%*c") != 1) {
 
-          perror("\nError\n");
-        }
+         // perror("\nError\n");
+        //}
       }
       for (j = 0; j < nx; j++) {
-        if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j])) {
 
           perror("\nError\n");
         }
@@ -317,7 +316,7 @@ void cec2021_bias_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       if (SS == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%d", &SS[i]) != 1) {
+        if (!fscanf(fpt, "%d", &SS[i])) {
 
           perror("\nError\n");
         }
@@ -426,7 +425,7 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -436,7 +435,7 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -456,7 +455,7 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
       if (OShift == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[i])) {
 
           perror("\nError\n");
         }
@@ -468,18 +467,18 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
-          if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
+          if (!fscanf(fpt, "%lf", &OShift[i * nx + j])) {
 
             perror("\nError\n");
           }
         }
-        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
-
-          perror("\nError\n");
-        }
+//        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
+//
+//        perror("\nError\n");
+//        }
       }
       for (j = 0; j < nx; j++) {
-        if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j])) {
 
           perror("\nError\n");
         }
@@ -499,7 +498,7 @@ void cec2021_bias_shift_rot_func(double *x, double *f, int nx, int mx,
       if (SS == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%d", &SS[i]) != 1) {
+        if (!fscanf(fpt, "%d", &SS[i])) {
 
           perror("\nError\n");
         }
@@ -608,7 +607,7 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx,
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -618,7 +617,7 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx,
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -638,7 +637,7 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx,
       if (OShift == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[i])) {
 
           perror("\nError\n");
         }
@@ -650,18 +649,18 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx,
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
-          if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
+          if (!fscanf(fpt, "%lf", &OShift[i * nx + j])) {
 
             perror("\nError\n");
           }
         }
-        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
-
-          perror("\nError\n");
-        }
+//        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
+//
+//          perror("\nError\n");
+//        }
       }
       for (j = 0; j < nx; j++) {
-        if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j])) {
 
           perror("\nError\n");
         }
@@ -681,7 +680,7 @@ void cec2021_bias_shift_func(double *x, double *f, int nx, int mx,
       if (SS == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%d", &SS[i]) != 1) {
+        if (!fscanf(fpt, "%d", &SS[i])) {
           perror("\nError\n");
         }
       }
@@ -790,7 +789,7 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -800,7 +799,7 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -820,7 +819,7 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
       if (OShift == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[i])) {
 
           perror("\nError\n");
         }
@@ -832,18 +831,18 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
-          if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
+          if (!fscanf(fpt, "%lf", &OShift[i * nx + j])) {
 
             perror("\nError\n");
           }
         }
-        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
-
-          perror("\nError\n");
-        }
+//        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
+//
+//          perror("\nError\n");
+//       }
       }
       for (j = 0; j < nx; j++) {
-        if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j])) {
 
           perror("\nError\n");
         }
@@ -863,7 +862,7 @@ void cec2021_bias_func(double *x, double *f, int nx, int mx, int func_num) {
       if (SS == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%d", &SS[i]) != 1) {
+        if (!fscanf(fpt, "%d", &SS[i])) {
 
           perror("\nError\n");
         }
@@ -971,7 +970,7 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -981,7 +980,7 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -1001,7 +1000,7 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       if (OShift == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[i])) {
 
           perror("\nError\n");
         }
@@ -1013,18 +1012,18 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
-          if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
+          if (!fscanf(fpt, "%lf", &OShift[i * nx + j])) {
 
             perror("\nError\n");
           }
         }
-        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
-
-          perror("\nError\n");
-        }
+//        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
+//
+//          perror("\nError\n");
+//        }
       }
       for (j = 0; j < nx; j++) {
-        if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j])) {
 
           perror("\nError\n");
         }
@@ -1044,7 +1043,7 @@ void cec2021_rot_func(double *x, double *f, int nx, int mx, int func_num) {
       if (SS == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%d", &SS[i]) != 1) {
+        if (!fscanf(fpt, "%d", &SS[i])) {
 
           perror("\nError\n");
         }
@@ -1141,7 +1140,7 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx,
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -1151,7 +1150,7 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx,
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -1171,7 +1170,7 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx,
       if (OShift == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[i])) {
 
           perror("\nError\n");
         }
@@ -1183,18 +1182,18 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx,
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
-          if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
+          if (!fscanf(fpt, "%lf", &OShift[i * nx + j])) {
 
             perror("\nError\n");
           }
         }
-        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
-
-          perror("\nError\n");
-        }
+//        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
+//
+//          perror("\nError\n");
+//        }
       }
       for (j = 0; j < nx; j++) {
-        if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j])) {
 
           perror("\nError\n");
         }
@@ -1214,7 +1213,7 @@ void cec2021_shift_rot_func(double *x, double *f, int nx, int mx,
       if (SS == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%d", &SS[i]) != 1) {
+        if (!fscanf(fpt, "%d", &SS[i])) {
 
           perror("\nError\n");
         }
@@ -1311,7 +1310,7 @@ void cec2021_shift_func(double *x, double *f, int nx, int mx, int func_num) {
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -1321,7 +1320,7 @@ void cec2021_shift_func(double *x, double *f, int nx, int mx, int func_num) {
       if (M == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num * nx * nx; i++) {
-        if (fscanf(fpt, "%lf", &M[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &M[i])) {
 
           perror("\nError\n");
         }
@@ -1341,7 +1340,7 @@ void cec2021_shift_func(double *x, double *f, int nx, int mx, int func_num) {
       if (OShift == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%lf", &OShift[i]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[i])) {
 
           perror("\nError\n");
         }
@@ -1353,18 +1352,18 @@ void cec2021_shift_func(double *x, double *f, int nx, int mx, int func_num) {
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
-          if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
+          if (!fscanf(fpt, "%lf", &OShift[i * nx + j])) {
 
             perror("\nError\n");
           }
         }
-        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
-
-          perror("\nError\n");
-        }
+//        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
+//
+//         perror("\nError\n");
+//        }
       }
       for (j = 0; j < nx; j++) {
-        if (fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j]) != 1) {
+        if (!fscanf(fpt, "%lf", &OShift[nx * (cf_num - 1) + j])) {
 
           perror("\nError\n");
         }
@@ -1384,7 +1383,7 @@ void cec2021_shift_func(double *x, double *f, int nx, int mx, int func_num) {
       if (SS == NULL)
         perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
-        if (fscanf(fpt, "%d", &SS[i]) != 1) {
+        if (!fscanf(fpt, "%d", &SS[i])) {
 
           perror("\nError\n");
         }

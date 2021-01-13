@@ -85,16 +85,16 @@ void cec2014_func(double *x, double *f, int nx, int mx, int func_num) {
       for (i = 0; i < cf_num - 1; i++) {
         for (j = 0; j < nx; j++) {
           if (fscanf(fpt, "%lf", &OShift[i * nx + j]) != 1) {
-          perror("\nError\n");
+          perror("\nError XD\n");
           }
         }
-        if (fscanf(fpt, "%*[^\n]%*c") != 1) {
-          perror("\nError\n");
-        }
+       // if (fscanf(fpt, "%*[^\n]%*c") != 1) {
+       //   perror("\nError\n");
+       // }
       }
       for (j = 0; j < nx; j++) {
         if (fscanf(fpt, "%lf", &OShift[(cf_num - 1) * nx + j]) != 1) {
-          perror("\nError\n");
+          perror("\nError \n");
         }
       }
     }

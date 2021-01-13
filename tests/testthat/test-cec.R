@@ -48,3 +48,14 @@ test_that("all benchmark functions from CEC-2021 can be executed", {
     expect_type(cec2021(func, rnorm(dim), suit), "double")
   })
 })
+
+test_that("package correctly extracts data archive and remove it", {
+  path_to_archive <- system.file("extdata/cec2013.zip", package = "cecs")
+  path_to_datadir <- stringr::str_sub(path_to_archive, end = -5)
+
+  unzip_data(path_to_archive, "cec2013")
+  expect_true(dir.exists(path_to_datadir))
+  clean()
+  expect_false(dir.exists(path_to_datadir))
+})
+

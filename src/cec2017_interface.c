@@ -62,8 +62,8 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 				perror("\nError: there is insufficient memory available!\n");
 			for (i=0; i<cf_num*nx*nx; i++)
 			{
-				if (fscanf(fpt,"%lf",&M[i]) != 1) {
-          perror("\nError\n");
+				if (!fscanf(fpt,"%lf",&M[i])) {
+          perror("\nXDError\n");
 				}
 			}
 		}
@@ -98,17 +98,17 @@ void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 			{
 				for (j=0;j<nx;j++)
 				{
-					if (fscanf(fpt,"%lf",&OShift[i*nx+j]) != 1) {
+					if (!fscanf(fpt,"%lf",&OShift[i*nx+j])) {
           perror("\nError\n");
 					}
 				}
-				if (fscanf(fpt,"%*[^\n]%*c") !=1) {
-          perror("\nError\n");
-				}
+				//if (fscanf(fpt,"%*[^\n]%*c") !=1) {
+         // perror("\nError\n");
+				//}
 			}
 			for (j=0;j<nx;j++)
 			{
-				if (fscanf(fpt,"%lf",&OShift[(cf_num-1)*nx+j]) != 1) {
+				if (!fscanf(fpt,"%lf",&OShift[(cf_num-1)*nx+j])) {
           perror("\nError\n");
 				}
 			}

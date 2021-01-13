@@ -9,8 +9,8 @@ Authors@R: c(
   )
 Description: Goal of this package is to provide access to benchmark functions defined for
     the Special Session and Competition on Real-Parameter Single Objective Optimization in one place.
-    The package contains functions from following years: 2013, 2014, 2017, 2021. 
-    Implementations of CEC-2013 (Gonzalez-Fernandez & Zambrano-Bigiarini) and CEC2017 (Jagodziński) are taken from existed R packages. Also, 
+    The package contains functions from following years: 2013, 2014, 2017, 2021 (https://github.com/P-N-Suganthan). 
+    Implementations of CEC-2013 (Y. Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński) are taken from existed R packages. Also, 
     the original C source code has been cleaned and reorganized for better readability.
 License: GPL (>= 3)
 BugReports: https://github.com/ewarchul/cecs/issues
