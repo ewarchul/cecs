@@ -32,7 +32,7 @@ test_that("all benchmark functions from CEC-2021 can be executed", {
   problem_dim_grid <- expand.grid(
     func = 1:10,
     dim = c(10, 20),
-    suit = 
+    suite =
     c(
       "basic",
       "shift",
@@ -44,8 +44,8 @@ test_that("all benchmark functions from CEC-2021 can be executed", {
       "bias_shift_rot"
     )
   )
-  purrr::pmap(problem_dim_grid, function(func, dim, suit) {
-    expect_type(cec2021(func, rnorm(dim), suit), "double")
+  purrr::pmap(problem_dim_grid, function(func, dim, suite) {
+    expect_type(cec2021(func, rnorm(dim), suite), "double")
   })
 })
 

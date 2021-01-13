@@ -2,9 +2,10 @@
 
 This is a resubmission. In this verion I have:
 
-* compressed data in inst/extdata/ directory. I am not able to make further reduction of the package size
-* provide functions to work with compressed data
-* add reference to specifications of benchmark methods in the DESCRIPTION.
+* move data files from inst/extdata directory to the external source (http://home.elka.pw.edu.pl/~ewarchul/)
+* provide functions to download and extract data 
+* provide function to delete extracted archive data in inst/extdata directory 
+* add reference to specifications of benchmark in the DESCRIPTION.
 
 ## Test environments
 * local R installation, R 3.6.3

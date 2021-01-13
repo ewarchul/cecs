@@ -33,7 +33,10 @@ All benchmark functions were implemented in `C` by Jane Jing Liang [https://orci
 
 I rearranged the codebase, i.e. separated interface from source, for better readability but any major changes were not done.
 
-Benchmarks specifactions are included in `inst/` directory as a PDF files.
+Benchmarks specifactions and necessary numeric data are available here: [http://home.elka.pw.edu.pl/~ewarchul/](http://home.elka.pw.edu.pl/~ewarchul/).
+
+
+The package downloads numeric data from given website. For futher details, see source code documentation in `man/` directory.
 
 ### CEC 2021 
 

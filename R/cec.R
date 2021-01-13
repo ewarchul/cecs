@@ -12,7 +12,7 @@
 #' @return value of objective function for given input
 #' @export
 
-cec2021 <- function(func_index, x, suite) {
+cec2021 <- function(func_index, x, suite) { 
   cec(
     func_index,
     x,
@@ -113,6 +113,23 @@ cec2013 <- function(func_index, x) {
 #' @useDynLib cecs
 
 cec <- function(func_index, x, cec, max_func_index, dims, suite = NULL) {
+  suits = c(
+    "basic",
+    "shift",
+    "rot",
+    "bias",
+    "shift_rot",
+    "bias_rot",
+    "bias_shift",
+    "bias_shift_rot"
+  )
+  if (!is.null(suite) && !(suite %in% suits)) {
+      base::stop(
+        stringr::str_interp(
+          "Invalid suite name. Available suits: ${suits}"
+        )
+      )
+    }
   if (base::missing(func_index))
     base::stop("Missing argument; 'func_index' has to be provided !")
 
@@ -140,13 +157,8 @@ cec <- function(func_index, x, cec, max_func_index, dims, suite = NULL) {
         )
       )
     }
-    datapath <- base::paste0("extdata/", cec)
-    extarchive <- system.file(
-      base::paste0(datapath, ".zip"),
-      package = "cecs"
-    )
-    unzip_data(extarchive, cec)
-    extdatadir <- system.file(datapath, package = "cecs")
+    extarchive <- download_data(cec)
+    extdatadir <- unzip_data(extarchive, cec)
     f <- base::.C(
       "cecs",
       extdatadir = as.character(extdatadir),
@@ -168,49 +180,4 @@ cec <- function(func_index, x, cec, max_func_index, dims, suite = NULL) {
     )
   }
   return(f)
-}
-
-#' Extract compressed data
-#'
-#' @description
-#' Function extracts CEC's data from ZIP archive.
-#' If data is already extracted function does nothing.
-#'
-#' @param datapath path to CEC's data
-#' @param cec name of benchmark
-
-unzip_data <- function(datapath, cec) {
-  if (!base::dir.exists(stringr::str_sub(datapath, end = -5))) {
-    utils::unzip(
-      datapath,
-      exdir = system.file("extdata/", package = "cecs")
-    )
-  }
-}
-
-#' Remove TXT data
-#'
-#' @description
-#' Function deletes decompressed directory with
-#' CEC's data. Some text files are quite large (even 10MB)
-#' and if one won't use specific CEC version in
-#' the near future this function allows to free the disk space.
-#' @export
-
-clean <- function() {
-  cecs <- c(
-    "cec2013",
-    "cec2014",
-    "cec2017",
-    "cec2021"
-  )
-  purrr::walk(cecs, function(cec) {
-    datadir <- system.file(
-      paste0("extdata/", cec),
-      package = "cecs"
-    )
-    if (dir.exists(datadir)) {
-      base::unlink(datadir, recursive = TRUE)
-    }
-  })
 }
