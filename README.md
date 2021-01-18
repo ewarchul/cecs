@@ -4,12 +4,25 @@
 
 Common R interface for CEC benchmarks.
 
+<!--ts-->
+   * [Descritpion](#description)
+   * [Requirements](#requirements)
+   * [Installation](#installation)
+      * [Linux and Windows](#linux-and-windows)
+      * [macOS](#macos)
+   * [Content](#content)
+     * [CEC 2021](#cec-2021)
+     * [CEC 2017](#cec-2017)
+     * [CEC 2014](#cec-2014)
+     * [CEC 2013](#cec-2013)
+<!--te-->
+
 ## Description
 
 This repository contains **R** package with an interface for benchmark functions from Congress on Evolutionary Computations competitions. 
 The implementation is based on the existing CRAN package, i.e `{cec2013}`, but is extended with CEC2014 and CEC2021. The interface for CEC2017 is taken from the non-CRAN package `{cec2017}`. More information about authorship is written below. 
 
-### Requirements
+## Requirements
 
 * **R** in version 3.6.3
 
@@ -21,9 +34,9 @@ Package was written and tested on machine with Ubuntu 20.04.1 LTS focal OS and x
 
 ## Installation
 
-### `Linux` & `Windows`
+### Linux and Windows
 
-#### __CRAN__
+#### CRAN
 
 Type bellow command in R interpreter:
 
@@ -31,7 +44,7 @@ Type bellow command in R interpreter:
 install.packages("cecs")
 ```
 
-#### __GitHub__
+#### GitHub
 
 Type bellow command in R interpreter:
 
@@ -40,9 +53,9 @@ library(devtools)
 devtools::install_github("ewarchul/cecs")
 ```
 
-### `macOS`
+### macOS
 
-#### __CRAN__ :no_entry:
+#### CRAN :no_entry:
 
 Due to `malloc.h` usage, which is not included in macOS, installation from CRAN is not possible. 
 
@@ -50,7 +63,7 @@ Due to `malloc.h` usage, which is not included in macOS, installation from CRAN 
 
 For now please install package with `{devtool}`. The instruction how to do it is written in next paragraph.
 
-#### __GitHub__
+#### GitHub
 
 Type bellow command in R interpreter:
 
