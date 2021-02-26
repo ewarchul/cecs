@@ -1,12 +1,11 @@
 #ifndef CEC2021_FUNCTIONS_H_
 #define CEC2021_FUNCTIONS_H_
 
-#include <malloc.h>
 #include <math.h>
 #include <stdio.h>
 
-#include "consts.h"
-#include "globals.h"
+#include "../consts.h"
+#include "../globals.h"
 
 
 void cec2021_ellips_func(double *, double *, int, double *, double *, int,

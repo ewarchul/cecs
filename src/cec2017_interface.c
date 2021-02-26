@@ -1,5 +1,4 @@
-#include "cec2017_interface.h"
-#include <string.h>
+#include "cec2017/cec2017_interface.h"
 
 void cec2017_func(double *x, double *f, int nx, int mx,int func_num)
 {

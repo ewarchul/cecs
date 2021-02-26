@@ -5,8 +5,7 @@ Copyright 2013 Yasser Gonzalez-Fernandez & Mauricio Zambrano-Bigiarini
 Distributed under GPL 3 or later
 */
 
-#include "cec2013.h"
-
+#include "cec2013/cec2013.h"
 
 void cec2013(char **extdatadir, int *i, double *X, int *row, int *col,
              double *f) {

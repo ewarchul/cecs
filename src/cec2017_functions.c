@@ -3,7 +3,7 @@
   Optimization
 */
 
-#include "cec2017_functions.h"
+#include "cec2017/cec2017_functions.h"
 
 void cec2017_sphere_func(double *x, double *f, int nx, double *Os, double *Mr,
                          int s_flag, int r_flag) /* Sphere */

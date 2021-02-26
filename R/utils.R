@@ -61,14 +61,14 @@ clean <- function() {
 #' @param cec name of benchmark
 
 download_data <- function(cec) {
-  url <- stringr::str_interp("http://home.elka.pw.edu.pl/~ewarchul/${cec}.zip")
+  url <- paste0("http://home.elka.pw.edu.pl/~ewarchul/", cec, ".zip")
   path <- system.file(
-    stringr::str_interp("extdata/${cec}.zip"),
+    paste0("extdata/", cec, ".zip"),
     package = "cecs"
   )
   if (!stringr::str_length(path)) {
-    destfile <- stringr::str_interp(
-      '${system.file("extdata/", package = "cecs")}/${cec}.zip'
+    destfile <- stringr::str_glue(
+      '{system.file("extdata/", package = "cecs")}/{cec}.zip'
     )
     utils::download.file(url, destfile = destfile)
     return(destfile)

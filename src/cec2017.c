@@ -1,14 +1,11 @@
 /*
   CEC17 Test Function Suite for Single Objective Optimization
   Copyright 2017 Dariusz Jagodziński <d.jagodzinski@elka.pw.edu.pl>
-
   Based on:
   http://web.mysites.ntu.edu.sg/epnsugan/PublicSite/Shared%20Documents/CEC-2017/Bound-Constrained/code.rar
 */
 
-#include "cec2017.h"
-
-
+#include "cec2017/cec2017.h"
 
 void cec2017(char **extdatadir, int *i, double *X, int *row, int *col,
              double *f) {

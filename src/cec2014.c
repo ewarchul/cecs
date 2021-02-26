@@ -5,9 +5,7 @@
   Based on: https://github.com/P-N-Suganthan/CEC2014
 */
 
-#include "cec2014.h"
-
-
+#include "cec2014/cec2014.h"
 
 void cec2014(char **extdatadir, int *i, double *X, int *row, int *col,
              double *f) {

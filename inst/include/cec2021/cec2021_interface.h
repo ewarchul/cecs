@@ -7,7 +7,7 @@
 #include <string.h>
 
 #include "cec2021_functions.h"
-#include "globals.h"
+#include "../globals.h"
 
 void cec2021_func(double *, double *, int, int, int, char **);
 void cec2021_basic_func(double *, double *, int, int, int);
