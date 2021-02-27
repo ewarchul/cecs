@@ -36,7 +36,7 @@ Package was written and tested on machine with Ubuntu 20.04.1 LTS focal OS and x
 
 ### Linux and Windows
 
-#### CRAN
+#### CRAN (temporary archived)
 
 Type bellow command in R interpreter:
 
@@ -55,13 +55,11 @@ devtools::install_github("ewarchul/cecs")
 
 ### macOS
 
-#### CRAN :no_entry:
+#### CRAN (temporary archived)
 
-Due to `malloc.h` usage, which is not included in macOS, installation from CRAN is not possible. 
-
-**Bug will be fixed before 2021-02-01**.
-
-For now please install package with `{devtool}`. The instruction how to do it is written in next paragraph.
+```r
+install.packages("cecs")
+```
 
 #### GitHub
 
