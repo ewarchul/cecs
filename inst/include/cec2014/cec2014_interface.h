@@ -7,7 +7,7 @@
 #include <string.h>
 
 #include "cec2014_functions.h"
-#include "globals.h"
+#include "../globals.h"
 
 void cec2014_func(double *, double *, int, int, int);
 

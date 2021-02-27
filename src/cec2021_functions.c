@@ -3,7 +3,7 @@
   Optimization
 */
 
-#include "cec2021_functions.h"
+#include "cec2021/cec2021_functions.h"
 
 void cec2021_ellips_func(double *x, double *f, int nx, double *Os, double *Mr,
                  int s_flag, int r_flag) /* Ellipsoidal */

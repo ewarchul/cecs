@@ -1,13 +1,12 @@
 #ifndef CEC2014_FUNCTIONS_H_
 #define CEC2014_FUNCTIONS_H_
 
-#include "consts.h"
-#include <malloc.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "../consts.h"
+#include "../globals.h"
 
-#include "globals.h"
 void cec2014_sphere_func(double *, double *, int, double *, double *, int,
                          int); /* Sphere */
 void cec2014_ellips_func(double *, double *, int, double *, double *, int,

@@ -5,10 +5,10 @@
   Based on: https://github.com/P-N-Suganthan/2021-SO-BCO
 */
 
-#include "cec2021.h"
+#include "cec2021/cec2021.h"
 
-void cec2021(char **extdatadir, int *i, double *X, int *row, int *col,
-             double *f, char **suite) {
+void cec2021(char **extdatadir, char **suite, int *i, double *X, int *row,
+             int *col, double *f) {
   int r, c;
   double *x;
 
@@ -17,13 +17,12 @@ void cec2021(char **extdatadir, int *i, double *X, int *row, int *col,
   x = (double *)malloc(*col * sizeof(double));
 
   for (r = 0; r < *row; r++) {
-     R_CheckUserInterrupt();
+    R_CheckUserInterrupt();
 
     for (c = 0; c < *col; c++) {
       x[c] = X[r + *row * c];
     }
     cec2021_func(x, &f[r], *col, 1, *i, suite);
   }
-
   free(x);
 }

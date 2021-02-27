@@ -1,4 +1,4 @@
-#include "cec2014_interface.h"
+#include "cec2014/cec2014_interface.h"
 #include <string.h>
 
 void cec2014_func(double *x, double *f, int nx, int mx, int func_num) {

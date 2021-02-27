@@ -1,12 +1,11 @@
 #ifndef CEC2017_FUNCTIONS_H_
 #define CEC2017_FUNCTIONS_H_
 
-#include "consts.h"
-#include <malloc.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "globals.h"
+#include "../globals.h"
+#include "../consts.h"
 
 void cec2017_sphere_func(double *, double *, int, double *, double *, int,
                          int); /* Sphere */

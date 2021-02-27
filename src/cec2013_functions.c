@@ -1,9 +1,4 @@
-/*
-  CEC13 Test Function Suite for Single Objective Bound Constrained Numerical
-  Optimization
-*/
-
-#include "cec2013_functions.h"
+#include "cec2013/cec2013_functions.h"
 
 void cec2013_sphere_func(double *x, double *f, int nx, double *Os, double *Mr,
                          int r_flag) /* Sphere */

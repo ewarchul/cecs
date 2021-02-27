@@ -1,5 +1,5 @@
-#include "cec2013_interface.h"
-#include <string.h>
+#include "cec2013/cec2013_interface.h"
+
 
 void cec2013_func(double *x, double *f, int nx, int mx,int func_num)
 {
@@ -192,6 +192,6 @@ void cec2013_func(double *x, double *f, int nx, int mx,int func_num)
 		}
 		
 	}
-
-
 }
+
+

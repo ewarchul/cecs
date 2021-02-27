@@ -1,14 +1,8 @@
-#ifndef CEC2013_FUNCTIONS_H_
-#define CEC2013_FUNCTIONS_H_
-
-#include "consts.h"
-#include <malloc.h>
 #include <math.h>
-#include <stdio.h>
 #include <stdlib.h>
 
-#include "globals.h"
-
+#include "../consts.h"
+#include "../globals.h"
 
 void cec2013_sphere_func(double *, double *, int, double *, double *,
                          int); /* Sphere */
@@ -68,4 +62,3 @@ void cec2013_oszfunc(double *, double *, int);
 void cec2013_cf_cal(double *, double *, int, double *, double *, double *,
                     double *, int);
 
-#endif // CEC2013_FUNCTIONS_H_
