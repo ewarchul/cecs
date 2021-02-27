@@ -7,6 +7,6 @@
 
 #include "cec2021_interface.h"
 
-void cec2021(char **, int *, double *, int *, int *, double *, char **);
+void cec2021(char **, char **, int *, double *, int *, int *, double *);
 
 #endif // CEC2021_H_

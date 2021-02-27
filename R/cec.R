@@ -7,20 +7,78 @@
 #'
 #' @param func_index numeric index of optimisation problem from set 1:10
 #' @param x vector of numeric inputs for objective function
-#' @param suite one of the suite in CEC2021 benchmark 
+#' @param suite one of the suite in CEC2021 benchmark
 #' (basic, shift, rot, bias, shift_rot, bias_rot, bias_shift, bias_shift_rot)
 #' @return value of objective function for given input
 #' @export
+#' @useDynLib cecs
 
-cec2021 <- function(func_index, x, suite) { 
-  cec(
-    func_index,
-    x,
-    cec = "cec2021",
-    max_func_index = 10,
-    dims = c(10, 20),
-    suite = suite
-  )
+cec2021 <- function(func_index, x, suite) {
+  if (missing(func_index)) {
+    stop("Missing argument; 'func_index' has to be provided !")
+  }
+
+  if (missing(x)) {
+    stop("Missing argument; 'x' has to be provided !")
+  }
+  if (is.numeric(func_index) && func_index >= 1 && func_index <= 10) {
+    if (is.vector(x)) {
+      row <- 1
+      col <- length(x)
+    } else if (is.matrix(x)) {
+      row <- nrow(x)
+      col <- ncol(x)
+    } else {
+      stop("x should be a vector or a matrix")
+    }
+    if (!(col %in% c(10, 20))) {
+      stop(
+        stringr::str_glue(
+          "Invalid argument: Only 10, 20 dimensions/variables are allowed!"
+        )
+      )
+    }
+    if (!(suite %in% c(
+      "basic",
+      "shift",
+      "rot",
+      "bias",
+      "shift_rot",
+      "bias_rot",
+      "bias_shift",
+      "bias_shift_rot"
+    ))) {
+      stop(
+        stringr::str_glue(
+          "Invalid argument: Only 10, 20 dimensions/variables are allowed!"
+        )
+      )
+    }
+    extdatadir <- system.file("extdata/cec2021/", package = "cecs")
+    if (extdatadir == "") {
+      extdatadir <-
+        unzip_data(download_data("cec2021"))
+    }
+    return(.C(
+      "cecs",
+      extdatadir = as.character(extdatadir),
+      suite = as.character(suite),
+      cec = as.integer(21),
+      i = as.integer(func_index),
+      x = as.double(x),
+      row = as.integer(row),
+      col = as.integer(col),
+      f = double(row),
+      PACKAGE = "cecs"
+    )$f)
+  } else {
+    stop(
+      stringr::str_glue(
+        "Invalid argument: function index should be an integer between\\
+        1 and 10!"
+      )
+    )
+  }
 }
 
 ##' CEC2017 interface
@@ -35,40 +93,59 @@ cec2021 <- function(func_index, x, suite) {
 #' @return value of objective function for given input
 #' @source http://staff.elka.pw.edu.pl/~djagodzi/programy.html
 #' @export
+#' @useDynLib cecs
 
-cec2017 <- function(i, x) {
-  if (missing(i)) stop("Missing argument; 'i' has to be provided !")
+cec2017 <- function(func_index, x) {
+  if (missing(func_index)) {
+    stop("Missing argument; 'func_index' has to be provided !")
+  }
 
-  if (missing(x)) stop("Missing argument; 'x' has to be provided !")
-
-  if (is.numeric(i) && i >= 1 && i <= 30) {
+  if (missing(x)) {
+    stop("Missing argument; 'x' has to be provided !")
+  }
+  if (is.numeric(func_index) && func_index >= 1 && func_index <= 30) {
     if (is.vector(x)) {
-        row <- 1; col <- length(x)
+      row <- 1
+      col <- length(x)
     } else if (is.matrix(x)) {
-         row <- nrow(x); col <- ncol(x)
-      } else {
-          stop("x should be a vector or a matrix")
-        } # ELSE end
-
-        if (!(col %in% c(10, 30, 50, 100))) {
-            stop("Invalid argument: Only 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90 and 100 dimensions/variables are allowed !")
-        }
-        extdatadir <- system.file("extdata/cec2017/", package = "cecs")
-        f <- .C(
-          "cecs",
-          extdatadir = as.character(extdatadir),
-          cec = as.integer(17),
-          i = as.integer(i),
-          x = as.double(x),
-          row = as.integer(row),
-          col = as.integer(col),
-          f = double(row),
-          PACKAGE = "cecs"
-        )$f
-  } else stop("Invalid argument: 'i' should be an integer between 1 and 28 !")
-  
-  return(f)
-
+      row <- nrow(x)
+      col <- ncol(x)
+    } else {
+      stop("x should be a vector or a matrix")
+    }
+    if (!(col %in% c(10, 30, 50, 100))) {
+      stop(
+        stringr::str_glue(
+          "Invalid argument: Only 10, 30, 50, 100\\
+          dimensions/variables are allowed !"
+        )
+      )
+    }
+    extdatadir <- system.file("extdata/cec2017/", package = "cecs")
+    if (extdatadir == "") {
+      extdatadir <-
+        unzip_data(download_data("cec2017"))
+    }
+    return(.C(
+      "cecs",
+      extdatadir = as.character(extdatadir),
+      suite = as.character(""),
+      cec = as.integer(17),
+      i = as.integer(func_index),
+      x = as.double(x),
+      row = as.integer(row),
+      col = as.integer(col),
+      f = double(row),
+      PACKAGE = "cecs"
+    )$f)
+  } else {
+    stop(
+      stringr::str_glue(
+        "Invalid argument: function index should be an integer between\\
+        1 and 30!"
+      )
+    )
+  }
 }
 
 ##' CEC2014 interface
@@ -82,40 +159,59 @@ cec2017 <- function(i, x) {
 #' @param x vector of numeric inputs for objective function
 #' @return value of objective function for given input
 #' @export
+#' @useDynLib cecs
 
-cec2014 <- function(i, x) {
-  if (missing(i)) stop("Missing argument; 'i' has to be provided !")
+cec2014 <- function(func_index, x) {
+  if (missing(func_index)) {
+    stop("Missing argument; 'func_index' has to be provided !")
+  }
 
-  if (missing(x)) stop("Missing argument; 'x' has to be provided !")
-
-  if (is.numeric(i) && i >= 1 && i <= 28) {
+  if (missing(x)) {
+    stop("Missing argument; 'x' has to be provided !")
+  }
+  if (is.numeric(func_index) && func_index >= 1 && func_index <= 30) {
     if (is.vector(x)) {
-        row <- 1; col <- length(x)
+      row <- 1
+      col <- length(x)
     } else if (is.matrix(x)) {
-         row <- nrow(x); col <- ncol(x)
-      } else {
-          stop("x should be a vector or a matrix")
-        } # ELSE end
-
-        if (!(col %in% c(10, 30, 50, 100))) {
-            stop("Invalid argument: Only 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90 and 100 dimensions/variables are allowed !")
-        }
-        extdatadir <- system.file("extdata/cec2014/", package = "cecs")
-        f <- .C(
-          "cecs",
-          extdatadir = as.character(extdatadir),
-          cec = as.integer(14),
-          i = as.integer(i),
-          x = as.double(x),
-          row = as.integer(row),
-          col = as.integer(col),
-          f = double(row),
-          PACKAGE = "cecs"
-        )$f
-  } else stop("Invalid argument: 'i' should be an integer between 1 and 28 !")
-  
-  return(f)
-
+      row <- nrow(x)
+      col <- ncol(x)
+    } else {
+      stop("x should be a vector or a matrix")
+    }
+    if (!(col %in% c(10, 20, 30, 50, 100))) {
+      stop(
+        stringr::str_glue(
+          "Invalid argument: Only 10, 20, 30, 50, 100\\
+          dimensions/variables are allowed !"
+        )
+      )
+    }
+    extdatadir <- system.file("extdata/cec2014/", package = "cecs")
+    if (extdatadir == "") {
+      extdatadir <-
+        unzip_data(download_data("cec2014"))
+    }
+    return(.C(
+      "cecs",
+      extdatadir = as.character(extdatadir),
+      suite = as.character(""),
+      cec = as.integer(14),
+      i = as.integer(func_index),
+      x = as.double(x),
+      row = as.integer(row),
+      col = as.integer(col),
+      f = double(row),
+      PACKAGE = "cecs"
+    )$f)
+  } else {
+    stop(
+      stringr::str_glue(
+        "Invalid argument: function index should be an integer between\\
+        1 and 30!"
+      )
+    )
+  }
 }
 
 #' CEC2013 interface
@@ -131,169 +227,57 @@ cec2014 <- function(i, x) {
 #' @return value of objective function for given input
 #' @source https://github.com/hzambran/cec2013
 #' @export
-
-cec2013 <- function (i, x) {
-
-  if (missing(i)) stop("Missing argument; 'i' has to be provided !")
-
-  if (missing(x)) stop("Missing argument; 'x' has to be provided !")
-
-  if (is.numeric(i) && i >= 1 && i <= 28) {
-    if (is.vector(x)) {
-        row <- 1; col <- length(x)
-    } else if (is.matrix(x)) {
-         row <- nrow(x); col <- ncol(x)
-      } else {
-          stop("x should be a vector or a matrix")
-        } # ELSE end
-
-        if (!(col %in% c(2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100))) {
-            stop("Invalid argument: Only 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90 and 100 dimensions/variables are allowed !")
-        }
-        extdatadir <- system.file("extdata/cec2013/", package = "cecs")
-        f <- .C(
-          "cecs",
-          extdatadir = as.character(extdatadir),
-          cec = as.integer(13),
-          i = as.integer(i),
-          x = as.double(x),
-          row = as.integer(row),
-          col = as.integer(col),
-          f = double(row),
-          PACKAGE = "cecs"
-        )$f
-  } else stop("Invalid argument: 'i' should be an integer between 1 and 28 !")
-  
-  return(f)
-}
-
-#cec2013 <- function(i, x) {
-  #if (missing(i)) stop("Missing argument; 'i' has to be provided !")
-
-  #if (missing(x)) stop("Missing argument; 'x' has to be provided !")
-
-  #if (is.numeric(i) && i >= 1 && i <= 28) {
-    #if (is.vector(x)) {
-        #row <- 1; col <- length(x)
-    #} else if (is.matrix(x)) {
-         #row <- nrow(x); col <- ncol(x)
-      #} else {
-          #stop("x should be a vector or a matrix")
-        #} # ELSE end
-
-        #if (!(col %in% c(2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100))) {
-            #stop("Invalid argument: Only 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90 and 100 dimensions/variables are allowed !")
-        #}
-        ##extdatadir <- system.file("extdata", package = "cec2013")
-      #extdatadir <- system.file(
-        #"extdata/cec2013",
-        #package = "cecs"
-      #)
-      #f <- .C(
-        #"cec2013",
-        #extdatadir = as.character(extdatadir),
-        #i = base::as.integer(i),
-        #x = base::as.double(x),
-        #row = base::as.integer(row),
-        #col = base::as.integer(col),
-        #f = double(row),
-       ## suite = base::as.character(suite),
-        #PACKAGE = "cecs"
-      #)$f
-    #} else {
-      #base::stop("xD")
-    #}
-    #return(f)
-
-#}
-
-#' CEC interface
-#'
-#' @description
-#' The common interface for all available benchmark from CEC.
-#'
-#' @param func_index numeric index of optimisation problem in given benchmark
-#' @param x vector of numeric inputs for objective function
-#' @param cec name of benchmark
-#' @param max_func_index biggest index of optimisation
-#' problem in given benchmark
-#' @param dims vector of available dimensionalities
-#' @param suite one of the suite in CEC2021
-#' benchmark (basic, shift, rot, bias,
-#' shift_rot, bias_rot, bias_shift, bias_shift_rot)
-#' @return value of objective function for given input
 #' @useDynLib cecs
 
-cec <- function(func_index, x, cec, max_func_index, dims, suite = NULL) {
-  suits = c(
-    "basic",
-    "shift",
-    "rot",
-    "bias",
-    "shift_rot",
-    "bias_rot",
-    "bias_shift",
-    "bias_shift_rot"
-  )
-  if (!is.null(suite) && !(suite %in% suits)) {
-      base::stop(
-        stringr::str_interp(
-          "Invalid suite name. Available suits: ${suits}"
-        )
-      )
-    }
-  if (base::missing(func_index))
-    base::stop("Missing argument; 'func_index' has to be provided !")
+cec2013 <- function(func_index, x) {
+  if (missing(func_index)) {
+    stop("Missing argument; 'func_index' has to be provided !")
+  }
 
-  if (base::missing(x))
-    base::stop("Missing argument; 'x' has to be provided !")
-
-  if (
-    base::is.numeric(func_index) &&
-      func_index >= 1 &&
-      func_index <= max_func_index
-  ) {
-    if (base::is.vector(x)) {
+  if (missing(x)) {
+    stop("Missing argument; 'x' has to be provided !")
+  }
+  if (is.numeric(func_index) && func_index >= 1 && func_index <= 28) {
+    if (is.vector(x)) {
       row <- 1
-      col <- base::length(x)
-    } else if (base::is.matrix(x)) {
-      row <- base::nrow(x)
-      col <- base::ncol(x)
+      col <- length(x)
+    } else if (is.matrix(x)) {
+      row <- nrow(x)
+      col <- ncol(x)
     } else {
-      base::stop("x should be a vector or a matrix")
+      stop("x should be a vector or a matrix")
     }
-    if (!(col %in% dims)) {
-      base::stop(
-        stringr::str_interp(
-          "Invalid argument: only ${dims} dimensions/variables are allowed !"
+    if (!(col %in% c(2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100))) {
+      stop(
+        stringr::str_glue(
+          "Invalid argument: Only 2, 5, seq(10, 100, 10)\\
+          dimensions/variables are allowed !"
         )
       )
     }
-    #extarchive <- download_data(cec)
-    #extdatadir <- unzip_data(extarchive, cec)
-    extdatadir <- system.file(
-      paste0("extdata/", cec),
-      package = "cecs"
-    )
-    f <- base::.C(
-      "cec2013",
+    extdatadir <- system.file("extdata/cec2013/", package = "cecs")
+    if (extdatadir == "") {
+      extdatadir <-
+        unzip_data(download_data("cec2013"))
+    }
+    return(.C(
+      "cecs",
       extdatadir = as.character(extdatadir),
-#      cec = base::as.character(cec),
-      i = base::as.integer(func_index),
-      x = base::as.double(x),
-      row = base::as.integer(row),
-      col = base::as.integer(col),
+      suite = as.character(""),
+      cec = as.integer(13),
+      i = as.integer(func_index),
+      x = as.double(x),
+      row = as.integer(row),
+      col = as.integer(col),
       f = double(row),
-      suite = base::as.character(suite),
       PACKAGE = "cecs"
-    )$f
+    )$f)
   } else {
-    base::stop(
-      stringr::str_interp(
-        "Invalid argument: 
-        'func_index' should be an integer between 1 and ${max_func_index} !"
+    stop(
+      stringr::str_glue(
+        "Invalid argument: function index should be an integer between\\
+        1 and 28!"
       )
     )
   }
-  return(f)
 }
