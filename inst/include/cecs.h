@@ -5,6 +5,7 @@
 #include "cec2014/cec2014.h"
 #include "cec2015/cec2015.h"
 #include "cec2017/cec2017.h"
+#include "cec2019/cec2019.h"
 #include "cec2021/cec2021.h"
 
 

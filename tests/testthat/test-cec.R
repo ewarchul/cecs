@@ -38,6 +38,16 @@ test_that("all benchmark functions from CEC-2017 can be executed", {
   })
 })
 
+test_that("F4-F10 benchmark functions from CEC-2019 can be executed", {
+  problem_dim_grid <- expand.grid(
+    func = 4:10,
+    dim = 10
+  )
+  purrr::pmap(problem_dim_grid, function(func, dim) {
+    expect_type(cec2019(func, rnorm(dim)), "double")
+  })
+})
+
 test_that("all benchmark functions from CEC-2021 can be executed", {
   problem_dim_grid <- expand.grid(
     func = 1:10,

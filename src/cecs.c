@@ -15,6 +15,9 @@ void cecs(char **extdatadir, char **suite, char *cec, int *i, double *X,
   case 17:
     cec2017(extdatadir, i, X, row, col, f);
     break;
+  case 19:
+    cec2019(extdatadir, i, X, row, col, f);
+    break;
   case 21:
     cec2021(extdatadir, suite, i, X, row, col, f);
     break;
