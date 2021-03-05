@@ -1,6 +1,6 @@
 /*
-  CEC19 Test Function Suite for Single Objective Optimization
-  Copyright 2020 Eryk Warchulski ewarchul@gmail.com
+  CEC19 Test Function Suite for 100-Digit Challenge
+  Copyright 2021 Eryk Warchulski ewarchul@gmail.com
 
   Based on: https://github.com/P-N-Suganthan/CEC2019
 */

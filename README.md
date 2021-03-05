@@ -12,6 +12,7 @@ Common R interface for CEC benchmarks.
       * [macOS](#macos)
    * [Content](#content)
      * [CEC 2021](#cec-2021)
+     * [CEC 2019](#cec-2019)
      * [CEC 2017](#cec-2017)
      * [CEC 2014](#cec-2014)
      * [CEC 2013](#cec-2013)
@@ -19,8 +20,10 @@ Common R interface for CEC benchmarks.
 
 ## Description
 
-This repository contains **R** package with an interface for benchmark functions from Congress on Evolutionary Computations competitions. 
-The implementation is based on the existing CRAN package, i.e `{cec2013}`, but is extended with CEC2014 and CEC2021. The interface for CEC2017 is taken from the non-CRAN package `{cec2017}`. More information about authorship is written below. 
+This repository contains **R** package with an interface for benchmark functions from Congress on Evolutionary Computations competitions.
+The implementation is based on the existing CRAN package, i.e `{cec2013}`, but is extended with CEC2014, CEC2019, and CEC2021.
+The interface for CEC2017 is taken from the non-CRAN package `{cec2017}`.
+More information about authorship is written below. 
 
 ## Requirements
 
@@ -41,7 +44,7 @@ Package was written and tested on machine with Ubuntu 20.04.1 LTS focal OS and x
 Type bellow command in R interpreter:
 
 ```r
-install.packages("cecs")
+#install.packages("cecs")
 ```
 
 #### GitHub
@@ -58,7 +61,7 @@ devtools::install_github("ewarchul/cecs")
 #### CRAN (temporary archived)
 
 ```r
-install.packages("cecs")
+#install.packages("cecs")
 ```
 
 #### GitHub
@@ -81,7 +84,18 @@ Benchmarks specifactions and necessary numeric data are available here: [http://
 
 The package downloads numeric data from given website. For futher details, see source code documentation in `man/` directory.
 
+
 ### CEC 2021 
+
+#### Authorship
+
+> Authors: Eryk Warchulski
+
+> License: GPL (>=3)
+
+> Source: herein
+
+### CEC 2019 
 
 #### Authorship
 
