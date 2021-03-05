@@ -1,6 +1,13 @@
 #ifndef CEC2015_FUNCTIONS_H
 #define CEC2015_FUNCTIONS_H
 
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "../consts.h"
+#include "../globals.h"
+
+
 void cec2015_sphere_func(double *, double *, int, double *, double *, int,
                  int); /* Sphere */
 void cec2015_ellips_func(double *, double *, int, double *, double *, int,

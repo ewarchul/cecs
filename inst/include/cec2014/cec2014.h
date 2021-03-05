@@ -1,5 +1,5 @@
-#ifndef CEC2014_H_
-#define CEC2014_H_
+#ifndef CEC2014_H
+#define CEC2014_H
 
 #include <R.h>
 #include <stdio.h>
@@ -8,4 +8,4 @@
 #include "cec2014_interface.h"
 
 void cec2014(char **, int *, double *, int *, int *, double *);
-#endif // CEC2014_H_
+#endif // CEC2014_H
