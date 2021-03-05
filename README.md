@@ -14,6 +14,7 @@ Common R interface for CEC benchmarks.
      * [CEC 2021](#cec-2021)
      * [CEC 2019](#cec-2019)
      * [CEC 2017](#cec-2017)
+     * [CEC 2015](#cec-2015)
      * [CEC 2014](#cec-2014)
      * [CEC 2013](#cec-2013)
 <!--te-->
@@ -21,7 +22,7 @@ Common R interface for CEC benchmarks.
 ## Description
 
 This repository contains **R** package with an interface for benchmark functions from Congress on Evolutionary Computations competitions.
-The implementation is based on the existing CRAN package, i.e `{cec2013}`, but is extended with CEC2014, CEC2019, and CEC2021.
+The implementation is based on the existing CRAN package, i.e `{cec2013}`, but is extended with CEC2014, CEC2015, CEC2019, and CEC2021.
 The interface for CEC2017 is taken from the non-CRAN package `{cec2017}`.
 More information about authorship is written below. 
 
@@ -114,6 +115,16 @@ The package downloads numeric data from given website. For futher details, see s
 > License: GPL (>=3)
 
 > Source: [http://staff.elka.pw.edu.pl/~djagodzi/programy.html](http://staff.elka.pw.edu.pl/~djagodzi/programy.html)
+
+### CEC 2015
+
+#### Authorship
+
+> Authors: Eryk Warchulski 
+
+> License: GPL (>=3)
+
+> Source: herein
 
 ### CEC 2014
 
