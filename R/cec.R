@@ -238,6 +238,73 @@ cec2017 <- function(func_index, x) {
   }
 }
 
+##' CEC2015 interface
+#'
+#' @description
+#' The R interface for CEC2015 Single Objective Bound
+#' Constrained Numerical Optimization benchmark.
+#' Available dimensions are following: (10, 30, 50, 100)
+#'
+#' @param func_index numeric index of optimisation problem from set set 1:15
+#' @param x vector of numeric inputs for objective function
+#' @return value of objective function for given input
+#' @export
+#' @useDynLib cecs
+
+cec2015 <- function(func_index, x) {
+  if (missing(func_index)) {
+    stop("Missing argument; 'func_index' has to be provided!")
+  }
+
+  if (missing(x)) {
+    stop("Missing argument; 'x' has to be provided!")
+  }
+  if (is.numeric(func_index) && func_index >= 1 && func_index <= 15) {
+    if (is.vector(x)) {
+      row <- 1
+      col <- length(x)
+    } else if (is.matrix(x)) {
+      row <- nrow(x)
+      col <- ncol(x)
+    } else {
+      stop("x should be a vector or a matrix")
+    }
+    if (!(col %in% c(10, 30, 50, 100))) {
+      stop(
+        stringr::str_glue(
+          "Invalid argument: Only 10, 30, 50, 100\\
+          dimensions/variables are allowed!"
+        )
+      )
+    }
+    extdatadir <- system.file("extdata/cec2015/", package = "cecs")
+    if (extdatadir == "") {
+      extdatadir <-
+        unzip_data(download_data("cec2015"))
+    }
+    return(.C(
+      "cecs",
+      extdatadir = as.character(extdatadir),
+      suite = as.character(""),
+      cec = as.integer(15),
+      i = as.integer(func_index),
+      x = as.double(x),
+      row = as.integer(row),
+      col = as.integer(col),
+      f = double(row),
+      PACKAGE = "cecs"
+    )$f)
+  } else {
+    stop(
+      stringr::str_glue(
+        "Invalid argument: function index should be an integer between\\
+        1 and 15!"
+      )
+    )
+  }
+}
+
+
 ##' CEC2014 interface
 #'
 #' @description

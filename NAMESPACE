@@ -2,6 +2,7 @@
 
 export(cec2013)
 export(cec2014)
+export(cec2015)
 export(cec2017)
 export(cec2019)
 export(cec2021)
