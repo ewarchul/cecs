@@ -23,7 +23,7 @@ void cec2019_func(double *x, double *f, int nx, int mx, int func_num) {
       x_bound[i] = 100.0;
 
     if (!(nx == 2 || nx == 10 || nx == 9 || nx == 16 || nx == 18)) {
-      printf("Error: Test functions are only defined for D=10, 9, 16, 18 \n F1 "
+      perror("Error: Test functions are only defined for D=10, 9, 16, 18 \n F1 "
              "is defined on D=9 \n F2 is defined on D=16 \n F3 is defined on "
              "D=18 \n F4-F10 are defined on D=10.");
     }
@@ -57,7 +57,7 @@ void cec2019_func(double *x, double *f, int nx, int mx, int func_num) {
 
       OShift = (double *)malloc(nx * sizeof(double));
       if (OShift == NULL)
-        printf("\nError: there is insufficient memory available!\n");
+        perror("\nError: there is insufficient memory available!\n");
       for (i = 0; i < nx; i++) {
         ret = fscanf(fpt, "%lf", &OShift[i]);
         if (ret != 1) {
@@ -71,7 +71,6 @@ void cec2019_func(double *x, double *f, int nx, int mx, int func_num) {
     n_flag = nx;
     func_flag = func_num;
     ini_flag = 1;
-    // printf("Function has been initialized!\n");
   }
 
   for (i = 0; i < mx; i++) {
@@ -126,7 +125,7 @@ void cec2019_func(double *x, double *f, int nx, int mx, int func_num) {
       f[i] += 1.0;
       break;
     default:
-      printf("\nError: There are only 10 test functions in this test suite!\n");
+      perror("\nError: There are only 10 test functions in this test suite!\n");
       f[i] = 0.0;
       break;
     }
