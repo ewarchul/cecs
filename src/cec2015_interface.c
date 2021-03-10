@@ -21,7 +21,6 @@ void cec2015_func(double *x, double *f, int nx, int mx, int func_num) {
     FILE *fpt;
     char FileName[256];
     free(M);
-    free(bias);
     free(OShift);
     free(y);
     free(z);
@@ -78,6 +77,7 @@ void cec2015_func(double *x, double *f, int nx, int mx, int func_num) {
         ret = fscanf(fpt, "%lf", &bias[i]);
         if (ret != 1) {
           perror("\n Error: Cannot open input file for reading \n");
+          free(bias);
         }
       }
       fclose(fpt);
