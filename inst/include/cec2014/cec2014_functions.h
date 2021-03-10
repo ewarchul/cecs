@@ -1,5 +1,5 @@
-#ifndef CEC2014_FUNCTIONS_H_
-#define CEC2014_FUNCTIONS_H_
+#ifndef CEC2014_FUNCTIONS_H
+#define CEC2014_FUNCTIONS_H
 
 #include <math.h>
 #include <stdio.h>

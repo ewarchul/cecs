@@ -1,7 +1,5 @@
-#ifndef CEC2019_H_
-#define CEC2019_H_
-
-#endif // CEC2019_H_
+#ifndef CEC2019_H
+#define CEC2019_H
 
 #include <math.h>
 #include <stdio.h>
@@ -36,3 +34,5 @@ void cec2019_sr_func(double *, double *, int, double *, double *, double, int,
                      int); /* shift and rotate */
 void cec2019_asyfunc(double *, double *x, int, double);
 void cec2019_oszfunc(double *, double *, int);
+
+#endif // CEC2019_H

@@ -1,5 +1,5 @@
-#ifndef CONSTS_H_
-#define CONSTS_H_
+#ifndef CONSTS_H
+#define CONSTS_H
 
 #define INF 1.0e99
 #define EPS 1.0e-14
@@ -8,5 +8,5 @@
 #define M_PI 3.1415926535897932384626433832795029
 #endif
 
-#endif // CONSTS_H_
+#endif // CONSTS_H
 

@@ -1,3 +1,6 @@
+#ifndef CEC2013_FUNCTIONS_H
+#define CEC2013_FUNCTIONS_H
+
 #include <math.h>
 #include <stdlib.h>
 
@@ -62,3 +65,4 @@ void cec2013_oszfunc(double *, double *, int);
 void cec2013_cf_cal(double *, double *, int, double *, double *, double *,
                     double *, int);
 
+#endif 

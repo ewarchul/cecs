@@ -1,5 +1,5 @@
-#ifndef CEC2017_H_
-#define CEC2017_H_
+#ifndef CEC2017_H
+#define CEC2017_H
 
 #include <R.h>
 #include <math.h>
@@ -10,4 +10,4 @@
 
 void cec2017(char **, int *, double *, int *, int *, double *);
 
-#endif // CEC2017_H_
+#endif // CEC2017_H

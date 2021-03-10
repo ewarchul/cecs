@@ -1,5 +1,5 @@
-#ifndef CEC2021_INTERFACE_H_
-#define CEC2021_INTERFACE_H_
+#ifndef CEC2021_INTERFACE_H
+#define CEC2021_INTERFACE_H
 
 #include <stddef.h>
 #include <stdio.h>
@@ -19,4 +19,4 @@ void cec2021_bias_shift_func(double *, double *, int, int, int);
 void cec2021_bias_shift_rot_func(double *, double *, int, int, int);
 void cec2021_shift_rot_func(double *, double *, int, int, int);
 
-#endif // CEC2021_INTERFACE_H_
+#endif // CEC2021_INTERFACE_H

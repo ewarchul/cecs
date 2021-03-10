@@ -1,11 +1,31 @@
 # Resubmission
 
+This is a resubmission of previously archived package. The package was archived
+due to the presence of the obsolete header <malloc.h> in C source code.
+
+In this version I have:
+
+* removed <malloc.h> header
+* extened package with CEC 2015 and CEC 2019 
+* improved performance.
+
+## Test environments
+* local R installation, R 3.6.3
+* ubuntu 16.04 (on travis-ci), R 3.6.3
+* win-builder (devel)
+
+## R CMD check results
+
+0 errors | 0 warnings | 0 note
+
+# Previous resubmission
+
 This is a resubmission. In this verion I have:
 
-* move data files from inst/extdata directory to the external source (http://home.elka.pw.edu.pl/~ewarchul/)
-* provide functions to download and extract data 
-* provide function to delete extracted archive data in inst/extdata directory 
-* add reference to specifications of benchmark in the DESCRIPTION.
+* moved data files from inst/extdata directory to the external source (http://home.elka.pw.edu.pl/~ewarchul/)
+* provided functions to download and extract data 
+* provided function to delete extracted archive data in inst/extdata directory 
+* added reference to specifications of benchmark in the DESCRIPTION.
 
 ## Test environments
 * local R installation, R 3.6.3

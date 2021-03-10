@@ -1,5 +1,5 @@
-#ifndef CECS_H_
-#define CECS_H_
+#ifndef CECS_H
+#define CECS_H
 
 #include "cec2013/cec2013.h"
 #include "cec2014/cec2014.h"
@@ -13,4 +13,4 @@ void cecs(char **extdatadir, char **suite, char *cec, int *i, double *X,
           int *row, int *col, double *f);
 
 
-#endif // CECS_H_
+#endif // CECS_H

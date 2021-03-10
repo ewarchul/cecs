@@ -10,9 +10,7 @@ void cec2019_func(double *x, double *f, int nx, int mx, int func_num) {
 
   if (ini_flag == 0) {
     FILE *fpt;
-    char FileName[256];
-    free(M);
-    free(OShift);
+    char FileName[256]; 
     free(y);
     free(z);
     free(x_bound);
@@ -36,8 +34,10 @@ void cec2019_func(double *x, double *f, int nx, int mx, int func_num) {
         perror("Error: Cannot open input file for reading");
       }
       M = (double *)malloc(nx * nx * sizeof(double));
-      if (M == NULL)
+      if (M == NULL) {
         perror("Error: there is insufficient memory available!");
+        free(M);
+      }
       for (i = 0; i < nx * nx; i++) {
         ret = fscanf(fpt, "%lf", &M[i]);
         if (ret != 1) {
@@ -56,12 +56,15 @@ void cec2019_func(double *x, double *f, int nx, int mx, int func_num) {
       }
 
       OShift = (double *)malloc(nx * sizeof(double));
-      if (OShift == NULL)
+      if (OShift == NULL) {
         perror("\nError: there is insufficient memory available!\n");
+        free(OShift);
+      }
       for (i = 0; i < nx; i++) {
         ret = fscanf(fpt, "%lf", &OShift[i]);
         if (ret != 1) {
           perror("Error reading from the input file");
+          free(OShift);
         }
       }
 

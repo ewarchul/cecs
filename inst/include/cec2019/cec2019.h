@@ -1,5 +1,5 @@
-#ifndef CEC2019_H_
-#define CEC2019_H_
+#ifndef CEC2019_H
+#define CEC2019_H
 
 #include <R.h>
 #include <math.h>
@@ -10,4 +10,4 @@
 
 void cec2019(char **, int *, double *, int *, int *, double *);
 
-#endif // CEC2019_H_
+#endif // CEC2019_H

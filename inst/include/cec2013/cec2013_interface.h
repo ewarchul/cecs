@@ -1,5 +1,5 @@
-#ifndef CEC2013_INTERFACE_H_
-#define CEC2013_INTERFACE_H_
+#ifndef CEC2013_INTERFACE_H
+#define CEC2013_INTERFACE_H
 
 #include <math.h>
 #include <stdio.h>
@@ -10,4 +10,4 @@
 
 void cec2013_func(double *, double *, int, int, int);
 
-#endif // CEC2013_INTERFACE_H_
+#endif // CEC2013_INTERFACE_H

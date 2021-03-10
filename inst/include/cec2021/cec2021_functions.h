@@ -1,5 +1,5 @@
-#ifndef CEC2021_FUNCTIONS_H_
-#define CEC2021_FUNCTIONS_H_
+#ifndef CEC2021_FUNCTIONS_H
+#define CEC2021_FUNCTIONS_H
 
 #include <math.h>
 #include <stdio.h>
@@ -62,4 +62,4 @@ void cec2021_oszfunc(double *, double *, int);
 void cec2021_cf_cal(double *, double *, int, double *, double *, double *,
                     double *, int);
 
-#endif // CEC2021_FUNCTIONS_H_
+#endif // CEC2021_FUNCTIONS_H

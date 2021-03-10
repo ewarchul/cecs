@@ -1,6 +1,3 @@
-#ifndef CEC2019_FUNCTIONS_H_
-#define CEC2019_FUNCTIONS_H_
-
 #include "cec2019/cec2019_functions.h"
 
 void cec2019_schaffer_F7_func(double *x, double *f, int nx, double *Os,
@@ -423,5 +420,3 @@ void cec2019_Chebyshev(
 
   f[0] += sum;
 }
-
-#endif // CEC2019_FUNCTIONS_H_

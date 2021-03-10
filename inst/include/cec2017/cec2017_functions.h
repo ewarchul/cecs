@@ -1,5 +1,5 @@
-#ifndef CEC2017_FUNCTIONS_H_
-#define CEC2017_FUNCTIONS_H_
+#ifndef CEC2017_FUNCTIONS_H
+#define CEC2017_FUNCTIONS_H
 
 #include <math.h>
 #include <stdio.h>
@@ -107,4 +107,4 @@ void cec2017_oszfunc(double *, double *, int);
 void cec2017_cf_cal(double *, double *, int, double *, double *, double *,
                     double *, int);
 
-#endif // CEC2017_FUNCTIONS_H_
+#endif // CEC2017_FUNCTIONS_H
