@@ -90,7 +90,7 @@ cec2021 <- function(func_index, x, suite) {
 #' (respective) dimensions 9, 16, and 18. Functions F4-F10 are available for
 #' 10 dimensions.
 
-#' @param func_index numeric index of optimisation problem from set set 1:30
+#' @param func_index numeric index of optimisation problem from set set 1:10
 #' @param x vector of numeric inputs for objective function
 #' @return value of objective function for given input
 #' @export

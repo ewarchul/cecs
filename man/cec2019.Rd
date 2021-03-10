@@ -7,7 +7,7 @@
 cec2019(func_index, x)
 }
 \arguments{
-\item{func_index}{numeric index of optimisation problem from set set 1:30}
+\item{func_index}{numeric index of optimisation problem from set set 1:10}
 
 \item{x}{vector of numeric inputs for objective function}
 }
