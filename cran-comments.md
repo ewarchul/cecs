@@ -1,5 +1,23 @@
 # Resubmission
 
+This is a resubmission. In this verion I have:
+
+* deleted github LICENSE file
+* deleted "+ LICENSE" from DESCRIPTION 
+* add trailing slash to URL.
+
+
+## Test environments
+* local R installation, R 3.6.3
+* ubuntu 16.04 (on travis-ci), R 3.6.3
+* win-builder (devel)
+
+## R CMD check results
+
+0 errors | 0 warnings | 0 note
+
+# Previous resubmission
+
 This is a resubmission of previously archived package. The package was archived
 due to the presence of the obsolete header <malloc.h> in C source code.
 
