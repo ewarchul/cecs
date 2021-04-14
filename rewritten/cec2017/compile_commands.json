@@ -1,0 +1,47 @@
+[
+{
+  "directory": "/home/ewarchul/cecs/rewritten/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/test/test_basics.c.o   -c /home/ewarchul/cecs/rewritten/test/test_basics.c",
+  "file": "/home/ewarchul/cecs/rewritten/test/test_basics.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cec2017.c.o   -c /home/ewarchul/cecs/rewritten/src/cec2017.c",
+  "file": "/home/ewarchul/cecs/rewritten/src/cec2017.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cec2017_functions.c.o   -c /home/ewarchul/cecs/rewritten/src/cec2017_functions.c",
+  "file": "/home/ewarchul/cecs/rewritten/src/cec2017_functions.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cec2017_interface.c.o   -c /home/ewarchul/cecs/rewritten/src/cec2017_interface.c",
+  "file": "/home/ewarchul/cecs/rewritten/src/cec2017_interface.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cecs.c.o   -c /home/ewarchul/cecs/rewritten/src/cecs.c",
+  "file": "/home/ewarchul/cecs/rewritten/src/cecs.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cec2017.c.o   -c /home/ewarchul/cecs/rewritten/src/cec2017.c",
+  "file": "/home/ewarchul/cecs/rewritten/src/cec2017.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cec2017_functions.c.o   -c /home/ewarchul/cecs/rewritten/src/cec2017_functions.c",
+  "file": "/home/ewarchul/cecs/rewritten/src/cec2017_functions.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cec2017_interface.c.o   -c /home/ewarchul/cecs/rewritten/src/cec2017_interface.c",
+  "file": "/home/ewarchul/cecs/rewritten/src/cec2017_interface.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cecs.c.o   -c /home/ewarchul/cecs/rewritten/src/cecs.c",
+  "file": "/home/ewarchul/cecs/rewritten/src/cecs.c"
+}
+]
