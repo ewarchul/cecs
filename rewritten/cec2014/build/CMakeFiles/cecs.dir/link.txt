@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/cecs.dir/src/cec2014.c.o CMakeFiles/cecs.dir/src/cec2014_functions.c.o CMakeFiles/cecs.dir/src/cec2014_interface.c.o CMakeFiles/cecs.dir/src/cecs.c.o  -o ../bin/cecs  -Wl,-rpath,/usr/local/lib /usr/local/lib/libcmocka.so -lm -pg 
