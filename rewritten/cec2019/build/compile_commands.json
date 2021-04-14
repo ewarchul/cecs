@@ -1,0 +1,47 @@
+[
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2019/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2019/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/test/test_basics.c.o   -c /home/ewarchul/cecs/rewritten/cec2019/test/test_basics.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2019/test/test_basics.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2019/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2019/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cec2019.c.o   -c /home/ewarchul/cecs/rewritten/cec2019/src/cec2019.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2019/src/cec2019.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2019/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2019/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cec2019_functions.c.o   -c /home/ewarchul/cecs/rewritten/cec2019/src/cec2019_functions.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2019/src/cec2019_functions.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2019/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2019/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cec2019_interface.c.o   -c /home/ewarchul/cecs/rewritten/cec2019/src/cec2019_interface.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2019/src/cec2019_interface.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2019/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2019/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cecs.c.o   -c /home/ewarchul/cecs/rewritten/cec2019/src/cecs.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2019/src/cecs.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2019/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2019/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cec2019.c.o   -c /home/ewarchul/cecs/rewritten/cec2019/src/cec2019.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2019/src/cec2019.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2019/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2019/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cec2019_functions.c.o   -c /home/ewarchul/cecs/rewritten/cec2019/src/cec2019_functions.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2019/src/cec2019_functions.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2019/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2019/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cec2019_interface.c.o   -c /home/ewarchul/cecs/rewritten/cec2019/src/cec2019_interface.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2019/src/cec2019_interface.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2019/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2019/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cecs.c.o   -c /home/ewarchul/cecs/rewritten/cec2019/src/cecs.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2019/src/cecs.c"
+}
+]

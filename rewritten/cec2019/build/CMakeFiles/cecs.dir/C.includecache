@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ewarchul/cecs/rewritten/cec2019/include/cec2019.h
+cec2019_interface.h
+/home/ewarchul/cecs/rewritten/cec2019/include/cec2019_interface.h
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+/home/ewarchul/cecs/rewritten/cec2019/include/cec2019_functions.h
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+/home/ewarchul/cecs/rewritten/cec2019/include/cec2019_interface.h
+cec2019_functions.h
+/home/ewarchul/cecs/rewritten/cec2019/include/cec2019_functions.h
+stddef.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+
+/home/ewarchul/cecs/rewritten/cec2019/src/cecs.c
+../include/cec2019.h
+/home/ewarchul/cecs/rewritten/cec2019/include/cec2019.h
+stddef.h
+-
+
