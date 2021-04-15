@@ -1,0 +1,82 @@
+[
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec.dir/main.c.o   -c /home/ewarchul/cecs/rewritten/cec/main.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/main.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec.dir/src/affine_trans.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/affine_trans.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/affine_trans.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec.dir/src/basic_funcs.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/basic_funcs.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/basic_funcs.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec.dir/src/cec.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/cec.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/cec.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec.dir/src/complex_funcs.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/complex_funcs.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/complex_funcs.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec.dir/src/hybrid_funcs.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/hybrid_funcs.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/hybrid_funcs.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec.dir/src/interfaces.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/interfaces.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/interfaces.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec.dir/src/utils.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/utils.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/utils.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec-test.dir/test/basic_test.c.o   -c /home/ewarchul/cecs/rewritten/cec/test/basic_test.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/test/basic_test.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec-test.dir/src/affine_trans.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/affine_trans.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/affine_trans.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec-test.dir/src/basic_funcs.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/basic_funcs.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/basic_funcs.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec-test.dir/src/cec.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/cec.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/cec.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec-test.dir/src/complex_funcs.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/complex_funcs.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/complex_funcs.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec-test.dir/src/hybrid_funcs.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/hybrid_funcs.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/hybrid_funcs.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec-test.dir/src/interfaces.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/interfaces.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/interfaces.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec/include    -Wall -g -Wextra -pedantic -Werror -o CMakeFiles/cec-test.dir/src/utils.c.o   -c /home/ewarchul/cecs/rewritten/cec/src/utils.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec/src/utils.c"
+}
+]
