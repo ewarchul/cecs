@@ -1,0 +1,47 @@
+[
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2021/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2021/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/test/test_basics.c.o   -c /home/ewarchul/cecs/rewritten/cec2021/test/test_basics.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2021/test/test_basics.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2021/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2021/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cec2021.c.o   -c /home/ewarchul/cecs/rewritten/cec2021/src/cec2021.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2021/src/cec2021.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2021/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2021/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cec2021_functions.c.o   -c /home/ewarchul/cecs/rewritten/cec2021/src/cec2021_functions.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2021/src/cec2021_functions.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2021/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2021/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cec2021_interface.c.o   -c /home/ewarchul/cecs/rewritten/cec2021/src/cec2021_interface.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2021/src/cec2021_interface.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2021/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2021/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs-test.dir/src/cecs.c.o   -c /home/ewarchul/cecs/rewritten/cec2021/src/cecs.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2021/src/cecs.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2021/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2021/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cec2021.c.o   -c /home/ewarchul/cecs/rewritten/cec2021/src/cec2021.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2021/src/cec2021.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2021/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2021/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cec2021_functions.c.o   -c /home/ewarchul/cecs/rewritten/cec2021/src/cec2021_functions.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2021/src/cec2021_functions.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2021/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2021/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cec2021_interface.c.o   -c /home/ewarchul/cecs/rewritten/cec2021/src/cec2021_interface.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2021/src/cec2021_interface.c"
+},
+{
+  "directory": "/home/ewarchul/cecs/rewritten/cec2021/build",
+  "command": "/usr/bin/cc  -I/home/ewarchul/cecs/rewritten/cec2021/include    -Wall -g -pg -Wextra -pedantic -Werror -o CMakeFiles/cecs.dir/src/cecs.c.o   -c /home/ewarchul/cecs/rewritten/cec2021/src/cecs.c",
+  "file": "/home/ewarchul/cecs/rewritten/cec2021/src/cecs.c"
+}
+]

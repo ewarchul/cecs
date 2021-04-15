@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/cecs.dir/src/cec2021.c.o CMakeFiles/cecs.dir/src/cec2021_functions.c.o CMakeFiles/cecs.dir/src/cec2021_interface.c.o CMakeFiles/cecs.dir/src/cecs.c.o  -o ../bin/cecs  -Wl,-rpath,/usr/local/lib /usr/local/lib/libcmocka.so -lm -pg 

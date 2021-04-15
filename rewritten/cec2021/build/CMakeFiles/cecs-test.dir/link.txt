@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/cecs-test.dir/test/test_basics.c.o CMakeFiles/cecs-test.dir/src/cec2021.c.o CMakeFiles/cecs-test.dir/src/cec2021_functions.c.o CMakeFiles/cecs-test.dir/src/cec2021_interface.c.o CMakeFiles/cecs-test.dir/src/cecs.c.o  -o ../bin/cecs-test  -Wl,-rpath,/usr/local/lib /usr/local/lib/libcmocka.so -lm 
