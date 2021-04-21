@@ -12,13 +12,14 @@ Description: Goal of this package is to provide access to benchmark functions de
     The package contains functions from following years: 2013, 2014, 2017, 2021 (<https://github.com/P-N-Suganthan>). 
     Implementations of CEC-2013 (Y. Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński) are taken from existed R packages. Also, 
     the original C source code has been cleaned and reorganized for better readability.
-License: GPL (>= 3) + file LICENSE
+License: GPL (>= 3)
 BugReports: https://github.com/ewarchul/cecs/issues
 URL: https://github.com/ewarchul/cecs
 Depends: 
     R (>= 3.6.0)
 Imports: 
-    stringr (>= 1.4.0)
+    stringr (>= 1.4.0),
+    cec2013 (>= 0.1.5)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

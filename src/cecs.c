@@ -1,25 +1,38 @@
 #include "cecs.h"
 
-void cecs(char **extdatadir, char **suite, char *cec, int *i, double *X,
-          int *row, int *col, double *f) {
-  switch (*cec) {
-  case 13:
-    cec2013(extdatadir, i, X, row, col, f);
-    break;
-  case 14:
-    cec2014(extdatadir, i, X, row, col, f);
-    break;
-  case 15:
-    cec2015(extdatadir, i, X, row, col, f);
-    break;
-  case 17:
-    cec2017(extdatadir, i, X, row, col, f);
-    break;
-  case 19:
-    cec2019(extdatadir, i, X, row, col, f);
-    break;
-  case 21:
-    cec2021(extdatadir, suite, i, X, row, col, f);
-    break;
+CecData cd = {
+  .prevDimension = 0,
+  .prevFunction = 0,
+  .dataLoaded = 0,
+};
+
+void cecs(char **extdatadir, char **suite, char *cec, int *problem,
+          double *input, int *row, int *col, double *output) {
+
+  double *x = malloc(*col * sizeof(double));
+
+  for (int r = 0; r < *row; r++) {
+    R_CheckUserInterrupt();
+    for (int c = 0; c < *col; c++) {
+      x[c] = input[r + *row * c];
+      switch (*cec) {
+      case 14:
+        cec2014_interface(*extdatadir, x, output, *col, *row, *problem);
+        break;
+      case 15:
+        cec2015_interface(*extdatadir, x, output, *col, *row, *problem);
+        break;
+      case 17:
+        cec2017_interface(*extdatadir, x, output, *col, *row, *problem);
+        break;
+      case 19:
+        cec2019_interface(*extdatadir, x, output, *col, *row, *problem);
+        break;
+      case 21:
+        cec2021_interface(*extdatadir, x, output, *col, *row, *problem, *suite);
+        break;
+      }
+    }
   }
+  free(x);
 }

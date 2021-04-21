@@ -64,13 +64,13 @@ cec2021 <- function(func_index, x, suite) {
       extdatadir = as.character(extdatadir),
       suite = as.character(suite),
       cec = as.integer(21),
-      i = as.integer(func_index),
-      x = as.double(x),
+      problem = as.integer(func_index),
+      input = as.double(x),
       row = as.integer(row),
       col = as.integer(col),
-      f = double(row),
+      output = double(row),
       PACKAGE = "cecs"
-    )$f)
+    )$output)
   } else {
     stop(
       stringr::str_glue(
@@ -153,13 +153,13 @@ cec2019 <- function(func_index, x) {
       extdatadir = as.character(extdatadir),
       suite = as.character(""),
       cec = as.integer(19),
-      i = as.integer(func_index),
-      x = as.double(x),
+      problem = as.integer(func_index),
+      input = as.double(x),
       row = as.integer(row),
       col = as.integer(col),
-      f = double(row),
+      output = double(row),
       PACKAGE = "cecs"
-    )$f)
+    )$output)
   } else {
     stop(
       stringr::str_glue(
@@ -221,13 +221,13 @@ cec2017 <- function(func_index, x) {
       extdatadir = as.character(extdatadir),
       suite = as.character(""),
       cec = as.integer(17),
-      i = as.integer(func_index),
-      x = as.double(x),
+      problem = as.integer(func_index),
+      input = as.double(x),
       row = as.integer(row),
       col = as.integer(col),
-      f = double(row),
+      output = double(row),
       PACKAGE = "cecs"
-    )$f)
+    )$output)
   } else {
     stop(
       stringr::str_glue(
@@ -287,13 +287,13 @@ cec2015 <- function(func_index, x) {
       extdatadir = as.character(extdatadir),
       suite = as.character(""),
       cec = as.integer(15),
-      i = as.integer(func_index),
-      x = as.double(x),
+      problem = as.integer(func_index),
+      input = as.double(x),
       row = as.integer(row),
       col = as.integer(col),
-      f = double(row),
+      output = double(row),
       PACKAGE = "cecs"
-    )$f)
+    )$output)
   } else {
     stop(
       stringr::str_glue(
@@ -354,13 +354,13 @@ cec2014 <- function(func_index, x) {
       extdatadir = as.character(extdatadir),
       suite = as.character(""),
       cec = as.integer(14),
-      i = as.integer(func_index),
-      x = as.double(x),
+      problem = as.integer(func_index),
+      input = as.double(x),
       row = as.integer(row),
       col = as.integer(col),
-      f = double(row),
+      output = double(row),
       PACKAGE = "cecs"
-    )$f)
+    )$output)
   } else {
     stop(
       stringr::str_glue(
@@ -387,54 +387,5 @@ cec2014 <- function(func_index, x) {
 #' @useDynLib cecs
 
 cec2013 <- function(func_index, x) {
-  if (missing(func_index)) {
-    stop("Missing argument: 'func_index' has to be provided !")
-  }
-
-  if (missing(x)) {
-    stop("Missing argument: 'x' has to be provided !")
-  }
-  if (is.numeric(func_index) && func_index >= 1 && func_index <= 28) {
-    if (is.vector(x)) {
-      row <- 1
-      col <- length(x)
-    } else if (is.matrix(x)) {
-      row <- nrow(x)
-      col <- ncol(x)
-    } else {
-      stop("x should be a vector or a matrix")
-    }
-    if (!(col %in% c(2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100))) {
-      stop(
-        stringr::str_glue(
-          "Invalid argument: Only 2, 5, seq(10, 100, 10)\\
-          dimensions/variables are allowed !"
-        )
-      )
-    }
-    extdatadir <- system.file("extdata/cec2013/", package = "cecs")
-    if (extdatadir == "") {
-      extdatadir <-
-        unzip_data(download_data("cec2013"))
-    }
-    return(.C(
-      "cecs",
-      extdatadir = as.character(extdatadir),
-      suite = as.character(""),
-      cec = as.integer(13),
-      i = as.integer(func_index),
-      x = as.double(x),
-      row = as.integer(row),
-      col = as.integer(col),
-      f = double(row),
-      PACKAGE = "cecs"
-    )$f)
-  } else {
-    stop(
-      stringr::str_glue(
-        "Invalid argument: function index should be an integer between\\
-        1 and 28!"
-      )
-    )
-  }
+  cec2013::cec2013(func_index, x)
 }
