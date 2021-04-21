@@ -4,8 +4,8 @@ void bent_cigar_func(double *x, double *f, int nx, double *Os, double *Mr,
                      int s_flag, int r_flag) /* Bent_Cigar */
 {
   int i;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
 
   f[0] = z[0] * z[0];
@@ -20,8 +20,8 @@ void sphere_func(double *x, double *f, int nx, double *Os, double *Mr,
                  int s_flag, int r_flag) {
   int i;
   f[0] = 0.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
   for (i = 0; i < nx; i++) {
     f[0] += z[i] * z[i];
@@ -34,8 +34,8 @@ void ellips_func(double *x, double *f, int nx, double *Os, double *Mr,
                  int s_flag, int r_flag) {
   int i;
   f[0] = 0.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
   for (i = 0; i < nx; i++) {
     f[0] += pow(10.0, 6.0 * i / (nx - 1)) * z[i] * z[i];
@@ -47,8 +47,8 @@ void ellips_func(double *x, double *f, int nx, double *Os, double *Mr,
 void sum_diff_pow_func(double *x, double *f, int nx, double *Os, double *Mr,
                        int s_flag, int r_flag) {
   int i;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
   f[0] = 0.0;
   double sum = 0.0;
@@ -66,11 +66,11 @@ void levy_func(double *x, double *f, int nx, double *Os, double *Mr, int s_flag,
                int r_flag) {
   int i;
   f[0] = 0.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
   double *w;
-  w = (double *)malloc(sizeof(double) * nx);
+  w = (double *)calloc(nx, sizeof(double));
   for (i = 0; i < nx; i++) {
     w[i] = 1.0 + (z[i] - 1.0) / 4.0;
   }
@@ -92,8 +92,8 @@ void levy_func(double *x, double *f, int nx, double *Os, double *Mr, int s_flag,
 void discus_func(double *x, double *f, int nx, double *Os, double *Mr,
                  int s_flag, int r_flag) {
   int i;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
   f[0] = pow(10.0, 6.0) * z[0] * z[0];
   for (i = 1; i < nx; i++) {
@@ -107,8 +107,8 @@ void dif_powers_func(double *x, double *f, int nx, double *Os, double *Mr,
                      int s_flag, int r_flag) {
   int i;
   f[0] = 0.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
   for (i = 0; i < nx; i++) {
     f[0] += pow(fabs(z[i]), 2 + 4 * i / (nx - 1));
@@ -123,8 +123,8 @@ void rosenbrock_func(double *x, double *f, int nx, double *Os, double *Mr,
   int i;
   double tmp1, tmp2;
   f[0] = 0.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 2.048 / 100.0, s_flag, r_flag, y);
   z[0] += 1.0; // shift to orgin
   for (i = 0; i < nx - 1; i++) {
@@ -142,8 +142,8 @@ void schaffer_F7_func(double *x, double *f, int nx, double *Os, double *Mr,
   int i;
   double tmp;
   f[0] = 0.0;
-  double *z = malloc(nx * sizeof(double));
-  sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);        
+  double *z = calloc(nx, sizeof(double));
+  sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
   for (i = 0; i < nx - 1; i++) {
     z[i] = pow(y[i] * y[i] + y[i + 1] * y[i + 1], 0.5);
     tmp = sin(50.0 * pow(z[i], 0.2));
@@ -158,8 +158,8 @@ void ackley_func(double *x, double *f, int nx, double *Os, double *Mr,
   int i;
   double sum1 = 0.0;
   double sum2 = 0.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate
                                                       */
@@ -184,8 +184,8 @@ void weierstrass_func(double *x, double *f, int nx, double *Os, double *Mr,
   double b = 3.0;
   k_max = 20;
   f[0] = 0.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 0.5 / 100.0, s_flag, r_flag, y);
   for (i = 0; i < nx; i++) {
     sum = 0.0;
@@ -207,8 +207,8 @@ void griewank_func(double *x, double *f, int nx, double *Os, double *Mr,
   double s, p;
   s = 0.0;
   p = 1.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 600.0 / 100.0, s_flag, r_flag, y);
   for (i = 0; i < nx; i++) {
     s += z[i] * z[i];
@@ -223,8 +223,8 @@ void rastrigin_func(double *x, double *f, int nx, double *Os, double *Mr,
                     int s_flag, int r_flag) {
   int i;
   f[0] = 0.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 5.12 / 100.0, s_flag, r_flag, y);
   for (i = 0; i < nx; i++) {
     f[0] += (z[i] * z[i] - 10.0 * cos(2.0 * M_PI * z[i]) + 10.0);
@@ -238,8 +238,8 @@ void schwefel_func(double *x, double *f, int nx, double *Os, double *Mr,
   int i;
   double tmp;
   f[0] = 0.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1000.0 / 100.0, s_flag, r_flag, y);
 
@@ -269,8 +269,8 @@ void katsuura_func(double *x, double *f, int nx, double *Os, double *Mr,
   double temp, tmp1, tmp2, tmp3;
   f[0] = 1.0;
   tmp3 = pow(1.0 * nx, 1.2);
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag, r_flag, y);
 
   for (i = 0; i < nx; i++) {
@@ -293,8 +293,8 @@ void grie_rosen_func(double *x, double *f, int nx, double *Os, double *Mr,
   int i;
   double temp, tmp1, tmp2;
   f[0] = 0.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag, r_flag, y);
   z[0] += 1.0; // shift to orgin
   for (i = 0; i < nx - 1; i++) {
@@ -316,8 +316,8 @@ void escaffer6_func(double *x, double *f, int nx, double *Os, double *Mr,
                     int s_flag, int r_flag) {
   int i;
   double temp1, temp2;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate
                                                       */
 
@@ -341,8 +341,8 @@ void happycat_func(double *x, double *f, int nx, double *Os, double *Mr,
   int i;
   double alpha, r2, sum_z;
   alpha = 1.0 / 8.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag, r_flag, y);
   r2 = 0.0;
   sum_z = 0.0;
@@ -361,8 +361,8 @@ void hgbat_func(double *x, double *f, int nx, double *Os, double *Mr,
   int i;
   double alpha, r2, sum_z;
   alpha = 1.0 / 4.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 5.0 / 100.0, s_flag, r_flag, y);
   r2 = 0.0;
@@ -381,8 +381,8 @@ void hgbat_func(double *x, double *f, int nx, double *Os, double *Mr,
 void zakharov_func(double *x, double *f, int nx, double *Os, double *Mr,
                    int s_flag, int r_flag) {
   int i;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
   f[0] = 0.0;
   double sum1 = 0.0;
@@ -400,8 +400,8 @@ void zakharov_func(double *x, double *f, int nx, double *Os, double *Mr,
 void dixon_price_func(double *x, double *f, int nx, double *Os, double *Mr,
                       int s_flag, int r_flag) {
   int i;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
   f[0] = 0;
   double x1 = z[0];
@@ -477,7 +477,7 @@ void Hilbert(double *x, int D, double *f) {
     }
   }
 
-    f[0] += sum;
+  f[0] += sum;
 }
 
 void Chebyshev(double *x, int D, double *f) {
@@ -518,11 +518,11 @@ void Chebyshev(double *x, int D, double *f) {
 void step_rastrigin_func(double *x, double *f, int nx, double *Os, double *Mr,
                          int s_flag, int r_flag) {
   f[0] = 0.0;
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   /*for (int i = 0; i < nx; i++) {*/
-    /*if (fabs(y[i] - Os[i]) > 0.5)*/
-      /*y[i] = Os[i] + floor(2 * (y[i] - Os[i]) + 0.5) / 2;*/
+  /*if (fabs(y[i] - Os[i]) > 0.5)*/
+  /*y[i] = Os[i] + floor(2 * (y[i] - Os[i]) + 0.5) / 2;*/
   /*}*/
   sr_func(x, z, nx, Os, Mr, 5.12 / 100.0, s_flag, r_flag, y);
   for (int i = 0; i < nx; i++) {
@@ -537,11 +537,11 @@ void bi_rastrigin_func(double *x, double *f, int nx, double *Os, double *Mr,
   int i;
   double mu0 = 2.5, d = 1.0, s, mu1, tmp, tmp1, tmp2;
   double *tmpx;
-  tmpx = (double *)malloc(sizeof(double) * nx);
+  tmpx = (double *)calloc(nx, sizeof(double));
   s = 1.0 - 1.0 / (2.0 * pow(nx + 20.0, 0.5) - 8.2);
   mu1 = -pow((mu0 * mu0 - d) / s, 0.5);
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   if (s_flag == 1)
     shiftfunc(x, y, nx, Os);

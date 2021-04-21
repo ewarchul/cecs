@@ -42,7 +42,7 @@ void loadMatrixData(CecData *cd, char *dataPath, int dim, int fn,
     perror("Error: Cannot open input file for reading");
   }
   int MatrixSize = fn < funcTreshold ? dim * dim : dim * dim * coeff;
-  cd->M = malloc(MatrixSize * sizeof(double));
+  cd->M = calloc(MatrixSize, sizeof(double));
   if (cd->M == NULL) {
     perror("Error: there is insufficient memory available!");
   } else {
@@ -71,7 +71,7 @@ void loadMatrixDataSuite(CecData *cd, char *dataPath, int dim, int fn,
     perror("Error: Cannot open input file for reading");
   }
   int MatrixSize = fn < funcTreshold ? dim * dim : dim * dim * coeff;
-  cd->M = malloc(MatrixSize * sizeof(double));
+  cd->M = calloc(MatrixSize, sizeof(double));
   if (cd->M == NULL) {
     perror("Error: there is insufficient memory available!");
   } else {
@@ -100,7 +100,7 @@ void loadOShiftDataSuite(CecData *cd, char *dataPath, int dim, int fn,
     perror("Error: Cannot open input file for reading");
   }
   int OShiftSize = fn < funcTreshold ? dim : coeff * dim;
-  cd->OShift = malloc(OShiftSize * sizeof(double));
+  cd->OShift = calloc(OShiftSize, sizeof(double));
   if (cd->OShift == NULL) {
     perror("Error: there is insufficient memory available!");
   }
@@ -161,7 +161,7 @@ void loadOShiftData(CecData *cd, char *dataPath, int dim, int fn,
     perror("Error: Cannot open input file for reading");
   }
   int OShiftSize = fn < funcTreshold ? dim : coeff * dim;
-  cd->OShift = malloc(OShiftSize * sizeof(double));
+  cd->OShift = calloc(OShiftSize, sizeof(double));
   if (cd->OShift == NULL) {
     perror("Error: there is insufficient memory available!");
   }
@@ -205,7 +205,7 @@ void loadOShiftData_(CecData *cd, char *dataPath, int dim, int fn) {
   if (fpt == NULL) {
     perror("Cannot open input file for reading");
   }
-  cd->OShift = malloc(coeff * dim * sizeof(double));
+  cd->OShift = calloc(coeff * dim, sizeof(double));
   if (cd->OShift == NULL) {
     perror("Error: there is insufficient memory available!");
   }
@@ -255,7 +255,7 @@ void loadShuffleData(CecData *cd, char *dataPath, int dim, int fn,
     perror("Error: Cannot open input file for reading");
   }
   int ShuffleSize = shuffleFlag ? dim : coeff * dim;
-  cd->SS = malloc(ShuffleSize * sizeof(int));
+  cd->SS = calloc(ShuffleSize, sizeof(int));
   for (int i = 0; i < ShuffleSize; ++i) {
     if (fscanf(fptShuffleData, "%d", &cd->SS[i]) == -1) {
       break;
@@ -273,7 +273,7 @@ void loadBiasData(CecData *cd, char *dataPath, int fn) {
   if (fptBiasData == NULL) {
     perror("Error: Cannot open input file for reading");
   }
-  cd->bias = malloc(coeff * sizeof(double));
+  cd->bias = calloc(coeff, sizeof(double));
   if (cd->bias == NULL) {
     perror("Error: there is insufficient memory available!");
   } else {

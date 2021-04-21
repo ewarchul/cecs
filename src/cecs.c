@@ -1,15 +1,15 @@
 #include "cecs.h"
 
 CecData cd = {
-  .prevDimension = 0,
-  .prevFunction = 0,
-  .dataLoaded = 0,
+    .prevDimension = 0,
+    .prevFunction = 0,
+    .dataLoaded = 0,
 };
 
 void cecs(char **extdatadir, char **suite, char *cec, int *problem,
           double *input, int *row, int *col, double *output) {
 
-  double *x = malloc(*col * sizeof(double));
+  double *x = calloc(*col, sizeof(double));
 
   for (int r = 0; r < *row; r++) {
     R_CheckUserInterrupt();

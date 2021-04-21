@@ -16,8 +16,8 @@ void cec2014_hf01(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
   for (i = 0; i < nx; i++) {
     y[i] = z[S[i] - 1];
@@ -54,8 +54,8 @@ void cec2014_hf02(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
 
@@ -95,8 +95,8 @@ void cec2014_hf03(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
 
@@ -139,8 +139,8 @@ void cec2014_hf04(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
 
@@ -182,8 +182,8 @@ void cec2014_hf05(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
 
@@ -228,8 +228,8 @@ void cec2014_hf06(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
 
@@ -272,8 +272,8 @@ void cec2015_hf01(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
 
@@ -313,8 +313,8 @@ void cec2015_hf02(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
 
@@ -357,8 +357,8 @@ void cec2015_hf03(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
 
@@ -401,8 +401,8 @@ void cec2017_hf01(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate
                                                       */
@@ -442,8 +442,8 @@ void cec2017_hf02(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate
                                                       */
@@ -484,8 +484,8 @@ void cec2017_hf03(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate
                                                       */
@@ -527,8 +527,8 @@ void cec2017_hf04(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate
                                                       */
@@ -571,8 +571,8 @@ void cec2017_hf05(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate
                                                       */
@@ -615,8 +615,8 @@ void cec2017_hf06(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate
                                                       */
@@ -659,8 +659,8 @@ void cec2017_hf07(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate
                                                       */
@@ -705,8 +705,8 @@ void cec2017_hf08(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate
                                                       */
@@ -752,8 +752,8 @@ void cec2017_hf09(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
   for (i = 0; i < nx; i++) {
     y[i] = z[S[i] - 1];
@@ -795,8 +795,8 @@ void cec2017_hf10(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate
                                                       */
@@ -846,8 +846,8 @@ void cec2021_hf01(
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
 
   for (i = 0; i < nx; i++) {
@@ -898,8 +898,8 @@ void cec2021_hf02(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
 
@@ -953,8 +953,8 @@ void cec2021_hf03(double *x, double *f, int nx, double *Os, double *Mr, int *S,
   for (i = 1; i < cf_num; i++) {
     G[i] = G[i - 1] + G_nx[i - 1];
   }
-  double *y = malloc(nx * sizeof(double));
-  double *z = malloc(nx * sizeof(double));
+  double *y = calloc(nx, sizeof(double));
+  double *z = calloc(nx, sizeof(double));
 
   sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
 

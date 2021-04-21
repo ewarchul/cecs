@@ -54,9 +54,8 @@ void sr_func(double *x, double *sr_x, int nx, double *Os, double *Mr,
 void cf_cal(double *x, double *f, int nx, double *Os, double *delta,
                     double *bias, double *fit, int cf_num) {
   int i, j;
-  double *w;
   double w_max = 0, w_sum = 0;
-  w = (double *)malloc(cf_num * sizeof(double));
+  double *w = calloc(cf_num, sizeof(double));
   for (i = 0; i < cf_num; i++) {
     fit[i] += bias[i];
     w[i] = 0;
