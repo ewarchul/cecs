@@ -24,7 +24,7 @@ Common R interface for CEC benchmarks.
 This repository contains **R** package with an interface for benchmark functions from Congress on Evolutionary Computations competitions.
 The implementation is based on the existing CRAN package, i.e `{cec2013}`, but is extended with CEC2014, CEC2015, CEC2019, and CEC2021.
 The interface for CEC2017 is taken from the non-CRAN package `{cec2017}`.
-More information about authorship is written below. 
+More information about the authorship is written in `DESCRIPTION`. 
 
 ## Requirements
 
@@ -62,66 +62,4 @@ I rearranged the codebase, i.e. separated interface from source, changed global 
 
 Benchmarks specifactions and necessary numeric data are available here: [http://home.elka.pw.edu.pl/~ewarchul/](http://home.elka.pw.edu.pl/~ewarchul/).
 
-
 The package downloads numeric data from my website. For futher details, see the source code documentation in `man/` directory.
-
-
-### CEC 2021 
-
-#### Authorship
-
-> Authors: Eryk Warchulski
-
-> License: GPL (>=3)
-
-> Source: herein
-
-### CEC 2019 
-
-#### Authorship
-
-> Authors: Eryk Warchulski
-
-> License: GPL (>=3)
-
-> Source: herein
-
-### CEC 2017
-
-#### Authorship 
-
-> Authors: Dariusz Jagodzinski, 
-
-> License: GPL (>=3)
-
-> Source: [http://staff.elka.pw.edu.pl/~djagodzi/programy.html](http://staff.elka.pw.edu.pl/~djagodzi/programy.html)
-
-### CEC 2015
-
-#### Authorship
-
-> Authors: Eryk Warchulski 
-
-> License: GPL (>=3)
-
-> Source: herein
-
-### CEC 2014
-
-#### Authorship
-
-> Authors: Eryk Warchulski 
-
-> License: GPL (>=3)
-
-> Source: herein
-
-### CEC 2013 
-
-#### Authorship
-
-> Authors: Mauricio Zambrano-Bigiarini, Yasser Gonzalez-Fernandez
-
-> License: GPL (>=3)
-
-> Source: [https://github.com/hzambran/cec2013](https://github.com/hzambran/cec2013)
