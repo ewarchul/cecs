@@ -26,16 +26,6 @@ The implementation is based on the existing CRAN package, i.e `{cec2013}`, but i
 The interface for CEC2017 is taken from the non-CRAN package `{cec2017}`.
 More information about the authorship is written in `DESCRIPTION`. 
 
-## Requirements
-
-* **R** in version 3.6.3
-
-* `{stringr}` package in version 1.4.0
-
-* `gcc` compiler in version 9.3.0
-
-Package was written and tested on machine with Ubuntu 20.04.1 LTS focal OS and x86_64 CPU architecture.
-
 ## Installation
 
 ### CRAN 
