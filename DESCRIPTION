@@ -1,6 +1,6 @@
 Package: cecs
 Title: R Interface for the C Implementation of CEC Benchmark Functions 
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: c( 
     person("Eryk", "Warchulski", role = c("aut", "cre"), email = "ewarchul@gmail.com"),
     person("Dariusz", "Jagodziński", role = c("cph"), email = "d.jagodzinski@elka.pw.edu.pl"),

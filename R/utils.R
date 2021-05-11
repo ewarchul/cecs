@@ -52,7 +52,8 @@ clean <- function() {
 #' @param cec name of benchmark
 
 download_data <- function(cec) {
-  url <- stringr::str_glue("http://home.elka.pw.edu.pl/~ewarchul/{cec}.zip")
+  url <-
+    stringr::str_glue("https://github.com/ewarchul/cec/raw/main/data/{cec}.zip")
   destfile <- stringr::str_glue(
     '{system.file("extdata/", package = "cecs")}{cec}.zip'
   )
