@@ -1,6 +1,6 @@
 Package: cecs
 Title: R Interface for the C Implementation of CEC Benchmark Functions 
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: c( 
     person("Eryk", "Warchulski", role = c("aut", "cre"), email = "ewarchul@gmail.com"),
     person("Dariusz", "Jagodziński", role = c("cph"), email = "d.jagodzinski@elka.pw.edu.pl"),
@@ -13,11 +13,11 @@ Description: Goal of this package is to provide access to benchmark functions de
     2017, 2019, 2021 (<https://github.com/P-N-Suganthan>). 
     Implementations of CEC-2013 (Y. Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński) are taken from existed R packages. Also, 
     the original C source code has been cleaned and reorganized for better readability.
-License: GPL (>= 3)
 BugReports: https://github.com/ewarchul/cecs/issues
+License: GPL (>= 3)
 URL: https://github.com/ewarchul/cecs
 Depends: 
-    R (>= 3.5.2)
+    R (>= 3.5.0)
 Imports: 
     stringr (>= 1.4.0),
     cec2013 (>= 0.1.5)

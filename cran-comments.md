@@ -1,6 +1,13 @@
 # Resubmission
 
-This is a resubmission. In this verion I have:
+This is a resubmission. In this version, I have:
+
+* remove a cause of build failure on Debian-based distributions
+* add minor tweaks to error messages.
+
+# Previous resubmission
+
+This is a resubmission. In this version I have:
 
 * fixed memory leaks in original C code
 * refactored original C code.
