@@ -50,7 +50,8 @@ cec2021 <- function(func_index, x, suite) {
     ))) {
       stop(
         stringr::str_glue(
-          "Invalid argument: Only 10, 20 dimensions/variables are allowed!"
+          "Invalid argument: available suits [ basic, shift, rot, bias,
+          shift_rot, bias_rot, bias_shift, bias_shift_rot ]"
         )
       )
     }
@@ -102,7 +103,7 @@ cec2019 <- function(func_index, x) {
   }
 
   if (missing(x)) {
-    stop("Missing argument: 'x' has to be provided !") 
+    stop("Missing argument: 'x' has to be provided !")
   }
   if (is.numeric(func_index) && func_index >= 1 && func_index <= 10) {
     if (is.vector(x)) {
@@ -134,7 +135,7 @@ cec2019 <- function(func_index, x) {
           "Invalid argument: Function 3 is available only for 18 dimensions!"
         )
       )
-    } 
+    }
     if ((func_index %in% 4:10) && col != 10) {
       stop(
         stringr::str_glue(
