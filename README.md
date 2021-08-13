@@ -1,5 +1,5 @@
 [![R-CMD-check](https://github.com/ewarchul/cecs/workflows/R-CMD-check/badge.svg)](https://github.com/ewarchul/cecs/actions)
-[![](https://www.r-pkg.org/badges/version/cecs?color=green)](https://cran.r-project.org/package=cecs)
+[![](https://www.r-pkg.org/badges/version/cecs?color)](https://cran.r-project.org/package=cecs)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 # cecs
 
