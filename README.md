@@ -9,15 +9,7 @@ Common R interface for CEC benchmarks.
    * [Description](#description)
    * [Requirements](#requirements)
    * [Installation](#installation)
-      * [Linux and Windows](#linux-and-windows)
-      * [macOS](#macos)
    * [Content](#content)
-     * [CEC 2021](#cec-2021)
-     * [CEC 2019](#cec-2019)
-     * [CEC 2017](#cec-2017)
-     * [CEC 2015](#cec-2015)
-     * [CEC 2014](#cec-2014)
-     * [CEC 2013](#cec-2013)
 <!--te-->
 
 ## Description
@@ -31,7 +23,7 @@ More information about the authorship is written in `DESCRIPTION`.
 
 ### CRAN 
 
-Type bellow command in R interpreter:
+Type bellow command in the **R** interpreter:
 
 ```r
 install.packages("cecs")
@@ -39,9 +31,10 @@ install.packages("cecs")
 
 ### GitHub
 
-Type bellow command in R interpreter:
+Type bellow command in the **R** interpreter:
 
 ```r
+require(devtools)
 devtools::install_github("ewarchul/cecs")
 ```
 
