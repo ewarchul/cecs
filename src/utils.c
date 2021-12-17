@@ -31,6 +31,9 @@ void loadMatrixData(CecData *cd, char *dataPath, int dim, int fn,
   } else if (cecVersion == 2021) {
     funcTreshold = 7;
     coeff = 10;
+  } else if (cecVersion == 2022) {
+    funcTreshold = 9;
+    coeff = 12;
   } else {
     funcTreshold = -1;
     coeff = -1;
@@ -151,6 +154,9 @@ void loadOShiftData(CecData *cd, char *dataPath, int dim, int fn,
   } else if (cecVersion == 2019) {
     funcTreshold = 100;
     coeff = 1;
+  } else if (cecVersion == 2022) {
+    funcTreshold = 9;
+    coeff = 12;
   } else {
     funcTreshold = -1;
     coeff = -1;
@@ -232,7 +238,7 @@ void loadShuffleData(CecData *cd, char *dataPath, int dim, int fn,
   int coeff = 0;
   int shuffleFlag = 0;
   if (cecVersion == 2014 || cecVersion == 2017 || cecVersion == 2019 ||
-      cecVersion == 2021) {
+      cecVersion == 2021 || cecVersion == 2022) {
     coeff = 10;
   } else if (cecVersion == 2015) {
     int cf_nums[] = {0, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 5, 5, 5, 7, 10};
@@ -246,6 +252,8 @@ void loadShuffleData(CecData *cd, char *dataPath, int dim, int fn,
     shuffleFlag = (fn >= 11 && fn <= 20) ? 1 : 0;
   } else if (cecVersion == 2021) {
     shuffleFlag = (fn >= 5 && fn <= 7) ? 1 : 0;
+  } else if (cecVersion == 2022) {
+    shuffleFlag = (fn >= 6 && fn <= 8) ? 1 : 0;
   }
 
   char FileName[256];

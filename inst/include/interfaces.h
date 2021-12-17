@@ -34,5 +34,6 @@ void cec2015_interface(char *, double *, double *, int, int, int);
 void cec2017_interface(char *, double *, double *, int, int, int);
 void cec2019_interface(char *, double *, double *, int, int, int);
 void cec2021_interface(char *, double *, double *, int, int, int, char *);
+void cec2022_interface(char *, double *, double *, int, int, int);
 
 #endif 

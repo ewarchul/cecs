@@ -68,4 +68,11 @@ void cec2021_cf03(double *, double *, int, double *, double *, int);
 void cec2021_cf01_s(double *, double *, int, double *, double *, int);
 void cec2021_cf02_s(double *, double *, int, double *, double *, int);
 void cec2021_cf03_s(double *, double *, int, double *, double *, int);
+
+void cec2022_cf01(double *, double *, int, double *, double *, int);
+void cec2022_cf02(double *, double *, int, double *, double *, int);
+void cec2022_cf03(double *, double *, int, double *, double *, int);
+void cec2022_cf04(double *, double *, int, double *, double *, int);
+
+
 #endif

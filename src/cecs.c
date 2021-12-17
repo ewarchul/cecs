@@ -31,6 +31,9 @@ void cecs(char **extdatadir, char **suite, char *cec, int *problem,
       case 21:
         cec2021_interface(*extdatadir, x, output, *col, *row, *problem, *suite);
         break;
+      case 22:
+        cec2022_interface(*extdatadir, x, output, *col, *row, *problem);
+        break;
       }
     }
   }

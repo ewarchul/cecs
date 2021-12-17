@@ -80,4 +80,15 @@ test_that("all benchmark functions from CEC-2021 can be executed", {
   })
 })
 
+test_that("all benchmark functions from CEC-2022 can be executed", {
+  problem_dim_grid <- expand.grid(
+    func = 1:12,
+    dim = c(10, 20)
+  )
+  purrr::pmap(problem_dim_grid, function(func, dim) {
+    expect_type(cec2022(func, rnorm(dim)), "double")
+  })
+})
+
+
 

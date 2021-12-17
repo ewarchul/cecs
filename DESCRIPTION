@@ -1,6 +1,6 @@
 Package: cecs
 Title: R Interface for the C Implementation of CEC Benchmark Functions 
-Version: 0.2.2
+Version: 0.2.3
 Authors@R: c( 
     person("Eryk", "Warchulski", role = c("aut", "cre"), email = "ewarchul@gmail.com"),
     person("Dariusz", "Jagodziński", role = c("cph"), email = "d.jagodzinski@elka.pw.edu.pl"),
@@ -10,7 +10,7 @@ Authors@R: c(
 Description: Goal of this package is to provide access to benchmark functions defined for
     the Special Session and Competition on Real-Parameter Single Objective Optimization in one place.
     The package contains functions from following years: 2013, 2014, 2015,
-    2017, 2019, 2021 (<https://github.com/P-N-Suganthan>). 
+    2017, 2019, 2021, 2022 (<https://github.com/P-N-Suganthan>). 
     Implementations of CEC-2013 (Y. Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński) are taken from existed R packages. Also, 
     the original C source code has been cleaned and reorganized for better readability.
 BugReports: https://github.com/ewarchul/cecs/issues
@@ -23,7 +23,7 @@ Imports:
     cec2013 (>= 0.1.5)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Suggests: 
     testthat (>= 3.0.0),
     purrr (>= 0.3.4)

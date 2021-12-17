@@ -178,7 +178,7 @@ void cec2015_interface(char *datapath, double *x, double *f, int nx, int mx,
   }
 
   int cf_nums[] = {0, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 5, 5, 5, 7, 10};
-  int bShuffle[] = {0, 0,0,0,0,0,1,1,1,0,1, 0, 0, 1, 0, 0};
+  int bShuffle[] = {0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0};
   int biasFlag = cf_nums[func_num] > 1 ? 1 : 0;
   int shuffleFlag = bShuffle[func_num] == 1 ? 1 : 0;
 
@@ -551,7 +551,7 @@ void cec2021_interface(char *datapath, double *x, double *f, int nx, int mx,
     cd.prevDimension = nx;
     cd.dataLoaded = 1;
   }
- 
+
   int shiftFlag = 0;
   if (!strcmp(suite, "bias_shift") || !strcmp(suite, "shift") ||
       !strcmp(suite, "bias_shift_rot") || !strcmp(suite, "shift_rot")) {
@@ -606,4 +606,96 @@ void cec2021_interface(char *datapath, double *x, double *f, int nx, int mx,
     }
   }
   f[0] += getFunctionBias(biasFlag, func_num);
+}
+
+void cec2022_interface(char *datapath, double *x, double *f, int nx, int mx,
+                       int func_num) {
+  if (!(nx == 10 || nx == 20)) {
+    perror("Error: Test functions are only defined for D = 10, 20.");
+  }
+  if (func_num < 1 || func_num > 12) {
+    perror("Error: Test function is not defined");
+  }
+
+  int shuffleFlag = ((func_num >= 6 && func_num <= 8)) ? 1 : 0;
+
+  if (cd.dataLoaded == 1) {
+    if ((cd.prevDimension != nx) || (cd.prevFunction != func_num)) {
+      cd.dataLoaded = 0;
+    }
+  }
+
+  if (!cd.dataLoaded) {
+    free(cd.M);
+    free(cd.OShift);
+    if (shuffleFlag) {
+      free(cd.SS);
+      loadShuffleData(&cd, datapath, nx, func_num, 2022);
+    }
+    loadMatrixData(&cd, datapath, nx, func_num, 2022);
+    loadOShiftData(&cd, datapath, nx, func_num, 2022);
+    cd.prevFunction = func_num;
+    cd.prevDimension = nx;
+    cd.dataLoaded = 1;
+  }
+
+  double *schafferF7_hack = malloc(nx * sizeof(double));
+  for (int i = 0; i < mx; i++) {
+    switch (func_num) {
+    case 1:
+      zakharov_func(&x[i * nx], &f[i], nx, cd.OShift, cd.M, 1, 1);
+      f[0] += 300.0;
+      break;
+    case 2:
+      rosenbrock_func(&x[i * nx], &f[i], nx, cd.OShift, cd.M, 1, 1);
+      f[0] += 400.0;
+      break;
+    case 3:
+      schaffer_F7_func(&x[i * nx], &f[i], nx, cd.OShift, cd.M, 1, 1,
+                       schafferF7_hack);
+      f[0] += 600.0;
+      break;
+    case 4:
+      step_rastrigin_func(&x[i * nx], &f[i], nx, cd.OShift, cd.M, 1, 1);
+      f[0] += 800.0;
+      break;
+    case 5:
+      levy_func(&x[i * nx], &f[i], nx, cd.OShift, cd.M, 1, 1);
+      f[0] += 900.0;
+      break;
+    case 6:
+      cec2022_hf01(&x[i * nx], &f[i], nx, cd.OShift, cd.M, cd.SS, 1, 1);
+      f[0] += 1800.0;
+      break;
+    case 7:
+      cec2022_hf02(&x[i * nx], &f[i], nx, cd.OShift, cd.M, cd.SS, 1, 1);
+      f[0] += 2000.0;
+      break;
+    case 8:
+      cec2022_hf03(&x[i * nx], &f[i], nx, cd.OShift, cd.M, cd.SS, 1, 1);
+      f[0] += 2200.0;
+      break;
+    case 9:
+      cec2022_cf01(&x[i * nx], &f[i], nx, cd.OShift, cd.M, 1);
+      f[0] += 2300.0;
+      break;
+    case 10:
+      cec2022_cf02(&x[i * nx], &f[i], nx, cd.OShift, cd.M, 1);
+      f[0] += 2400.0;
+      break;
+    case 11:
+      cec2022_cf03(&x[i * nx], &f[i], nx, cd.OShift, cd.M, 1);
+      f[0] += 2600.0;
+      break;
+    case 12:
+      cec2022_cf04(&x[i * nx], &f[i], nx, cd.OShift, cd.M, 1);
+      f[0] += 2700.0;
+      break;
+    default:
+      perror("Error: There are only 10 test functions in this test suite!");
+      f[i] = 0.0;
+      break;
+    }
+  }
+  free(schafferF7_hack);
 }

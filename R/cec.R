@@ -1,3 +1,70 @@
+##' CEC2022 interface
+#'
+#' @description
+#' The R interface for CEC2022 Single Objective Bound
+#' Constrained Numerical Optimization benchmark.
+#' Available dimensions are following: (10, 20).
+#'
+#' @param func_index numeric index of optimisation problem from set 1:12
+#' @param x vector of numeric inputs for objective function
+#' @return value of objective function for given input
+#' @export
+#' @useDynLib cecs
+
+cec2022 <- function(func_index, x) {
+  if (missing(func_index)) {
+    stop("Missing argument: 'func_index' has to be provided.")
+  }
+
+  if (missing(x)) {
+    stop("Missing argument: 'x' has to be provided.")
+  }
+  if (is.numeric(func_index) && func_index >= 1 && func_index <= 30) {
+    if (is.vector(x)) {
+      row <- 1
+      col <- length(x)
+    } else if (is.matrix(x)) {
+      row <- nrow(x)
+      col <- ncol(x)
+    } else {
+      stop("x should be a vector or a matrix.")
+    }
+    if (!(col %in% c(10, 20))) {
+      stop(
+        stringr::str_glue(
+          "Invalid argument: Only 10, 20 \\
+           dimensions are allowed."
+        )
+      )
+    }
+    extdatadir <- system.file("extdata/cec2022/", package = "cecs")
+    if (extdatadir == "") {
+      extdatadir <-
+        unzip_data(download_data("cec2022"))
+    }
+    return(.C(
+      "cecs",
+      extdatadir = as.character(extdatadir),
+      suite = as.character(""),
+      cec = as.integer(22),
+      problem = as.integer(func_index),
+      input = as.double(x),
+      row = as.integer(row),
+      col = as.integer(col),
+      output = double(row),
+      PACKAGE = "cecs"
+    )$output)
+  } else {
+    stop(
+      stringr::str_glue(
+        "Invalid argument: function index should be an integer between \\
+         1 and 12."
+      )
+    )
+  }
+}
+
+
 #' CEC2021 interface
 #'
 #' @description
