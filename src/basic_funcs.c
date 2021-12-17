@@ -64,26 +64,33 @@ void sum_diff_pow_func(double *x, double *f, int nx, double *Os, double *Mr,
 
 void levy_func(double *x, double *f, int nx, double *Os, double *Mr, int s_flag,
                int r_flag) {
+
   int i;
   f[0] = 0.0;
   double *y = calloc(nx, sizeof(double));
   double *z = calloc(nx, sizeof(double));
-  sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y);
-  double *w;
-  w = (double *)calloc(nx, sizeof(double));
+  sr_func(x, z, nx, Os, Mr, 1.0, s_flag, r_flag, y); /* shift and rotate */
+
+  double *w = malloc(sizeof(double) * nx);
+
+  double sum1 = 0.0;
   for (i = 0; i < nx; i++) {
-    w[i] = 1.0 + (z[i] - 1.0) / 4.0;
+    w[i] = 1.0 + (z[i] - 0.0) / 4.0;
   }
+
   double term1 = pow((sin(M_PI * w[0])), 2);
   double term3 =
       pow((w[nx - 1] - 1), 2) * (1 + pow((sin(2 * M_PI * w[nx - 1])), 2));
+
   double sum = 0.0;
+
   for (i = 0; i < nx - 1; i++) {
     double wi = w[i];
     double newv = pow((wi - 1), 2) * (1 + 10 * pow((sin(M_PI * wi + 1)), 2));
     sum = sum + newv;
   }
-  f[0] = term1 + sum + term3;
+
+  f[0] = term1 + sum + term3; 
   free(w);
   free(y);
   free(z);
