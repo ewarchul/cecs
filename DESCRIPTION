@@ -1,5 +1,5 @@
 Package: cecs
-Title: R Interface for the C Implementation of CEC Benchmark Functions 
+Title: R Interface for the C Implementation of CEC Benchmark Functions
 Version: 0.2.3
 Authors@R: c( 
     person("Eryk", "Warchulski", role = c("aut", "cre"), email = "ewarchul@gmail.com"),
@@ -16,15 +16,17 @@ Description: Goal of this package is to provide access to benchmark functions de
 BugReports: https://github.com/ewarchul/cecs/issues
 License: GPL (>= 3)
 URL: https://github.com/ewarchul/cecs
-Depends: 
-    R (>= 3.5.0)
-Imports: 
-    stringr (>= 1.4.0),
-    cec2013 (>= 0.1.5)
+Depends: R (>= 3.5.0)
+Imports: stringr (>= 1.4.0), cec2013 (>= 0.1.5)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
-Suggests: 
-    testthat (>= 3.0.0),
-    purrr (>= 0.3.4)
+Suggests: testthat (>= 3.0.0), purrr (>= 0.3.4)
 Config/testthat/edition: 3
+NeedsCompilation: yes
+Packaged: 2021-12-17 14:22:27 UTC; ewarchul
+Author: Eryk Warchulski [aut, cre],
+  Dariusz Jagodziński [cph],
+  Yasser Gonzalez-Fernandez [cph],
+  Mauricio Zambrano-Bigiarini [cph]
+Maintainer: Eryk Warchulski <ewarchul@gmail.com>

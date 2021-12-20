@@ -48,7 +48,7 @@ clean <- function() {
 #' @description
 #' Function downloads numeric data for specified CEC
 #' benchmark.
-#' For further details, see \url{http://home.elka.pw.edu.pl/~ewarchul/}
+#' For further details, see \url{https://github.com/ewarchul/cec/tree/main/data}
 #' @param cec name of benchmark
 
 download_data <- function(cec) {

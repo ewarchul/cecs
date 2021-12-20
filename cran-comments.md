@@ -1,9 +1,21 @@
-# Resubmission
+# Resubmission 
 
 This is a resubmission. In this version, I have:
 
-* remove a cause of build failure on Debian-based distributions
-* add minor tweaks to error messages.
+* fix the forbidden URL in the documentation. 
+
+# Previous resubmission
+
+This is a resubmission. In this version, I have:
+
+* added bindings to the CEC 2022 SO-BO.
+
+# Previous resubmission
+
+This is a resubmission. In this version, I have:
+
+* removed a cause of build failure on Debian-based distributions
+* added minor tweaks to error messages.
 
 # Previous resubmission
 

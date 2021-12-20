@@ -36,6 +36,6 @@ All benchmark functions were implemented in **C** by Jane Jing Liang [https://or
 
 I rearranged the codebase, i.e. separated interface from source, changed global state management, etc.
 
-Benchmarks specifications and necessary numeric data are available here: [http://home.elka.pw.edu.pl/~ewarchul/](http://home.elka.pw.edu.pl/~ewarchul/).
+Benchmarks specifications and necessary numeric data are available here: [https://github.com/P-N-Suganthan?tab=repositories](https://github.com/P-N-Suganthan?tab=repositories)
 
 The package downloads numeric data from my website. For further details, see the source code documentation in `man/` directory.
