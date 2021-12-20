@@ -2,7 +2,7 @@
 
 This is a resubmission. In this version, I have:
 
-* fix the forbidden URL in the documentation. 
+* fixed the forbidden URL in the documentation. 
 
 # Previous resubmission
 
