@@ -12,5 +12,5 @@ download_data(cec)
 \description{
 Function downloads numeric data for specified CEC
 benchmark.
-For further details, see \url{http://home.elka.pw.edu.pl/~ewarchul/}
+For further details, see \url{https://github.com/ewarchul/cec/tree/main/data}
 }
