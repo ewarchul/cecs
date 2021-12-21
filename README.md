@@ -21,6 +21,12 @@ More information about the authorship is written in `DESCRIPTION`.
 
 ## Installation
 
+### CRAN
+
+```r
+install.packages("cecs")
+```
+
 ### GitHub
 
 Type bellow command in the **R** interpreter:
