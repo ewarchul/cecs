@@ -1,4 +1,10 @@
-# Resubmission 
+#  Resubmission
+
+This is a resubmission. In this version, I have:
+
+* fixed the issue with writing a downloaded package's data to the user library.
+
+# Previous resubmission 
 
 This is a resubmission. In this version, I have:
 
