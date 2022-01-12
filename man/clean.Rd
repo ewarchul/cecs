@@ -2,13 +2,13 @@
 % Please edit documentation in R/utils.R
 \name{clean}
 \alias{clean}
-\title{Remove TXT data}
+\title{Remove CEC data}
 \usage{
 clean()
 }
 \description{
-Function deletes decompressed directory with
-CEC's data. Some text files are quite large (even 10MB)
-and if one won't use specific CEC version in
-the near future this function allows to free the disk space.
+Function deletes directory with CEC's data.
+Some text files are quite large (even 10MB)
+and if one won't use CEC's data in the near
+future this function allows to free the disk space.
 }

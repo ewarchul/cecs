@@ -4,10 +4,12 @@
 \alias{download_data}
 \title{Download CEC data}
 \usage{
-download_data(cec)
+download_data(cec, os_name)
 }
 \arguments{
 \item{cec}{name of benchmark}
+
+\item{os_name}{OS name}
 }
 \description{
 Function downloads numeric data for specified CEC

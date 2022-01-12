@@ -4,10 +4,14 @@
 \alias{unzip_data}
 \title{Extract compressed data}
 \usage{
-unzip_data(archivepath)
+unzip_data(archivepath, cec, os_name)
 }
 \arguments{
 \item{archivepath}{path to CEC's data}
+
+\item{cec}{name of benchmark}
+
+\item{os_name}{OS name}
 }
 \description{
 Function extracts CEC's data from ZIP archive.

@@ -37,11 +37,7 @@ cec2022 <- function(func_index, x) {
         )
       )
     }
-    extdatadir <- system.file("extdata/cec2022/", package = "cecs")
-    if (extdatadir == "") {
-      extdatadir <-
-        unzip_data(download_data("cec2022"))
-    }
+    extdatadir <- get_cec_dirpath("cec2022")
     return(.C(
       "cecs",
       extdatadir = as.character(extdatadir),
@@ -122,11 +118,7 @@ cec2021 <- function(func_index, x, suite) {
         )
       )
     }
-    extdatadir <- system.file("extdata/cec2021/", package = "cecs")
-    if (extdatadir == "") {
-      extdatadir <-
-        unzip_data(download_data("cec2021"))
-    }
+    extdatadir <- get_cec_dirpath("cec2021")
     return(.C(
       "cecs",
       extdatadir = as.character(extdatadir),
@@ -211,11 +203,7 @@ cec2019 <- function(func_index, x) {
         )
       )
     }
-    extdatadir <- system.file("extdata/cec2019/", package = "cecs")
-    if (extdatadir == "") {
-      extdatadir <-
-        unzip_data(download_data("cec2019"))
-    }
+    extdatadir <- get_cec_dirpath("cec2019")
     return(.C(
       "cecs",
       extdatadir = as.character(extdatadir),
@@ -279,11 +267,7 @@ cec2017 <- function(func_index, x) {
         )
       )
     }
-    extdatadir <- system.file("extdata/cec2017/", package = "cecs")
-    if (extdatadir == "") {
-      extdatadir <-
-        unzip_data(download_data("cec2017"))
-    }
+    extdatadir <- get_cec_dirpath("cec2017")
     return(.C(
       "cecs",
       extdatadir = as.character(extdatadir),
@@ -345,11 +329,7 @@ cec2015 <- function(func_index, x) {
         )
       )
     }
-    extdatadir <- system.file("extdata/cec2015/", package = "cecs")
-    if (extdatadir == "") {
-      extdatadir <-
-        unzip_data(download_data("cec2015"))
-    }
+    extdatadir <- get_cec_dirpath("cec2015")
     return(.C(
       "cecs",
       extdatadir = as.character(extdatadir),
@@ -412,11 +392,7 @@ cec2014 <- function(func_index, x) {
         )
       )
     }
-    extdatadir <- system.file("extdata/cec2014/", package = "cecs")
-    if (extdatadir == "") {
-      extdatadir <-
-        unzip_data(download_data("cec2014"))
-    }
+    extdatadir <- get_cec_dirpath("cec2014")
     return(.C(
       "cecs",
       extdatadir = as.character(extdatadir),
