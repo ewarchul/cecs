@@ -14,9 +14,13 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest,   r: 'release'}
-          - {os: windows-latest,   r: 'release'}
-          - {os: macOS-latest,   r: 'release'}
+          - {os: ubuntu-20.04,   r: 'release'}
+          - {os: ubuntu-18.04,   r: 'release'}
+          - {os: windows-2022,   r: 'release'}
+          - {os: windows-2019,   r: 'release'}
+          - {os: windows-2016,   r: 'release'}
+          - {os: macOS-11,   r: 'release'}
+          - {os: macOS-10.15,   r: 'release'}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
