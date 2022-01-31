@@ -76,26 +76,12 @@ win_tmp_dirpath <- function() {
 
 cecs_tmp_dirpath <- function(os_name) {
   if (os_name == "win") {
-    stringr::str_glue("{win_tmp_dirpath()}\\R-cecs-data\\")
+    stringr::str_glue("{tempdir()}\\cecs\\")
   } else {
-    stringr::str_glue("/tmp/R-cecs-data/")
+    stringr::str_glue("{tempdir()}/cecs/")
   }
 }
 
-#' Download destination
-#'
-#' @description
-#' Function returns filepath to the download
-#' destination on given platform.
-#' @param os_name OS name
-
-destination_file <- function(os_name) {
-  if (os_name == "win") {
-    stringr::str_glue("{cecs_tmp_dirpath(os_name)}\\")
-  } else {
-    stringr::str_glue("{cecs_tmp_dirpath(os_name)}/")
-  }
-}
 
 #' Download CEC data
 #'
@@ -110,9 +96,10 @@ download_data <- function(cec, os_name) {
   url <- stringr::str_glue(
     "https://github.com/ewarchul/cec/raw/main/data/{cec}.zip"
   )
-  dst <- destination_file(os_name)
+  dst <- cecs_tmp_dirpath(os_name)
   utils::download.file(
     url,
+    quiet = TRUE,
     destfile = stringr::str_glue("{dst}{cec}.zip")
   )
 }
