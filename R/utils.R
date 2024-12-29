@@ -102,13 +102,13 @@ destination_file <- function(os_name) {
 #' @description
 #' Function downloads numeric data for specified CEC
 #' benchmark.
-#' For further details, see \url{https://github.com/ewarchul/cec/tree/main/data}
+#' For further details, see \url{https://github.com/ewarchul/cecxx/tree/cxx/data}
 #' @param cec name of benchmark
 #' @param os_name OS name
 
 download_data <- function(cec, os_name) {
   url <- stringr::str_glue(
-    "https://github.com/ewarchul/cec/raw/main/data/{cec}.zip"
+    "https://github.com/ewarchul/cecxx/raw/cxx/data/{cec}.zip"
   )
   dst <- destination_file(os_name)
   utils::download.file(
